@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 import { useSettings, prefersReducedMotion } from "@/lib/settings/store";
+import { Narrator } from "@/engine/audio/Narrator";
 import { loadWorld } from "@/lib/storage/worlds";
 import { whenStage, getStage } from "@/engine/stage/stageRef";
 import { stageStore } from "@/engine/stage/stageStore";
@@ -214,6 +215,27 @@ export function Player({ worldId, present = false, brightnessFor }: { worldId: s
   }, [active]);
 
   const jump = useCallback((i: number) => conductor.current?.scrollToBeat(i), []);
+
+  // Voice narration (spec 12.7): read the beat the reading point settles on; leaving it stops the voice.
+  const voiceOn = useSettings((s) => s.voice);
+  const narrator = useRef<Narrator | null>(null);
+  useEffect(() => {
+    narrator.current ??= new Narrator();
+    const n = narrator.current;
+    if (!voiceOn) {
+      n.stop();
+      return;
+    }
+    const id = window.setTimeout(() => {
+      const el = document.querySelector<HTMLElement>("[data-narration-active]");
+      const { voiceName, voiceRate } = useSettings.getState();
+      if (el) n.speak(el, { lang: lang === "es" ? "es-MX" : "en-US", voiceName, rate: voiceRate });
+    }, 700);
+    return () => {
+      window.clearTimeout(id);
+      n.stop();
+    };
+  }, [active, voiceOn, lang]);
 
 
   // Ask the scene: click on the form (not on UI) → nearest region → radial menu (spec 5.10)

@@ -900,3 +900,25 @@
     display: none;
   }
 }
+
+/* Voice narration: a 1 px underline that advances under the sentence being read (spec 12.7). */
+.sentence[data-speaking],
+.beat-question[data-speaking] {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  animation: speak-underline var(--speak-ms, 4000ms) linear forwards;
+}
+@keyframes speak-underline {
+  to {
+    background-size: 100% 1px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sentence[data-speaking],
+  .beat-question[data-speaking] {
+    animation: none;
+    background-size: 100% 1px;
+  }
+}
