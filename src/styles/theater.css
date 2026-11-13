@@ -1,9 +1,11 @@
 /* ——— Forge Theater (3.5, 4.10) ——— */
 .theater {
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
   display: grid;
   grid-template-columns: minmax(260px, 1fr) minmax(0, 1.6fr) minmax(260px, 1fr);
-  grid-template-rows: 1fr auto;
+  grid-template-rows: minmax(0, 1fr) auto;
   gap: var(--s-6);
   padding: calc(var(--topbar-h) + var(--s-6)) var(--margin) 0;
 }
@@ -207,7 +209,19 @@
 .fact-cite {
   margin-top: var(--s-1);
   color: var(--text-2);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.fact-card .ui:first-child {
+  font-size: 0.88rem;
+}
+.theater-facts,
+.theater-log {
+  min-height: 0;
+  overflow: hidden;
 }
 .theater-status {
   grid-column: 1 / -1;
@@ -242,6 +256,8 @@
 }
 @media (max-width: 1023px) {
   .theater {
+    height: auto;
+    overflow: visible;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
   }

@@ -24,6 +24,8 @@ export interface ConductorOptions {
   onGate?: (index: number) => void;
 }
 
+export const GATE_AT = 0.5;
+
 const smooth = (a: number, b: number, x: number) => {
   const t = Math.min(1, Math.max(0, (x - a) / (b - a)));
   return t * t * (3 - 2 * t);
@@ -97,9 +99,11 @@ export class ScrollConductor {
     if (!n) return;
     const vh = window.innerHeight;
     let probe = y + vh * this.reading;
-    // Soft gate: an unanswered check stops the reading point at 85% of its section (spec 5.11.3).
+    // Soft gate: an unanswered check stops the reading point inside its section (spec 5.11.3 says 85%).
+    // We stop at 50%: with 120vh check sections and a 100vh sticky narration, anything later has already
+    // scrolled the question off the top of the screen.
     if (this.gate !== null && this.tops[this.gate] !== undefined) {
-      const limit = this.tops[this.gate]! + this.heights[this.gate]! * 0.85;
+      const limit = this.tops[this.gate]! + this.heights[this.gate]! * GATE_AT;
       if (probe > limit) {
         const target = limit - vh * this.reading - 2;
         const now = performance.now();

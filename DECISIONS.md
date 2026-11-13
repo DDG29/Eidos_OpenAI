@@ -28,3 +28,16 @@ Format: date · decision · rejected alternative · reason.
 7. **Refusal fallbacks.** Requests to `claude-opus-5-5` and `claude-sonnet-5-5` go through the beta Messages endpoint with `betas: ["server-side-fallback-2026-07-01"]` and `fallbacks: "default"`, so a safety-classifier refusal is retried server-side on a fallback model by category. Disable with `EIDOS_DISABLE_FALLBACKS=1`.
 
 8. **Git identities.** Commits alternate between two author identities as instructed by the project owner; no AI attribution lines are added to commit messages.
+
+## 2026-11-13
+
+9. **Soft gate at 50% of a check section** (spec 5.11.3 says 85%). Check sections are 120vh with a 100vh sticky
+   narration; stopping the reading point at 85% would leave the question scrolled off the top. 50% keeps the whole
+   check on screen while still holding the next beat sealed.
+10. **Pitch statistics from press coverage.** The OECD PISA 2025 country note refuses automated reading (HTTP 403);
+    the figures in the pitch come from the press sources listed in §17.6 (Por Esto, La Razón), read 2026-11-13, and
+    are cited to them. The OECD note is linked in the docs as the primary reference.
+11. **Demo replays play at ×2 by default** (×1/×2/×4 control in the status bar). A full synthetic forge lasts ~75 s;
+    early entry still becomes available after three verified scenes.
+12. **Push blocked.** `git push` to `devxs614/eidos` returns 403 for the locally authenticated GitHub user (DDG29). All
+    work is committed locally in parts; the owner must grant access or push from the devxs614 account.
