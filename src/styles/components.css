@@ -856,3 +856,57 @@
   gap: var(--s-6);
   margin-top: var(--s-8);
 }
+
+/* Autopilot (spec 12.3): an 18 px presenter cursor with a slower trailing ghost, and a caption. */
+.pilot-cursor,
+.pilot-trail {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 95;
+  transition-property: transform, scale;
+  transition-timing-function: cubic-bezier(0.22, 0.7, 0.2, 1);
+}
+.pilot-cursor {
+  border: 1.5px solid var(--text-1);
+  background: color-mix(in oklab, var(--signal-focus) 22%, transparent);
+  box-shadow: 0 0 14px 2px color-mix(in oklab, var(--signal-focus) 45%, transparent);
+}
+.pilot-cursor[data-press] {
+  scale: 0.72;
+  transition-duration: 120ms;
+}
+.pilot-trail {
+  background: color-mix(in oklab, var(--signal-focus) 30%, transparent);
+  filter: blur(6px);
+  opacity: 0.55;
+}
+.pilot-caption {
+  position: fixed;
+  left: var(--s-5);
+  bottom: var(--s-5);
+  z-index: 95;
+  display: flex;
+  gap: var(--s-3);
+  align-items: baseline;
+  margin: 0;
+  padding: var(--s-2) var(--s-3);
+  background: color-mix(in oklab, var(--ink-0) 82%, transparent);
+  border: 1px solid var(--ink-3);
+  border-radius: 2px;
+  color: var(--text-2);
+  pointer-events: none;
+}
+.pilot-line {
+  color: var(--text-1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .pilot-cursor,
+  .pilot-trail {
+    transition-duration: 0ms !important;
+  }
+}

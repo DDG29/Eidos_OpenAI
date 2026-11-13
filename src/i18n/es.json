@@ -325,5 +325,19 @@
   "atlas.palette.nebulosa": "Astrofísica",
   "lab.random": "Morfosis aleatoria",
   "lab.copy": "Copiar como capa JSON",
-  "pitch.live": "Verlo en vivo"
+  "pitch.live": "Verlo en vivo",
+  "autopilot.running": "Piloto automático · Esc para detener",
+  "autopilot.landing": "Seis movimientos",
+  "autopilot.console": "Una pregunta cualquiera",
+  "autopilot.theater": "La forja, en repetición",
+  "autopilot.walk": "Recorriendo el mundo",
+  "autopilot.filament": "El pasaje de la fuente",
+  "autopilot.ask": "Pregúntale a la escena",
+  "autopilot.check": "Una comprobación",
+  "autopilot.remedial": "La Grieta y el capítulo nuevo",
+  "autopilot.lens": "La Lente",
+  "autopilot.finale": "La Constelación",
+  "autopilot.engine": "La Sala de Máquinas",
+  "autopilot.end": "Toda idea tiene forma.",
+  "autopilot.pitch": "Presentación"
 }

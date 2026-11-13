@@ -179,7 +179,7 @@ export function Landing() {
 
   const examples = demos
     .filter((d) => d.language === locale || !demos.some((x) => x.id === d.id && x.language === locale))
-    .map((d) => ({ id: d.id, title: d.title }));
+    .map((d) => ({ id: d.id, title: d.title, subtitle: d.subtitle }));
 
   return (
     <>

@@ -325,5 +325,19 @@
   "atlas.palette.nebulosa": "Astrophysics",
   "lab.random": "Random morph",
   "lab.copy": "Copy as layer JSON",
-  "pitch.live": "See it live"
+  "pitch.live": "See it live",
+  "autopilot.running": "Autopilot · Esc to stop",
+  "autopilot.landing": "Six movements",
+  "autopilot.console": "Any question",
+  "autopilot.theater": "The forge, replayed",
+  "autopilot.walk": "Walking the world",
+  "autopilot.filament": "The source passage",
+  "autopilot.ask": "Ask the scene",
+  "autopilot.check": "A check",
+  "autopilot.remedial": "The Crack and the new chapter",
+  "autopilot.lens": "The Lens",
+  "autopilot.finale": "The Constellation",
+  "autopilot.engine": "The Engine Room",
+  "autopilot.end": "Every idea has a shape.",
+  "autopilot.pitch": "Presentation"
 }

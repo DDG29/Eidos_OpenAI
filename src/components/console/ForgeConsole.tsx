@@ -12,12 +12,16 @@ import type { Lang, Level } from "@/lib/world/types";
 import type { MessageKey } from "@/lib/i18n";
 import { useConsole } from "./consoleStore";
 
+import { bestDemoMatch } from "@/lib/forge/demoMatch";
+
 const MODES: SourceMode[] = ["topic", "pdf", "image", "url", "text"];
+
 const QUALITIES: Quality[] = ["fast", "deep", "master"];
 
 export interface DemoExample {
   id: string;
   title: string;
+  subtitle?: string;
 }
 
 /** Forge Console (spec 3.3): a precision instrument, not a form. */
@@ -84,8 +88,7 @@ export function ForgeConsole({ onForge, examples, onDemoExample }: { onForge: (r
 
   const submit = async () => {
     if (demo) {
-      const match = examples.find((e) => topic && e.title.toLowerCase().includes(topic.toLowerCase().slice(0, 12)));
-      onDemoExample(match?.id ?? examples[0]?.id ?? "");
+      onDemoExample(bestDemoMatch(topic, examples) ?? examples[0]?.id ?? "");
       return;
     }
     const req: ForgeRequest = { mode, topic, url, text, file: file ?? undefined, level, lang, quality, focus: focus.slice(0, LIMITS.focusMax), pages: pdfMeta?.pages };
