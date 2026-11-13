@@ -124,7 +124,9 @@ export class ParticleField {
         uGlobalAlpha: { value: 1 },
         uSpore: { value: 0 },
         uDustAlpha: { value: 1 },
-        uIntensity: { value: 1 },
+        uIntensity: { value: 1.3 },
+        uFlash: { value: 0 },
+        uFlashColor: { value: new THREE.Color(0x6cf5b0) },
       },
     });
     this.points = new THREE.Points(geo, this.material);

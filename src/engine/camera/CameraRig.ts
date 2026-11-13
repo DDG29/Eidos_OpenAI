@@ -22,6 +22,8 @@ export interface Pose {
   azim: number; // radians
   fov: number;
   near: number;
+  /** horizontal framing: 1 = asymmetric (shape in columns 6–12 on desktop), 0 = centered */
+  frame: number;
 }
 
 export interface Bounds {
@@ -50,6 +52,7 @@ export class CameraRig {
   viewOffsetY = 0;
   private base: Pose;
   private drift = 0;
+  private driftT = 0;
   private driftActive = true;
   private parallax = new THREE.Vector2();
   private parallaxTarget = new THREE.Vector2();
@@ -61,8 +64,10 @@ export class CameraRig {
     this.base = this.poseFor("orbit_close", { center: [0, 0, 0], radius: 1 });
   }
 
-  poseFor(preset: CameraPreset, b: Bounds): Pose {
-    const p = PRESETS[preset] ?? PRESETS.orbit_close;
+  /** `front` forces a frontal view for flat forms (text, glyphs, charts) so they stay legible. */
+  poseFor(preset: CameraPreset, b: Bounds, frame = 1, front = false): Pose {
+    const base = PRESETS[preset] ?? PRESETS.orbit_close;
+    const p = front && preset !== "inside" && preset !== "top_down" ? { ...base, elev: Math.max(-6, Math.min(6, base.elev * 0.25)), azim: 0 } : base;
     const r = Math.max(0.3, b.radius);
     const mobile = this.layout === "mobile";
     // Preset distances are in "bounding radii"; FIT converts them so orbit_close frames the shape at ~70% of
@@ -77,6 +82,7 @@ export class CameraRig {
       azim: p.azim * DEG,
       fov: mobile ? 50 : 40,
       near: p.near ?? Math.max(0.02, r * 0.02),
+      frame,
     };
   }
 
@@ -96,6 +102,7 @@ export class CameraRig {
       azim: azA + (azB - azA) * e,
       fov: a.fov + (b.fov - a.fov) * e,
       near: Math.min(a.near, b.near),
+      frame: a.frame + (b.frame - a.frame) * e,
     };
   }
 
@@ -131,9 +138,12 @@ export class CameraRig {
     this.applyViewOffset();
   }
 
+  private appliedFrame = -1;
+
   applyViewOffset() {
     const { w, h } = this.size;
-    const ox = this.layout === "desktop" ? this.viewOffsetX * w : 0;
+    this.appliedFrame = this.base.frame;
+    const ox = this.layout === "desktop" ? this.viewOffsetX * w * this.base.frame : 0;
     const oy = this.layout === "mobile" ? this.viewOffsetY * h : 0;
     if (ox === 0 && oy === 0) this.camera.clearViewOffset();
     else this.camera.setViewOffset(w, h, ox, oy, w, h);
@@ -141,7 +151,10 @@ export class CameraRig {
   }
 
   update(dt: number, time: number) {
-    if (!this.reducedMotion && this.driftActive) this.drift += 0.025 * dt;
+    // Drift is a slow bounded sway (±9°) rather than an endless orbit: an accumulating azimuth would
+    // eventually turn flat forms (text, charts) edge-on during long holds.
+    if (!this.reducedMotion && this.driftActive) this.driftT += dt;
+    this.drift = this.reducedMotion ? 0 : 0.16 * Math.sin(this.driftT * 0.025 / 0.16);
     const k = 1 - Math.exp(-dt * 4);
     this.parallax.lerp(this.reducedMotion ? new THREE.Vector2() : this.parallaxTarget, k);
     let p = this.base;
@@ -167,6 +180,7 @@ export class CameraRig {
     );
     cam.up.set(0, 1, 0);
     cam.lookAt(p.target);
+    if (Math.abs(this.appliedFrame - p.frame) > 0.002) this.applyViewOffset();
     if (cam.fov !== p.fov || cam.near !== p.near) {
       cam.fov = p.fov;
       cam.near = p.near;

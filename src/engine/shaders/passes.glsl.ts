@@ -63,6 +63,8 @@ uniform float uTwinkle;
 uniform float uGlobalAlpha;
 uniform float uSpore;
 uniform float uDustAlpha;
+uniform float uFlash;
+uniform vec3 uFlashColor;
 varying vec4 vColor;
 varying float vGlow;
 ${NOISE_GLSL}
@@ -116,6 +118,13 @@ void main() {
   gl_Position = projectionMatrix * mv;
   float att = 1.0 / max(-mv.z, 0.1);
   gl_PointSize = clamp(uPointSize * size * uPixelRatio * att * (1.0 + bell * 0.6) * twinkle, 0.0, uMaxPointSize);
+
+  // Correct answer: a ring of truth-green light expands from the center and fades (spec 3.7).
+  if (uFlash > 0.0 && !isDust) {
+    float d = length(base - uPivotTo[3]) / max(uShapeRadius, 0.2);
+    float ring = smoothstep(0.25, 0.0, abs(d - uFlash * 1.4)) * (1.0 - uFlash);
+    col.rgb = mix(col.rgb, uFlashColor * 1.6, clamp(ring + (1.0 - uFlash) * 0.25 * step(d, uFlash * 1.4), 0.0, 1.0));
+  }
 
   float fog = exp(-uFogDensity * max(-mv.z - uFogStart, 0.0));
   vColor = vec4(col.rgb * dim * flowPulse * fog, col.a * fog * uGlobalAlpha);

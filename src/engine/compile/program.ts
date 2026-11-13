@@ -11,6 +11,7 @@ export interface ProgramBeat {
   layers: Layer[];
   transition: Transition;
   dustFraction: number;
+  brightness?: Record<string, number>;
 }
 
 export interface ProgramInput {
@@ -29,7 +30,7 @@ export interface BuiltBeat {
 }
 
 function beatKey(b: ProgramBeat, palette: PaletteId, count: number, programId: string): string {
-  return `${hashString(JSON.stringify([programId, b.id, b.layers, b.dustFraction, palette, count]))}`;
+  return `${hashString(JSON.stringify([programId, b.id, b.layers, b.dustFraction, b.brightness ?? null, palette, count]))}`;
 }
 
 /**
@@ -74,7 +75,7 @@ export class ProgramCompiler {
   private compose(i: number): ShapeBuffer {
     const p = this.program!;
     const b = p.beats[i]!;
-    return composeScene({ layers: b.layers, palette: p.palette, count: p.count, dustFraction: b.dustFraction, seed: `${p.id}:${b.id}`, image: this.image });
+    return composeScene({ layers: b.layers, palette: p.palette, count: p.count, dustFraction: b.dustFraction, seed: `${p.id}:${b.id}`, image: this.image, brightness: b.brightness });
   }
 
   private remember(key: string, buf: ShapeBuffer) {

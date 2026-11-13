@@ -15,6 +15,8 @@ export interface ComposeInput {
   dustFraction: number;
   seed: string;
   image?: ImageLike | null;
+  /** per-region brightness multipliers (Constellation mastery), keyed by region id of layer 0 */
+  brightness?: Record<string, number>;
 }
 
 export const MAX_LAYERS = 3;
@@ -202,9 +204,14 @@ export function composeScene(input: ComposeInput): ShapeBuffer {
       let c: RGB;
       if (out.colors && out.colors[i * 3]! >= 0) c = [out.colors[i * 3]!, out.colors[i * 3 + 1]!, out.colors[i * 3 + 2]!];
       else c = colorFor(layer.colorMode, palette, layer.tint ?? "primary", reg.colorRole, (y - minY) / hy, Math.hypot(x, y, z) / (maxR || 1), r);
-      colors[j * 4] = Math.round(c[0] * 255);
-      colors[j * 4 + 1] = Math.round(c[1] * 255);
-      colors[j * 4 + 2] = Math.round(c[2] * 255);
+      const br = li === 0 && input.brightness ? input.brightness[reg.id] : undefined;
+      if (br !== undefined) {
+        c = [c[0] * br, c[1] * br, c[2] * br];
+        aux[j * 4 + 3] = aux[j * 4 + 3]! * (0.8 + 0.6 * Math.min(1, br));
+      }
+      colors[j * 4] = Math.round(Math.min(1, c[0]) * 255);
+      colors[j * 4 + 1] = Math.round(Math.min(1, c[1]) * 255);
+      colors[j * 4 + 2] = Math.round(Math.min(1, c[2]) * 255);
       colors[j * 4 + 3] = 255;
     }
     o += n;

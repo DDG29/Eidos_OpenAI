@@ -10,7 +10,7 @@ page.on("console", (m) => {
   if (m.type() === "error" || m.type() === "warning") logs.push(`[${m.type()}] ${m.text()}`);
 });
 page.on("pageerror", (e) => logs.push(`[pageerror] ${e.message}`));
-await page.goto(url, { waitUntil: "networkidle" });
+await page.goto(url, { waitUntil: "load", timeout: 90000 });
 await page.waitForTimeout(Number(wait));
 if (js) {
   const r = await page.evaluate(js);

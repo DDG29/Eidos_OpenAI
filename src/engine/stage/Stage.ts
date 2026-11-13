@@ -25,6 +25,10 @@ import { stageStore } from "./stageStore";
 
 export interface ProgramOptions {
   cameras: CameraPreset[];
+  /** per-beat framing (1 asymmetric, 0 centered); default 1 */
+  frames?: number[];
+  /** per-beat: main form is flat (text/glyph/chart) → frontal camera */
+  faces?: boolean[];
   /** morph from whatever is on screen into beat 0 over this many ms (route change), 0 = cut */
   enterMs?: number;
   /** bloom multiplier per beat (ambient) */
@@ -94,6 +98,7 @@ export class Stage {
   readonly frameListeners = new Set<(stage: Stage) => void>();
   bloomBase = 1;
   private bloomBoost = 1;
+  private flashState: { t: number; color: THREE.Color } | null = null;
 
   private constructor(
     readonly canvas: HTMLCanvasElement,
@@ -275,7 +280,7 @@ export class Stage {
     let p = this.poses.get(i);
     if (!p) {
       const cam = this.program?.opts.cameras[i] ?? "orbit_close";
-      p = this.rig.poseFor(cam, buf.bounds);
+      p = this.rig.poseFor(cam, buf.bounds, this.program?.opts.frames?.[i] ?? 1, this.program?.opts.faces?.[i] ?? false);
       this.poses.set(i, p);
     }
     return p;
@@ -489,6 +494,16 @@ export class Stage {
     this.field.uniform<number>("uCrack").value = ck.value;
     this.field.uniform<number>("uSpore").value = ck.spore;
     this.field.uniform<number>("uTwinkle").value = this.frozen || this.reducedMotion ? 0 : 1;
+    if (this.flashState) {
+      this.flashState.t += dt / 1.3;
+      const f = this.flashState.t;
+      this.field.uniform<number>("uFlash").value = f;
+      this.field.uniform<THREE.Color>("uFlashColor").value.copy(this.flashState.color);
+      if (f >= 1) {
+        this.flashState = null;
+        this.field.uniform<number>("uFlash").value = 0;
+      }
+    }
 
     // cursor ray
     let pointer: { origin: THREE.Vector3; dir: THREE.Vector3; strength: number } | null = null;
@@ -507,6 +522,50 @@ export class Stage {
     if (st.stable !== stable || Math.abs(st.fps - this.quality.state.fps) > 2) stageStore.setState({ stable, fps: Math.round(this.quality.state.fps) });
     for (const l of this.frameListeners) l(this);
   };
+
+  get motionTime(): number {
+    return this.frozen ? 12 : this.motionClock;
+  }
+
+  /** Motion pivots of the shape currently shown (layer 0–2, 3 = dust). */
+  currentPivots(): [number, number, number][] {
+    const g = this.currentShape();
+    return (g?.pivots ?? []).map((v) => [v.x, v.y, v.z] as [number, number, number]);
+  }
+
+  pivotOf(layer: number): [number, number, number] {
+    const g = this.currentShape();
+    const v = g?.pivots[layer];
+    return v ? [v.x, v.y, v.z] : [0, 0, 0];
+  }
+
+  /** Highlight a region (or an aggregate range) and dim the rest (spec 5.10.2). */
+  setHighlight(region: { index: number; range?: [number, number] } | null) {
+    if (!region) {
+      this.highlight.dimTarget = 0;
+      return;
+    }
+    this.highlight.lo = region.range ? region.range[0] : region.index;
+    this.highlight.hi = region.range ? region.range[1] : region.index;
+    this.highlight.dimTarget = 1;
+  }
+
+  /** Fracture along a random plane through the shape center (La Grieta, spec 4.8.6). */
+  setCrack(on: boolean, spores = on) {
+    if (on && this.crack.target === 0) {
+      const buf = this.currentBuffer();
+      const c = buf?.bounds.center ?? [0, 0, 0];
+      const n = new THREE.Vector3(Math.random() - 0.5, (Math.random() - 0.5) * 0.6, Math.random() - 0.5).normalize();
+      this.field.uniform<THREE.Vector4>("uCrackPlane").value.set(n.x, n.y, n.z, n.x * c[0] + n.y * c[1] + n.z * c[2]);
+    }
+    this.crack.target = on ? 1 : 0;
+    this.crack.sporeTarget = spores ? 1 : 0;
+  }
+
+  /** Radial colour wave from the center (correct answer), 0→1 over ~1.2 s. */
+  flash(color: string) {
+    this.flashState = { t: 0, color: new THREE.Color(color) };
+  }
 
   setBloomBoost(v: number) {
     this.bloomBoost = v;

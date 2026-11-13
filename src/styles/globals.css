@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./tokens.css";
 @import "./chrome.css";
+@import "./components.css";
 
 @theme inline {
   --color-ink-0: var(--ink-0);

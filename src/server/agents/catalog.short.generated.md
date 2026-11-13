@@ -1,0 +1,4 @@
+- sphere: atomic nuclei, planets and stars, a single cell or droplet; params radius, noise, core_density; regions core, body
+- helix: DNA, replication and transcription (unwind), springs and solenoids; params strands, turns, radius, height; regions strand_a, strand_b, base_pairs, unwound
+- text: a key term, the word EIDOS, a short formula like E = mc²; params depth, weight; regions glyphs, char_{i}
+- nebula: the initial chaos, gas and dust clouds, uncertainty; params scale, density_contrast, filaments; regions cloud, filaments
