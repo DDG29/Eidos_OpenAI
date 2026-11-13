@@ -120,7 +120,9 @@ export const molecule: ShapeDefinition = {
   motionDoc: "atoms jitter thermally",
   generate({ count, rng, params, expr, palette }) {
     const b = new PointBuilder();
-    let { atoms, errors, truncated } = parseAtoms(expr.atoms);
+    const parsed = parseAtoms(expr.atoms);
+    let { atoms } = parsed;
+    const { errors, truncated } = parsed;
     if (errors.length) b.warnings.push(`molecule: skipped malformed atom entries ${errors.slice(0, 3).join(", ")}${errors.length > 3 ? "…" : ""}`);
     if (truncated) b.warnings.push(`molecule: only the first ${MAX_ATOMS} atoms are drawn`);
     if (atoms.length === 0) {

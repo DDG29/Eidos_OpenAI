@@ -18,7 +18,7 @@ export function filamentStatus(s: Sentence, verdict: SentenceVerdict | undefined
 
 export function citationLocation(c: Citation, lang: "es" | "en"): string {
   if (c.kind === "page" && c.startPage) return c.endPage && c.endPage > c.startPage ? `pp. ${c.startPage}–${c.endPage}` : `p. ${c.startPage}`;
-  if (c.kind === "char" && (c as Citation & { paragraph?: number }).paragraph) return `${lang === "es" ? "párrafo" : "paragraph"} ${(c as Citation & { paragraph?: number }).paragraph}`;
+  if (c.kind === "char" && c.paragraph) return `${lang === "es" ? "párrafo" : "paragraph"} ${c.paragraph}`;
   if (c.kind === "block" && c.startBlock !== undefined) return `${lang === "es" ? "hecho" : "fact"} ${c.startBlock + 1}`;
   if (c.kind === "web" && c.url) {
     try {

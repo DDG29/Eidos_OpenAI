@@ -43,6 +43,7 @@ interface PlayerState {
   insert: (seg: InsertedSegment) => void;
   setGrowing: (g: PlayerState["growing"]) => void;
   completeRemedial: (conceptIds: string[]) => void;
+  addTelemetry: (run: World["telemetry"][number]) => void;
   persist: () => void;
 }
 
@@ -132,6 +133,11 @@ export const usePlayer = create<PlayerState>((set, get) => ({
     for (const c of conceptIds) mastery[c] = bumpMastery(mastery[c], "remedial");
     set({ world: { ...w, mastery } });
     get().persist();
+  },
+  addTelemetry: (run) => {
+    const w = get().world;
+    if (!w) return;
+    set({ world: { ...w, telemetry: [...w.telemetry, run] } });
   },
   persist: () => {
     const w = get().world;

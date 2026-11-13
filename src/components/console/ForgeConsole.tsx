@@ -35,12 +35,15 @@ export function ForgeConsole({ onForge, examples, onDemoExample }: { onForge: (r
   const [text, setText] = useState("");
   const [focus, setFocus] = useState("");
   const [level, setLevel] = useState<Level>("prepa");
-  const [lang, setLang] = useState<Lang>(locale);
+  const [langPick, setLang] = useState<Lang | null>(null);
+  const lang: Lang = langPick ?? locale;
   const [quality, setQuality] = useState<Quality>("deep");
   const [error, setError] = useState<MessageKey | null>(null);
   const [ph, setPh] = useState(0);
-  const [pdfMeta, setPdfMeta] = useState<{ pages: number; thumb: string | null } | null>(null);
-  const [imgPreview, setImgPreview] = useState<string | null>(null);
+  // Metadata is stored with the file it describes, so a new file never shows stale pages/thumbnails.
+  const [pdfMetaFor, setPdfMetaFor] = useState<{ file: File; pages: number; thumb: string | null } | null>(null);
+  const pdfMeta = pdfMetaFor && pdfMetaFor.file === file ? pdfMetaFor : null;
+  const imgPreview = useMemo(() => (file && mode === "image" ? URL.createObjectURL(file) : null), [file, mode]);
   const [dragOver, setDragOver] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
   const camInput = useRef<HTMLInputElement>(null);
@@ -49,7 +52,6 @@ export function ForgeConsole({ onForge, examples, onDemoExample }: { onForge: (r
     void health.load();
   }, [health]);
 
-  useEffect(() => setLang(locale), [locale]);
 
   useEffect(() => {
     if (mode !== "topic" || topic) return;
@@ -58,19 +60,14 @@ export function ForgeConsole({ onForge, examples, onDemoExample }: { onForge: (r
   }, [mode, topic]);
 
   useEffect(() => {
-    setPdfMeta(null);
-    setImgPreview(null);
-    if (!file) return;
-    let url: string | null = null;
-    if (mode === "pdf") void pdfInfo(file).then(setPdfMeta);
-    if (mode === "image") {
-      url = URL.createObjectURL(file);
-      setImgPreview(url);
-    }
-    return () => {
-      if (url) URL.revokeObjectURL(url);
-    };
+    if (file && mode === "pdf") void pdfInfo(file).then((m) => setPdfMetaFor({ file, ...m }));
   }, [file, mode]);
+
+  useEffect(() => {
+    return () => {
+      if (imgPreview) URL.revokeObjectURL(imgPreview);
+    };
+  }, [imgPreview]);
 
   const est = useMemo(() => estimateForge({ mode, quality, pages: pdfMeta?.pages, chars: text.length || undefined }), [mode, quality, pdfMeta, text]);
   const looksLikeUrl = mode === "topic" && /^https?:\/\/\S+$/i.test(topic.trim());

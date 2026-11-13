@@ -1,24 +1,72 @@
 import type { ShapeId } from "@/lib/world/types";
 import type { ShapeDefinition } from "./types";
+import { bars } from "./bars";
+import { burst } from "./burst";
+import { cell } from "./cell";
+import { curve } from "./curve";
+import { field } from "./field";
+import { flow } from "./flow";
+import { galaxy } from "./galaxy";
+import { glyph } from "./glyph";
+import { grid } from "./grid";
 import { helix } from "./helix";
+import { image } from "./image";
+import { lattice } from "./lattice";
+import { layers } from "./layers";
+import { molecule } from "./molecule";
 import { nebula } from "./nebula";
+import { network } from "./network";
+import { orbits } from "./orbits";
+import { parametric } from "./parametric";
+import { scatter } from "./scatter";
+import { shell } from "./shell";
 import { sphere } from "./sphere";
+import { surface } from "./surface";
 import { text } from "./text";
+import { torus } from "./torus";
+import { torusKnot } from "./torusKnot";
+import { tree } from "./tree";
+import { vortex } from "./vortex";
+import { wave } from "./wave";
 
 /** The single source of truth for shapes: params, expressions, regions, catalog text and /lab controls. */
-export const SHAPES: Partial<Record<ShapeId, ShapeDefinition>> = {
+export const SHAPES: Record<ShapeId, ShapeDefinition> = {
   sphere,
+  shell,
+  torus,
+  torusKnot,
   helix,
+  galaxy,
+  lattice,
+  grid,
+  wave,
+  surface,
+  parametric,
+  curve,
+  field,
+  molecule,
+  orbits,
+  network,
+  layers,
+  tree,
+  cell,
+  bars,
+  scatter,
   text,
+  glyph,
+  image,
   nebula,
+  vortex,
+  flow,
+  burst,
 };
 
 export function getShape(id: ShapeId): ShapeDefinition | undefined {
-  return SHAPES[id];
+  return Object.prototype.hasOwnProperty.call(SHAPES, id) ? SHAPES[id] : undefined;
 }
 
 export function listShapes(): ShapeDefinition[] {
-  return Object.values(SHAPES).filter((s): s is ShapeDefinition => !!s);
+  return Object.values(SHAPES);
 }
 
 /** Clamp/round/fill params against the spec; unknown keys are reported, not used. */

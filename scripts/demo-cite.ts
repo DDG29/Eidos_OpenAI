@@ -5,7 +5,8 @@ import type { World } from "../src/lib/world/types";
 
 const dir = "public/worlds";
 let failures = 0;
-const files = readdirSync(dir).filter((f) => f.endsWith(".json") && !f.startsWith("_") && f !== "index.json");
+const only = process.argv[2];
+const files = readdirSync(dir).filter((f) => f.endsWith(".json") && !f.startsWith("_") && f !== "index.json" && f !== "eidos-pitch.json" && (!only || f.replace(/\.en\.json$|\.json$/, "") === only));
 for (const f of files) {
   const world = JSON.parse(readFileSync(join(dir, f), "utf8")) as World;
   const isEn = f.endsWith(".en.json");
@@ -33,11 +34,26 @@ for (const f of files) {
       failures++;
       continue;
     }
-    fact.citations = [{ kind: "char", citedText: fact.quote, documentIndex: 0, documentTitle: title, startChar: start, endChar: start + fact.quote.length }];
+    const paragraph = source.slice(0, start).split(/\n\s*\n/).filter((p) => p.trim() && !p.trim().startsWith("#")).length + 1;
+    fact.citations = [{ kind: "char", citedText: fact.quote, documentIndex: 0, documentTitle: title, startChar: start, endChar: start + fact.quote.length, paragraph }];
     fact.origin = "source";
     n++;
   }
   world.source = { ...world.source, mode: "text", title };
+  // Demo verification is a literal-citation check (no Skeptic call without an API key); the note says so.
+  const cited = new Set(world.facts.filter((x) => x.citations.length > 0).map((x) => x.id));
+  const note = isEn ? "Literal citation checked (demo world, reviewed by hand)" : "Cita literal comprobada (mundo de demostración, revisado a mano)";
+  world.verification = {};
+  for (const b of world.spec.beats) {
+    if (b.kind === "finale") continue;
+    world.verification[b.id] = b.sentences.map((s, index) =>
+      s.factIds.length === 0
+        ? { index, verdict: "general" as const, supportingFactIds: [], note: "", revised: false }
+        : s.factIds.every((id) => cited.has(id))
+          ? { index, verdict: "supported" as const, supportingFactIds: s.factIds, note, revised: false }
+          : { index, verdict: "partial" as const, supportingFactIds: s.factIds.filter((id) => cited.has(id)), note: isEn ? "Some cited facts have no passage" : "Algunos hechos citados no tienen pasaje", revised: false },
+    );
+  }
   writeFileSync(join(dir, f), JSON.stringify(world, null, 1) + "\n");
   console.log(`✓ ${f}: ${n} citations`);
 }

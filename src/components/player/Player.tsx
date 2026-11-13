@@ -19,6 +19,7 @@ import { describeScene } from "@/lib/world/describe";
 import { filamentStatus, passagesFor, verdictLabel } from "@/lib/world/verification";
 import { gradeOffline } from "@/demo/offlineGrader";
 import { isDemoMode, useHealth } from "@/lib/useHealth";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 import { TopBar, SoundToggle } from "@/components/ui/TopBar";
 import { LensDial } from "@/components/ui/LensDial";
 import { Ruler, type RulerMark } from "@/components/ui/Ruler";
@@ -46,7 +47,6 @@ export function Player({ worldId, present = false }: { worldId: string; present?
   const router = useRouter();
   const motion = useSettings((s) => s.motion);
   const health = useHealth();
-  const demo = isDemoMode(health);
   const world = usePlayer((s) => s.world);
   const level = usePlayer((s) => s.level);
   const checks = usePlayer((s) => s.checks);
@@ -60,10 +60,11 @@ export function Player({ worldId, present = false }: { worldId: string; present?
   const [engineRoom, setEngineRoom] = useState(false);
   const [menu, setMenu] = useState(false);
   const [share, setShare] = useState(false);
-  const [gateMsg, setGateMsg] = useState(false);
+  // index of the gate whose "answer to continue" hint is showing (derived per gate, no reset needed)
+  const [gateMsgFor, setGateMsgFor] = useState<number | null>(null);
   const [busyCheck, setBusyCheck] = useState<string | null>(null);
   const [lensNote, setLensNote] = useState<string | null>(null);
-  const [mobile, setMobile] = useState(false);
+  const mobile = useMediaQuery("(max-width: 767px)");
   const conductor = useRef<ScrollConductor | null>(null);
   const programReady = useRef(false);
   const sound = useSound();
@@ -72,13 +73,6 @@ export function Player({ worldId, present = false }: { worldId: string; present?
     void health.load();
   }, [health]);
 
-  useEffect(() => {
-    const mq = window.matchMedia("(max-width: 767px)");
-    const on = () => setMobile(mq.matches);
-    on();
-    mq.addEventListener("change", on);
-    return () => mq.removeEventListener("change", on);
-  }, []);
 
   // Load the world
   useEffect(() => {
@@ -149,7 +143,9 @@ export function Player({ worldId, present = false }: { worldId: string; present?
   useEffect(() => {
     if (!palette) return;
     document.documentElement.style.setProperty("--accent", palette.accent);
-    return () => document.documentElement.style.removeProperty("--accent");
+    return () => {
+      document.documentElement.style.removeProperty("--accent");
+    };
   }, [palette]);
 
   useEffect(() => {
@@ -160,7 +156,7 @@ export function Player({ worldId, present = false }: { worldId: string; present?
   // Scroll conductor
   useEffect(() => {
     if (!world) return;
-    const c = new ScrollConductor({ reducedMotion: prefersReducedMotion(motion), onGate: () => setGateMsg(true) });
+    const c = new ScrollConductor({ reducedMotion: prefersReducedMotion(motion), onGate: (g) => setGateMsgFor(g) });
     conductor.current = c;
     let last = -1;
     let lastL = -1;
@@ -194,7 +190,6 @@ export function Player({ worldId, present = false }: { worldId: string; present?
 
   useEffect(() => {
     conductor.current?.setGate(gateIndex);
-    if (gateIndex === null) setGateMsg(false);
   }, [gateIndex]);
 
   useEffect(() => {
@@ -205,60 +200,6 @@ export function Player({ worldId, present = false }: { worldId: string; present?
 
   const jump = useCallback((i: number) => conductor.current?.scrollToBeat(i), []);
 
-  // Keyboard shortcuts (spec 13.1)
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      const tag = (e.target as HTMLElement)?.tagName;
-      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || e.metaKey || e.ctrlKey || e.altKey) return;
-      const c = conductor.current;
-      if (!c) return;
-      switch (e.key) {
-        case "j":
-        case "ArrowDown":
-        case "ArrowRight":
-          e.preventDefault();
-          c.next();
-          break;
-        case "k":
-        case "ArrowUp":
-        case "ArrowLeft":
-          e.preventDefault();
-          c.prev();
-          break;
-        case "/":
-          e.preventDefault();
-          openAsk(null);
-          break;
-        case "r":
-          router.push(`/m/${worldId}/leer`);
-          break;
-        case "s":
-          useSettings.getState().set({ sound: !useSettings.getState().sound });
-          break;
-        case "p":
-          router.replace(present ? `/m/${worldId}` : `/m/${worldId}?present=1`);
-          break;
-        case "f":
-          void (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.());
-          break;
-        case "l": {
-          const lv: Level[] = ["curioso", "prepa", "universidad", "experto"];
-          void changeLevel(lv[(lv.indexOf(usePlayer.getState().level) + 1) % 4]!);
-          break;
-        }
-        case "Escape":
-          setRadial(null);
-          setAsk(null);
-          setEngineRoom(false);
-          setMenu(false);
-          getStage()?.rig.clearZoom();
-          break;
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [worldId, present]);
 
   // Ask the scene: click on the form (not on UI) → nearest region → radial menu (spec 5.10)
   useEffect(() => {
@@ -338,6 +279,61 @@ export function Player({ worldId, present = false }: { worldId: string; present?
     },
     [t],
   );
+
+  // Keyboard shortcuts (spec 13.1)
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const tag = (e.target as HTMLElement)?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || e.metaKey || e.ctrlKey || e.altKey) return;
+      const c = conductor.current;
+      if (!c) return;
+      switch (e.key) {
+        case "j":
+        case "ArrowDown":
+        case "ArrowRight":
+          e.preventDefault();
+          c.next();
+          break;
+        case "k":
+        case "ArrowUp":
+        case "ArrowLeft":
+          e.preventDefault();
+          c.prev();
+          break;
+        case "/":
+          e.preventDefault();
+          openAsk(null);
+          break;
+        case "r":
+          router.push(`/m/${worldId}/leer`);
+          break;
+        case "s":
+          useSettings.getState().set({ sound: !useSettings.getState().sound });
+          break;
+        case "p":
+          router.replace(present ? `/m/${worldId}` : `/m/${worldId}?present=1`);
+          break;
+        case "f":
+          void (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.());
+          break;
+        case "l": {
+          const lv: Level[] = ["curioso", "prepa", "universidad", "experto"];
+          void changeLevel(lv[(lv.indexOf(usePlayer.getState().level) + 1) % 4]!);
+          break;
+        }
+        case "Escape":
+          setRadial(null);
+          setAsk(null);
+          setEngineRoom(false);
+          setMenu(false);
+          getStage()?.rig.clearZoom();
+          break;
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [worldId, present]);
 
   /* ——— Checks ——— */
   const onCheckResult = useCallback(
@@ -547,7 +543,7 @@ export function Player({ worldId, present = false }: { worldId: string; present?
                         onGrowMore={() => void onCheckResult(b, { ...result!, status: "incorrect" })}
                         onContinue={() => usePlayer.getState().answer(b.id, { ...result!, status: "correct" })}
                       />
-                      {gateMsg && gateIndex === i && (
+                      {gateMsgFor === i && gateIndex === i && (
                         <p className="gate-msg caps" role="status">
                           {t("check.gate")}
                         </p>

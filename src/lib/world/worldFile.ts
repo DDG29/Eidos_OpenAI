@@ -16,6 +16,7 @@ export const CitationSchema = z.object({
   endBlock: z.number().optional(),
   url: z.string().optional(),
   title: z.string().optional(),
+  paragraph: z.number().optional(),
 });
 
 export const FactSchema = z.object({

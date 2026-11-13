@@ -49,7 +49,7 @@ export const scatter: ShapeDefinition = {
     }
     // Rescale each axis independently to the data box (a constant axis sits in the middle).
     const half = [BX, BY, BY];
-    const mapped = pts.map((p) => [0, 0, 0]);
+    const mapped = pts.map(() => [0, 0, 0]);
     for (let a = 0; a < dims; a++) {
       let lo = Infinity,
         hi = -Infinity;
@@ -118,6 +118,9 @@ export const scatter: ShapeDefinition = {
         b.push(p[0]! + rng.normal() * 0.003, p[1]! + rng.normal() * 0.003, p[2]! + rng.normal() * 0.003, axisId, 0, 0.8);
       }
     });
-    return b.build(count, rng);
+    const out = b.build(count, rng);
+    // Gaussian cluster spread has unbounded tails; keep the frame inside the canonical extent.
+    for (let k = 0; k < out.positions.length; k++) out.positions[k] = Math.max(-1.5, Math.min(1.5, out.positions[k]!));
+    return out;
   },
 };

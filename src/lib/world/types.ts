@@ -231,6 +231,8 @@ export interface Citation {
   endBlock?: number;
   url?: string;
   title?: string;
+  /** 1-based paragraph of a char citation, for "párrafo 4" labels */
+  paragraph?: number;
 }
 
 export interface Fact {

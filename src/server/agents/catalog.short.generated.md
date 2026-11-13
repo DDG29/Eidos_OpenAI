@@ -1,4 +1,28 @@
 - sphere: atomic nuclei, planets and stars, a single cell or droplet; params radius, noise, core_density; regions core, body
+- shell: a cell membrane, a soap bubble, an event horizon; params radius, thickness, noise, opening; regions surface, rim
+- torus: a ring or loop, a magnetic confinement ring (tokamak), a cycle that repeats; params major, minor, fill; regions ring
+- torusKnot: topology and knots, entanglement, a complex cycle; params p, q, tube; regions knot
 - helix: DNA, replication and transcription (unwind), springs and solenoids; params strands, turns, radius, height; regions strand_a, strand_b, base_pairs, unwound
+- galaxy: a spiral galaxy, a hurricane seen from above, a whirlpool; params arms, twist, core, spread; regions core, arms, halo
+- lattice: solids and crystals, table salt or metals, graphene; params kind, cells, atom_size, bonds; regions atoms, bonds, defects
+- grid: gravity bending spacetime, a potential well, an energy landscape with minima; params resolution, wells, depth, spread; regions grid, well_{i}
+- wave: ripples on a pond, two-slit interference, sound spreading from a speaker; params sources, wavelength, amplitude, damping; regions surface, source_{i}
+- surface: a loss landscape with valleys, a 2D gaussian / probability density, a saddle point; params resolution, height_scale, a, b; regions surface, peaks, valleys
+- parametric: a Möbius strip, a seashell spiral, a Klein bottle; params u_min, u_max, v_min, v_max; regions surface, u_edge, v_edge
+- curve: a trajectory or orbit, the graph of a function, compound interest growth with a rate knob; params t_min, t_max, thickness, glow_head; regions curve, start, end
+- field: an electric dipole, a magnetic field around a wire (vx = -y, vy = x), wind or ocean currents; params seeds, steps, step_size, planar; regions lines, sources, sinks
+- molecule: a water molecule, carbon dioxide, methane or glucose; params atom_scale, bond_density; regions atom_{i}, bonds
+- orbits: the solar system, moons and artificial satellites, a Bohr-model atom (with a caveat); params rings, center_size, body_size, tilt; regions center, ring_{i}, body_{i}
+- network: social networks, gene regulatory networks, the internet and routers; params nodes, topology, node_size, edge_density; regions node_{i}, edges, hubs
+- layers: a neural network / perceptron, a Transformer at a high level, a multi-stage pipeline; params spacing, connection_density, neuron_size; regions layer_{i}, connections
+- tree: a tree and photosynthesis, a phylogenetic tree of life, a decision tree; params depth, branch_angle, decay, branches; regions trunk, branches, leaves
+- cell: cell biology and organelles, photosynthesis in a plant cell, cellular respiration (mitochondria); params kind, organelles, cutaway; regions membrane, wall, nucleus, nucleolus, mitochondria, chloroplasts, er, cytoplasm
+- bars: comparing quantities, growth over the years, a probability distribution; params depth, gap, log_scale, baseline; regions bar_{i}, axis
+- scatter: a correlation, a time series, exponential vs linear growth; params dims, connect, point_size, cluster_spread; regions points, point_{i}, line, axis
 - text: a key term, the word EIDOS, a short formula like E = mc²; params depth, weight; regions glyphs, char_{i}
+- glyph: a leaf or a flower, an organ such as a stylized heart, a country or region outline; params mode, depth, inflate; regions fill, outline
+- image: the user's photo dissolving into light, a photographed whiteboard (invert = 1), a hand-drawn diagram from a notebook; params threshold, depth, invert; regions image
 - nebula: the initial chaos, gas and dust clouds, uncertainty; params scale, density_contrast, filaments; regions cloud, filaments
+- vortex: a black hole and its accretion disk, a whirlpool or bathtub drain, a tornado or hurricane eye; params disk_radius, inner_radius, funnel_depth, photon_ring; regions disk, photon_ring, funnel, jets, horizon
+- flow: blood circulation (preset 2), the water cycle (preset 0), a river or canal network (preset 1); params preset, radius, speed, a; regions stream, source, sink
+- burst: a hook moment of astonishment, the Big Bang, an explosion or exothermic reaction; params rays, length, core, randomness; regions core, rays
