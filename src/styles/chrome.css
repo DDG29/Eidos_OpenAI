@@ -92,3 +92,48 @@
     gap: var(--s-1);
   }
 }
+
+/* Persistent stage */
+.stage-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(ellipse at 62% 50%, var(--ink-1), var(--ink-0) 70%);
+}
+.stage-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0;
+  transition: opacity 600ms var(--ease-out-expo);
+}
+.stage-canvas.is-live {
+  opacity: 1;
+}
+.stage-poster {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 62% 48%, rgba(124, 247, 212, 0.18), transparent 22%),
+    radial-gradient(circle at 58% 54%, rgba(91, 200, 255, 0.12), transparent 34%),
+    radial-gradient(circle at 66% 44%, rgba(167, 139, 250, 0.1), transparent 30%),
+    url("/posters/nebula.svg") center / cover no-repeat;
+  opacity: 0.9;
+}
+
+.lab-min {
+  position: fixed;
+  left: var(--margin);
+  bottom: var(--s-8);
+  z-index: 2;
+  display: grid;
+  gap: var(--s-3);
+  width: 280px;
+  padding: var(--s-4);
+}
+.lab-min label {
+  display: grid;
+  gap: var(--s-1);
+}

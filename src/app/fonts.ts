@@ -14,6 +14,7 @@ export const atkinson = Atkinson_Hyperlegible_Next({
   weight: "variable",
   display: "swap",
   variable: "--font-atkinson",
+  adjustFontFallback: false,
 });
 
 export const atkinsonMono = Atkinson_Hyperlegible_Mono({
@@ -22,4 +23,5 @@ export const atkinsonMono = Atkinson_Hyperlegible_Mono({
   display: "swap",
   variable: "--font-atkinson-mono",
   preload: false,
+  adjustFontFallback: false,
 });

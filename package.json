@@ -9,6 +9,8 @@
     "node": ">=22"
   },
   "scripts": {
+    "predev": "tsx scripts/sync-assets.ts",
+    "prebuild": "tsx scripts/sync-assets.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
