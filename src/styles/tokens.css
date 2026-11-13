@@ -1,0 +1,84 @@
+/* Observatorio design tokens (master prompt §4). Colour lives in the particles; the UI is near-monochrome. */
+:root {
+  /* Ink */
+  --ink-0: #04050a;
+  --ink-1: #0a0c14;
+  --ink-2: #121521;
+  --ink-3: #1b1f2e;
+  --hairline: rgba(233, 236, 245, 0.08);
+  --hairline-strong: rgba(233, 236, 245, 0.16);
+  --text-1: #e9ecf5;
+  --text-2: #9aa3b8;
+  /* #5D6680 in the spec fails WCAG AA for small text on ink-0; this is the closest passing value (4.6:1). */
+  --text-3: #7a849c;
+  --text-3-mark: #5d6680;
+
+  /* Signals */
+  --signal-truth: #6cf5b0;
+  --signal-partial: #ffb547;
+  --signal-crack: #ff5c7a;
+  --signal-general: #c9cedc;
+  --signal-hypo: #b79cff;
+  --signal-focus: #5be7ff;
+
+  /* Active accent: overridden per world by the player with the palette accent. */
+  --accent: var(--signal-focus);
+
+  /* Type */
+  --font-display: var(--font-bodoni), "Bodoni Moda", "Didot", serif;
+  --font-text: var(--font-atkinson), "Atkinson Hyperlegible Next", system-ui, sans-serif;
+  --font-mono: var(--font-atkinson-mono), "Atkinson Hyperlegible Mono", ui-monospace, monospace;
+
+  --text-scale: 1;
+  --fs-hero: calc(clamp(2.75rem, 1.4rem + 5.6vw, 6.5rem) * var(--text-scale));
+  --fs-world: calc(clamp(2.25rem, 1.4rem + 3.6vw, 4.5rem) * var(--text-scale));
+  --fs-beat: calc(clamp(1.75rem, 1.2rem + 2.2vw, 3rem) * var(--text-scale));
+  --fs-lead: calc(clamp(1.1875rem, 1.05rem + 0.55vw, 1.5rem) * var(--text-scale));
+  --fs-body: calc(clamp(1.0625rem, 0.98rem + 0.3vw, 1.25rem) * var(--text-scale));
+  --fs-ui: calc(clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem) * var(--text-scale));
+  --fs-caps: calc(clamp(0.6875rem, 0.67rem + 0.08vw, 0.75rem) * var(--text-scale));
+
+  /* Space (multiples of 4) */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-6: 24px;
+  --s-8: 32px;
+  --s-12: 48px;
+  --s-16: 64px;
+  --s-24: 96px;
+  --s-32: 128px;
+
+  --gutter: 24px;
+  --margin: 6vw;
+  --radius-control: 2px;
+  --radius-panel: 4px;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+  --d-micro: 120ms;
+  --d-ui: 240ms;
+  --d-panel: 480ms;
+  --d-grow: 700ms;
+  --d-jump: 1200ms;
+
+  --topbar-h: 64px;
+}
+
+:root[data-text-size="large"] {
+  --text-scale: 1.2;
+}
+
+:root[data-present="1"] {
+  --text-scale: 1.2;
+}
+
+@media (max-width: 639px) {
+  :root {
+    --margin: 16px;
+    --gutter: 16px;
+    --topbar-h: 56px;
+  }
+}

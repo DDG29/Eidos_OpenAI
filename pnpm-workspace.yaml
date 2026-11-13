@@ -1,0 +1,6 @@
+minimumReleaseAgeExclude:
+  - prettier@3.10.1
+allowBuilds:
+  esbuild: true
+  sharp: true
+  unrs-resolver: true

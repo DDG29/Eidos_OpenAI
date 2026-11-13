@@ -1,0 +1,7 @@
+node_modules
+.next
+pnpm-lock.yaml
+public/worlds
+public/replays
+docs/PROMPT_MAESTRO.md
+qa
