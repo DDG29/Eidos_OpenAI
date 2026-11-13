@@ -41,3 +41,9 @@ Format: date · decision · rejected alternative · reason.
     early entry still becomes available after three verified scenes.
 12. **Push blocked.** `git push` to `devxs614/eidos` returns 403 for the locally authenticated GitHub user (DDG29). All
     work is committed locally in parts; the owner must grant access or push from the devxs614 account.
+13. **No CRISPR demo world.** Writing the `crispr` world (spec 11.5) was stopped twice by a safety classifier in
+    this build environment, once for a subagent and once for the main session, even at a high-level educational
+    depth. Rather than work around it, the world is left out: the demo ships five worlds (transformer,
+    agujeros-negros, fotosintesis, interes-compuesto, ajolote), which still covers P0's count of four and P1's
+    breadth minus this one topic. The console placeholder that pointed at CRISPR now suggests the axolotl world.
+    The draft source `content/sources/crispr.md` is not committed.

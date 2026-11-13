@@ -47,7 +47,7 @@ typecheck + lint + test green, a phase-specific verification, a `PROGRESS.md` en
 ## Phase 5 — Demo worlds
 - [ ] Sources (`content/sources/*.md`) for 6 worlds + smoke source
 - [ ] `pnpm demo:cite`, `pnpm worlds:check`
-- [ ] Worlds: transformer, crispr, agujeros-negros, fotosintesis, interes-compuesto, ajolote (+ remedials, lens variants, ask replays)
+- [x] Worlds: transformer, agujeros-negros, fotosintesis, interes-compuesto, ajolote (+ remedials, lens variants, ask replays). crispr not produced (DECISIONS #13)
 - [ ] `_landing.json`, `eidos-pitch.json`
 - [ ] English versions `*.en.json`
 - [ ] Posters

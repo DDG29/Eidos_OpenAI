@@ -1,4 +1,80 @@
 {
- "generatedAt": "2026-11-13T02:20:13.791Z",
- "worlds": []
+ "generatedAt": "2026-11-13T18:22:25.525Z",
+ "worlds": [
+  {
+   "id": "agujeros-negros",
+   "title": "Donde el espacio se curva",
+   "subtitle": "Gravedad, horizontes y la primera imagen de un agujero negro",
+   "level": "prepa",
+   "language": "es",
+   "palette": "nebulosa",
+   "beats": 13,
+   "minutes": 9,
+   "origin": "demo",
+   "supportedPct": 90,
+   "createdAt": "2026-11-13T00:00:00.000Z",
+   "posterBeat": "b10",
+   "hasEnglish": false
+  },
+  {
+   "id": "ajolote",
+   "title": "El ajolote, maestro de la regeneración",
+   "subtitle": "Cómo un anfibio de Xochimilco vuelve a crecer una pata entera, y por qué su hogar necesita cuidado.",
+   "level": "curioso",
+   "language": "es",
+   "palette": "bioluz",
+   "beats": 13,
+   "minutes": 8,
+   "origin": "demo",
+   "supportedPct": 91,
+   "createdAt": "2026-11-13T00:00:00.000Z",
+   "posterBeat": "b02",
+   "hasEnglish": false
+  },
+  {
+   "id": "fotosintesis",
+   "title": "La fábrica de luz",
+   "subtitle": "Cómo las plantas convierten luz, agua y aire en comida y oxígeno",
+   "level": "curioso",
+   "language": "es",
+   "palette": "solar",
+   "beats": 13,
+   "minutes": 8,
+   "origin": "demo",
+   "supportedPct": 89,
+   "createdAt": "2026-11-13T00:00:00.000Z",
+   "posterBeat": "b04",
+   "hasEnglish": false
+  },
+  {
+   "id": "interes-compuesto",
+   "title": "El interés que gana interés",
+   "subtitle": "Por qué un centavo que se duplica puede vencer a un millón, y cómo el tiempo multiplica tu dinero (o tus deudas).",
+   "level": "prepa",
+   "language": "es",
+   "palette": "jade",
+   "beats": 13,
+   "minutes": 10,
+   "origin": "demo",
+   "supportedPct": 93,
+   "createdAt": "2026-11-13T00:00:00.000Z",
+   "posterBeat": "b08",
+   "hasEnglish": false
+  },
+  {
+   "id": "transformer",
+   "title": "Cómo piensa un Transformer",
+   "subtitle": "Tokens, atención y probabilidades: lo que pasa entre tu frase y la respuesta de una máquina.",
+   "level": "prepa",
+   "language": "es",
+   "palette": "aurora",
+   "beats": 14,
+   "minutes": 10,
+   "origin": "demo",
+   "supportedPct": 93,
+   "createdAt": "2026-11-13T00:00:00.000Z",
+   "posterBeat": "b04",
+   "hasEnglish": false
+  }
+ ]
 }
