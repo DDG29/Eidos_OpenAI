@@ -28,9 +28,9 @@
     "record-replay": "tsx scripts/pending.ts record-replay 7",
     "synth-replay": "tsx scripts/synth-replay.ts",
     "shots": "tsx scripts/pending.ts shots 10",
-    "posters": "tsx scripts/pending.ts posters 5",
+    "posters": "tsx scripts/posters.ts",
     "smoke:live": "tsx scripts/smoke-live.ts",
-    "eval": "tsx scripts/pending.ts eval 10",
+    "eval": "tsx scripts/eval.ts",
     "bench": "tsx scripts/pending.ts bench 3",
     "lighthouse": "tsx scripts/pending.ts lighthouse 9",
     "audit:placeholders": "tsx scripts/pending.ts audit:placeholders 11"
