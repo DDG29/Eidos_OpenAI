@@ -20,6 +20,7 @@ import { filamentStatus, passagesFor, verdictLabel } from "@/lib/world/verificat
 import { gradeOffline } from "@/demo/offlineGrader";
 import { isDemoMode, useHealth } from "@/lib/useHealth";
 import { useMediaQuery } from "@/lib/useMediaQuery";
+import { assembleWorld, findSessionForWorld, useForgeStore } from "@/lib/forge/session";
 import { TopBar, SoundToggle } from "@/components/ui/TopBar";
 import { LensDial } from "@/components/ui/LensDial";
 import { Ruler, type RulerMark } from "@/components/ui/Ruler";
@@ -86,6 +87,19 @@ export function Player({ worldId, present = false }: { worldId: string; present?
       alive = false;
     };
   }, [worldId, locale]);
+
+  // Early entry (spec 3.5): while the forge keeps streaming, new beats and verdicts flow into the open world.
+  useEffect(() => {
+    if (!world?.id) return;
+    const live = findSessionForWorld(world.id);
+    if (!live) return;
+    return useForgeStore.subscribe((st) => {
+      const s = st.sessions[live.id];
+      if (!s) return;
+      const w = assembleWorld(s, "forged");
+      if (w) usePlayer.getState().mergeLive(w);
+    });
+  }, [world?.id]);
 
   const beats: EffectiveBeat[] = useMemo(() => (world ? effectiveBeats(world, level, freshIds) : []), [world, level, freshIds]);
   const facts = useMemo(() => new Map((world?.facts ?? []).map((f) => [f.id, f])), [world]);

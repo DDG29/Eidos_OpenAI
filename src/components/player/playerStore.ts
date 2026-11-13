@@ -44,6 +44,8 @@ interface PlayerState {
   setGrowing: (g: PlayerState["growing"]) => void;
   completeRemedial: (conceptIds: string[]) => void;
   addTelemetry: (run: World["telemetry"][number]) => void;
+  /** merge a still-streaming forge into the open world, keeping the learner's progress */
+  mergeLive: (w: World) => void;
   persist: () => void;
 }
 
@@ -132,6 +134,18 @@ export const usePlayer = create<PlayerState>((set, get) => ({
     const mastery = { ...w.mastery };
     for (const c of conceptIds) mastery[c] = bumpMastery(mastery[c], "remedial");
     set({ world: { ...w, mastery } });
+    get().persist();
+  },
+  mergeLive: (incoming) => {
+    const w = get().world;
+    if (!w || w.id !== incoming.id) return;
+    const known = new Set(w.spec.beats.map((b) => b.id));
+    const fresh = new Set(get().freshIds);
+    for (const b of incoming.spec.beats) if (!known.has(b.id)) fresh.add(b.id);
+    set({
+      world: { ...incoming, inserted: w.inserted, mastery: w.mastery, levelVariants: w.levelVariants, demoAssets: w.demoAssets },
+      freshIds: fresh,
+    });
     get().persist();
   },
   addTelemetry: (run) => {

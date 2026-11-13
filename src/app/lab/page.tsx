@@ -1,16 +1,8 @@
 import type { Metadata } from "next";
-import { TopBar } from "@/components/ui/TopBar";
-import { LabMinimal } from "@/components/lab/LabMinimal";
+import { LabPage } from "@/components/lab/LabPage";
 
 export const metadata: Metadata = { title: "Lab" };
 
-export default function LabPage() {
-  return (
-    <>
-      <TopBar />
-      <main id="main" className="page">
-        <LabMinimal />
-      </main>
-    </>
-  );
+export default function Lab() {
+  return <LabPage />;
 }
