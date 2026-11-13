@@ -861,3 +861,42 @@
     display: none;
   }
 }
+
+/* ——— Pitch ——— */
+.pitch-live {
+  position: fixed;
+  right: var(--margin);
+  bottom: 48px;
+  z-index: 45;
+}
+.pitch-black {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: #000;
+}
+
+/* Checks are taller than a narration beat: anchor them under the top bar and tighten the type so the
+   question and every choice stay visible at 900 px tall. */
+.beat[data-kind="check"] .beat-sticky {
+  align-items: start;
+  padding-top: calc(var(--topbar-h) + var(--s-6));
+}
+.beat[data-kind="check"] .beat-title {
+  font-size: calc(var(--fs-beat) * 0.62);
+  margin-bottom: var(--s-3);
+}
+.beat[data-kind="check"] .beat-question {
+  font-size: calc(var(--fs-beat) * 0.58);
+  margin-bottom: var(--s-4);
+}
+.beat[data-kind="check"] .check-choice {
+  padding: var(--s-2) var(--s-3);
+  font-size: calc(var(--fs-body) * 0.92);
+  line-height: 1.4;
+}
+@media (max-height: 760px) {
+  .beat[data-kind="check"] .beat-title {
+    display: none;
+  }
+}

@@ -43,7 +43,7 @@ import { useSound } from "@/engine/audio/useSound";
 
 const HEIGHT: Partial<Record<Beat["kind"], number>> = { check: 120, finale: 200 };
 
-export function Player({ worldId, present = false }: { worldId: string; present?: boolean }) {
+export function Player({ worldId, present = false, brightnessFor }: { worldId: string; present?: boolean; brightnessFor?: (beatId: string) => Record<string, number> | undefined }) {
   const { t, locale } = useI18n();
   const router = useRouter();
   const motion = useSettings((s) => s.motion);
@@ -131,6 +131,7 @@ export function Player({ worldId, present = false }: { worldId: string; present?
       const { input, opts } = programFromBeats(`world:${world.id}`, world.spec.palette, programBeats, stage.N);
       const finale = input.beats.findIndex((b) => b.id === programBeats.find((x) => x.kind === "finale")?.id);
       if (finale >= 0) input.beats[finale] = { ...input.beats[finale]!, brightness };
+      if (brightnessFor) input.beats = input.beats.map((b) => (brightnessFor(b.id) ? { ...b, brightness: brightnessFor(b.id) } : b));
       if (!prevKey.current || stageStore.getState().programId !== input.id) {
         const fromOther = stageStore.getState().programId !== null;
         await stage.loadProgram(input, { ...opts, enterMs: fromOther ? 900 : 0 });

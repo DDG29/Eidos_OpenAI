@@ -1,0 +1,992 @@
+{
+ "id": "eidos-pitch",
+ "schemaVersion": 1,
+ "createdAt": "2026-11-13T00:00:00.000Z",
+ "origin": "demo",
+ "source": {
+  "mode": "url",
+  "title": "PISA 2025, cobertura de prensa del informe de la OCDE"
+ },
+ "spec": {
+  "title": "EIDOS",
+  "subtitle": "Toda idea tiene forma.",
+  "language": "es",
+  "level": "universidad",
+  "palette": "aurora",
+  "concepts": [
+   {
+    "id": "C01",
+    "name": "Rezago",
+    "summary": "Resultados de México en PISA 2025.",
+    "dependsOn": []
+   },
+   {
+    "id": "C02",
+    "name": "Curiosidad",
+    "summary": "Disposición a aprender.",
+    "dependsOn": []
+   }
+  ],
+  "beats": [
+   {
+    "id": "p01",
+    "kind": "hook",
+    "title": "4 de cada 10",
+    "sentences": [
+     {
+      "text": "En México, alrededor de 4 de cada 10 estudiantes de 15 años quedaron por debajo del nivel básico en PISA 2025.",
+      "factIds": [
+       "F01"
+      ]
+     },
+     {
+      "text": "Y no en una materia: en matemáticas, lectura y ciencias a la vez.",
+      "factIds": [
+       "F01"
+      ]
+     }
+    ],
+    "conceptIds": [],
+    "layers": [
+     {
+      "shape": "network",
+      "params": [
+       {
+        "key": "nodes",
+        "value": 10
+       },
+       {
+        "key": "topology",
+        "value": 0
+       },
+       {
+        "key": "node_size",
+        "value": 0.09
+       },
+       {
+        "key": "edge_density",
+        "value": 0.15
+       },
+       {
+        "key": "dimension",
+        "value": 2
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.82,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1.2,
+      "colorMode": "region",
+      "tint": "glow"
+     }
+    ],
+    "transition": "flow",
+    "camera": "orbit_close",
+    "annotations": [],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "tense",
+    "weight": 1
+   },
+   {
+    "id": "p02",
+    "kind": "concept",
+    "title": "La curiosidad existe",
+    "sentences": [
+     {
+      "text": "Ocho de cada diez dicen sentir curiosidad por distintos temas, más que el promedio internacional.",
+      "factIds": [
+       "F03"
+      ]
+     },
+     {
+      "text": "Las ganas están. Lo que falla son las herramientas.",
+      "factIds": []
+     }
+    ],
+    "conceptIds": [],
+    "layers": [
+     {
+      "shape": "burst",
+      "params": [
+       {
+        "key": "rays",
+        "value": 140
+       },
+       {
+        "key": "length",
+        "value": 1
+       },
+       {
+        "key": "core",
+        "value": 0.14
+       },
+       {
+        "key": "randomness",
+        "value": 0.35
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.9,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1.2,
+      "colorMode": "radial",
+      "tint": "primary"
+     }
+    ],
+    "transition": "explode",
+    "camera": "orbit_wide",
+    "annotations": [],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "wonder",
+    "weight": 1
+   },
+   {
+    "id": "p03",
+    "kind": "concept",
+    "title": "Plano, pasivo, genérico, no verificable",
+    "sentences": [
+     {
+      "text": "Aprendemos ideas vivas y tridimensionales en materiales planos y pasivos.",
+      "factIds": []
+     },
+     {
+      "text": "La misma explicación para todos, y un chatbot que no dice qué parte viene de tu fuente.",
+      "factIds": []
+     }
+    ],
+    "conceptIds": [],
+    "layers": [
+     {
+      "shape": "grid",
+      "params": [
+       {
+        "key": "resolution",
+        "value": 34
+       },
+       {
+        "key": "wells",
+        "value": 0
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.9,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 30,
+       "z": 0
+      },
+      "scale": 1.3,
+      "colorMode": "single",
+      "tint": "secondary"
+     }
+    ],
+    "transition": "rain",
+    "camera": "top_down",
+    "annotations": [],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "calm",
+    "weight": 1
+   },
+   {
+    "id": "p04",
+    "kind": "mechanism",
+    "title": "Toda idea tiene forma",
+    "sentences": [
+     {
+      "text": "Cuando una forma se transforma en otra, la transformación misma enseña la relación.",
+      "factIds": []
+     },
+     {
+      "text": "Por eso en EIDOS no hay cortes: solo morfosis.",
+      "factIds": []
+     }
+    ],
+    "conceptIds": [],
+    "layers": [
+     {
+      "shape": "helix",
+      "params": [
+       {
+        "key": "strands",
+        "value": 2
+       },
+       {
+        "key": "turns",
+        "value": 3
+       },
+       {
+        "key": "unwind",
+        "value": 0.55
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.9,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1.1,
+      "colorMode": "region",
+      "tint": "primary"
+     }
+    ],
+    "transition": "swirl",
+    "camera": "side",
+    "annotations": [],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "wonder",
+    "weight": 1
+   },
+   {
+    "id": "p05",
+    "kind": "application",
+    "title": "EIDOS",
+    "sentences": [
+     {
+      "text": "Le das a Claude un PDF, una foto o una pregunta; te devuelve un mundo que puedes recorrer.",
+      "factIds": []
+     },
+     {
+      "text": "Vamos a verlo en vivo.",
+      "factIds": []
+     }
+    ],
+    "conceptIds": [],
+    "layers": [
+     {
+      "shape": "torus",
+      "params": [
+       {
+        "key": "major",
+        "value": 0.92
+       },
+       {
+        "key": "minor",
+        "value": 0.035
+       },
+       {
+        "key": "fill",
+        "value": 0
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.88,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 90,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1.5,
+      "colorMode": "single",
+      "tint": "accent"
+     }
+    ],
+    "transition": "flow",
+    "camera": "orbit_close",
+    "annotations": [],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "wonder",
+    "weight": 1
+   },
+   {
+    "id": "p06",
+    "kind": "mechanism",
+    "title": "Una orquesta de Claude",
+    "sentences": [
+     {
+      "text": "Opus 5.5 lee y dirige; Sonnet 5.5 verifica y responde; Haiku 5.5 evalúa.",
+      "factIds": []
+     },
+     {
+      "text": "Citas nativas, salidas estructuradas, pensamiento visible, Files API, búsqueda web y caché.",
+      "factIds": []
+     }
+    ],
+    "conceptIds": [],
+    "layers": [
+     {
+      "shape": "network",
+      "params": [
+       {
+        "key": "nodes",
+        "value": 8
+       },
+       {
+        "key": "topology",
+        "value": 1
+       },
+       {
+        "key": "node_size",
+        "value": 0.07
+       },
+       {
+        "key": "edge_density",
+        "value": 0.3
+       },
+       {
+        "key": "dimension",
+        "value": 3
+       }
+      ],
+      "expr": [
+       {
+        "key": "labels",
+        "value": "Cartógrafo|Director|Escéptico|Tutor|Evaluador|Jardinero|Bifurcador|Lente"
+       }
+      ],
+      "data": [],
+      "share": 0.86,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1.25,
+      "colorMode": "region",
+      "tint": "primary"
+     }
+    ],
+    "transition": "fold",
+    "camera": "orbit_wide",
+    "annotations": [
+     {
+      "layerIndex": 0,
+      "regionId": "node_0",
+      "text": "Cartógrafo"
+     },
+     {
+      "layerIndex": 0,
+      "regionId": "node_1",
+      "text": "Director"
+     },
+     {
+      "layerIndex": 0,
+      "regionId": "node_2",
+      "text": "Escéptico"
+     },
+     {
+      "layerIndex": 0,
+      "regionId": "node_5",
+      "text": "Jardinero"
+     }
+    ],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "wonder",
+    "weight": 1
+   },
+   {
+    "id": "p07",
+    "kind": "concept",
+    "title": "Cada oración, verificada",
+    "sentences": [
+     {
+      "text": "Cada oración termina en un filamento que lleva al pasaje exacto de tu fuente.",
+      "factIds": []
+     },
+     {
+      "text": "Lo que no viene de la fuente se marca como conocimiento general. Nunca se disfraza.",
+      "factIds": []
+     }
+    ],
+    "conceptIds": [],
+    "layers": [
+     {
+      "shape": "text",
+      "params": [
+       {
+        "key": "depth",
+        "value": 0.1
+       },
+       {
+        "key": "weight",
+        "value": 1
+       }
+      ],
+      "expr": [
+       {
+        "key": "content",
+        "value": "FUENTE"
+       }
+      ],
+      "data": [],
+      "share": 0.9,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1.25,
+      "colorMode": "height",
+      "tint": "primary"
+     }
+    ],
+    "transition": "dissolve",
+    "camera": "orbit_close",
+    "annotations": [],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "wonder",
+    "weight": 1
+   },
+   {
+    "id": "p08",
+    "kind": "check",
+    "title": "El mundo crece contigo",
+    "sentences": [],
+    "conceptIds": [],
+    "layers": [
+     {
+      "shape": "tree",
+      "params": [
+       {
+        "key": "depth",
+        "value": 6
+       },
+       {
+        "key": "branch_angle",
+        "value": 30
+       },
+       {
+        "key": "leaves",
+        "value": 1
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.9,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1.15,
+      "colorMode": "height",
+      "tint": "primary"
+     }
+    ],
+    "transition": "flow",
+    "camera": "orbit_close",
+    "annotations": [],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": true,
+     "question": "¿Qué hace EIDOS cuando te equivocas en una comprobación?",
+     "choices": [
+      {
+       "text": "Te marca un error y sigue",
+       "misconceptionId": ""
+      },
+      {
+       "text": "Hace crecer un capítulo nuevo para tu error",
+       "misconceptionId": ""
+      },
+      {
+       "text": "Te regresa al inicio",
+       "misconceptionId": ""
+      }
+     ],
+     "correctIndex": 1,
+     "allowFreeText": false,
+     "idealAnswer": "Diagnostica el malentendido y hace crecer un capítulo nuevo.",
+     "explanation": "El Jardinero diseña uno o dos beats nuevos para ese malentendido, los verifica y los inserta justo después.",
+     "conceptIds": []
+    },
+    "ambient": "wonder",
+    "weight": 1
+   },
+   {
+    "id": "p09",
+    "kind": "finale",
+    "title": "Toda idea tiene forma",
+    "sentences": [],
+    "conceptIds": [],
+    "layers": [
+     {
+      "shape": "text",
+      "params": [
+       {
+        "key": "depth",
+        "value": 0.14
+       },
+       {
+        "key": "weight",
+        "value": 1
+       }
+      ],
+      "expr": [
+       {
+        "key": "content",
+        "value": "EIDOS"
+       }
+      ],
+      "data": [],
+      "share": 0.9,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1.25,
+      "colorMode": "height",
+      "tint": "primary"
+     }
+    ],
+    "transition": "flow",
+    "camera": "orbit_close",
+    "annotations": [],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "triumphant",
+    "weight": 1
+   }
+  ],
+  "closing": "EIDOS convierte cualquier PDF, foto o pregunta en un mundo que puedes recorrer, verificar y que crece contigo. Funciona en el celular de una estudiante y en el proyector de una maestra. Construido con Claude.",
+  "nextTopics": []
+ },
+ "facts": [
+  {
+   "id": "F01",
+   "text": "En PISA 2025, el 41.8 % de los estudiantes de 15 años de México quedó por debajo del nivel básico en matemáticas, lectura y ciencias al mismo tiempo; el promedio de la OCDE fue 19.7 %.",
+   "conceptId": "C01",
+   "origin": "web",
+   "citations": [
+    {
+     "kind": "web",
+     "citedText": "41.8 por ciento quedó por debajo del nivel básico en matemáticas, lectura y ciencias al mismo tiempo; promedio de la OCDE, que fue de 19.7 por ciento",
+     "documentIndex": -1,
+     "documentTitle": "Por Esto (8 sep 2026)",
+     "url": "https://www.poresto.com/mexico/2026/9/8/mexico-retrocede-en-pisa-2025-baja-en-matematicas-y-418-de-estudiantes-queda-debajo-del-nivel-basico.html",
+     "title": "México retrocede en PISA 2025"
+    }
+   ]
+  },
+  {
+   "id": "F02",
+   "text": "México obtuvo 388 puntos en matemáticas (OCDE: 463), 408 en lectura (OCDE: 461) y 414 en ciencias (OCDE: 482).",
+   "conceptId": "C01",
+   "origin": "web",
+   "citations": [
+    {
+     "kind": "web",
+     "citedText": "México alcanzó 388 puntos … 75 por debajo del promedio de la OCDE, que fue de 463 puntos; 408 puntos, frente a los 461; 414 puntos, mientras que la media de la OCDE fue de 482",
+     "documentIndex": -1,
+     "documentTitle": "Por Esto (8 sep 2026)",
+     "url": "https://www.poresto.com/mexico/2026/9/8/mexico-retrocede-en-pisa-2025-baja-en-matematicas-y-418-de-estudiantes-queda-debajo-del-nivel-basico.html",
+     "title": "México retrocede en PISA 2025"
+    }
+   ]
+  },
+  {
+   "id": "F03",
+   "text": "Ocho de cada diez estudiantes mexicanos dijeron sentir curiosidad por distintos temas, frente al 73 % del promedio internacional.",
+   "conceptId": "C02",
+   "origin": "web",
+   "citations": [
+    {
+     "kind": "web",
+     "citedText": "Ocho de cada 10 dijeron sentir curiosidad por distintos temas, frente a 73 por ciento del promedio internacional",
+     "documentIndex": -1,
+     "documentTitle": "La Razón (9 sep 2026)",
+     "url": "https://www.razon.com.mx/mexico/2026/09/09/revela-pisa-deuda-en-aprendizaje-y-que-aun-impacta-brecha-economica/",
+     "title": "Revela PISA deuda en aprendizaje"
+    }
+   ]
+  }
+ ],
+ "misconceptions": [],
+ "verification": {
+  "p01": [
+   {
+    "index": 0,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F01"
+    ],
+    "note": "Cifra tal como la reporta la fuente",
+    "revised": false
+   },
+   {
+    "index": 1,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F01"
+    ],
+    "note": "",
+    "revised": false
+   }
+  ],
+  "p02": [
+   {
+    "index": 0,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F03"
+    ],
+    "note": "",
+    "revised": false
+   }
+  ]
+ },
+ "inserted": [],
+ "levelVariants": {},
+ "mastery": {},
+ "telemetry": [],
+ "specReport": {
+  "corrections": []
+ },
+ "lintReport": {
+  "score": 100,
+  "errors": [],
+  "warnings": []
+ },
+ "posterBeat": "p06",
+ "demoAssets": {
+  "remedials": {
+   "p08": [
+    {
+     "id": "r01a",
+     "kind": "mechanism",
+     "title": "Una grieta, un brote",
+     "sentences": [
+      {
+       "text": "El Evaluador nombra la idea equivocada y el Jardinero diseña un ángulo nuevo, solo para ti.",
+       "factIds": []
+      },
+      {
+       "text": "El Escéptico lo verifica y el capítulo brota justo aquí, sin que pierdas tu lugar.",
+       "factIds": []
+      }
+     ],
+     "conceptIds": [],
+     "layers": [
+      {
+       "shape": "tree",
+       "params": [
+        {
+         "key": "depth",
+         "value": 7
+        },
+        {
+         "key": "branch_angle",
+         "value": 38
+        },
+        {
+         "key": "asymmetry",
+         "value": 0.5
+        }
+       ],
+       "expr": [],
+       "data": [],
+       "share": 0.6,
+       "position": {
+        "x": -0.4,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 1.05,
+       "colorMode": "height",
+       "tint": "primary"
+      },
+      {
+       "shape": "burst",
+       "params": [
+        {
+         "key": "rays",
+         "value": 48
+        },
+        {
+         "key": "length",
+         "value": 0.5
+        }
+       ],
+       "expr": [],
+       "data": [],
+       "share": 0.3,
+       "position": {
+        "x": 0.9,
+        "y": 0.6,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 0.5,
+       "colorMode": "single",
+       "tint": "glow"
+      }
+     ],
+     "transition": "explode",
+     "camera": "orbit_wide",
+     "annotations": [],
+     "knob": {
+      "enabled": false,
+      "label": "",
+      "layerIndex": 0,
+      "paramKey": "",
+      "min": 0,
+      "max": 0,
+      "initial": 0,
+      "step": 0,
+      "unit": "",
+      "readout": ""
+     },
+     "check": {
+      "enabled": false,
+      "question": "",
+      "choices": [],
+      "correctIndex": 0,
+      "allowFreeText": false,
+      "idealAnswer": "",
+      "explanation": "",
+      "conceptIds": []
+     },
+     "ambient": "triumphant",
+     "weight": 1
+    }
+   ]
+  }
+ }
+}

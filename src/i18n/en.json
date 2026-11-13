@@ -324,5 +324,6 @@
   "atlas.palette.jade": "Health & money",
   "atlas.palette.nebulosa": "Astrophysics",
   "lab.random": "Random morph",
-  "lab.copy": "Copy as layer JSON"
+  "lab.copy": "Copy as layer JSON",
+  "pitch.live": "See it live"
 }

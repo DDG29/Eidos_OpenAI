@@ -324,5 +324,6 @@
   "atlas.palette.jade": "Salud y dinero",
   "atlas.palette.nebulosa": "Astrofísica",
   "lab.random": "Morfosis aleatoria",
-  "lab.copy": "Copiar como capa JSON"
+  "lab.copy": "Copiar como capa JSON",
+  "pitch.live": "Verlo en vivo"
 }

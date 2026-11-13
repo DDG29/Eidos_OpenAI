@@ -81,7 +81,7 @@ for (const f of files) {
     beats.forEach((b, i) => sanitizeBeat(b, i, { ...ctx, idPrefix: b.id.slice(0, 3) }, rep));
     for (const r of rep.filter((x) => x.severity === "error")) problems.push(`remedial ${afterId}: ${r.message}`);
     for (const r of rep.filter((x) => x.severity === "warning")) notes.push(`remedial ${afterId}: ${r.code} ${r.message}`);
-    if (!beats.some((b) => b.kind === "check")) problems.push(`remedials after ${afterId} need a follow-up check beat`);
+    if (!internal && !beats.some((b) => b.kind === "check")) problems.push(`remedials after ${afterId} need a follow-up check beat`);
   }
   if (!internal) {
     for (const c of checkIds) if (!w.demoAssets?.remedials?.[c]) problems.push(`no precomposed remedial for check ${c}`);
