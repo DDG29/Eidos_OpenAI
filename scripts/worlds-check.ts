@@ -14,7 +14,7 @@ loadFontsFromDisk();
 const dir = "public/worlds";
 const only = process.argv[2];
 const files = readdirSync(dir)
-  .filter((f) => f.endsWith(".json") && f !== "index.json")
+  .filter((f) => f.endsWith(".json") && f !== "index.json" && !f.startsWith("zz-"))
   .filter((f) => !only || f.startsWith(only))
   .sort();
 let failed = 0;
