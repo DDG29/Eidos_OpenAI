@@ -1,0 +1,266 @@
+/* ——— Forge Theater (3.5, 4.10) ——— */
+.theater {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(0, 1.6fr) minmax(260px, 1fr);
+  grid-template-rows: 1fr auto;
+  gap: var(--s-6);
+  padding: calc(var(--topbar-h) + var(--s-6)) var(--margin) 0;
+}
+.theater h2 {
+  color: var(--text-2);
+  margin-bottom: var(--s-4);
+}
+.theater-log ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s-4);
+}
+.log-item {
+  display: grid;
+  gap: var(--s-1);
+  padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--hairline);
+}
+.log-head {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+.log-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-3-mark);
+  flex: none;
+}
+.log-item[data-status="progress"] .log-dot {
+  background: var(--accent);
+  animation: dot-pulse 1.4s ease-in-out infinite;
+}
+.log-item[data-status="done"] .log-dot {
+  background: var(--signal-truth);
+}
+.log-item[data-status="error"] .log-dot {
+  background: var(--signal-crack);
+}
+.log-item[data-status="error"] .log-doing {
+  color: var(--signal-crack);
+}
+@keyframes dot-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+.log-model {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--text-3);
+}
+.log-doing {
+  font-size: 15px;
+  color: var(--text-1);
+}
+.log-thinking {
+  font-size: calc(15px * 0.92);
+  color: var(--text-2);
+  max-height: 5.6em;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 40%);
+  mask-image: linear-gradient(to bottom, transparent, #000 40%);
+  display: flex;
+  flex-direction: column-reverse;
+}
+.log-search,
+.log-note {
+  font-size: 0.85rem;
+  color: var(--text-2);
+}
+.log-progress {
+  height: 2px;
+  background: var(--hairline);
+  overflow: hidden;
+}
+.log-progress span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: left;
+  transition: transform var(--d-ui);
+}
+.theater-scenes {
+  position: relative;
+  align-self: center;
+  aspect-ratio: 1;
+  width: min(100%, 64vh);
+  justify-self: center;
+}
+.scene-ring {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+}
+.scene-ring-path {
+  fill: none;
+  stroke: var(--hairline-strong);
+  stroke-dasharray: 1 6;
+}
+.scene-node {
+  fill: var(--ink-1);
+  stroke: var(--text-3-mark);
+  transition: all var(--d-panel) var(--ease-out-expo);
+}
+.scene-node[data-state="new"] {
+  fill: var(--text-1);
+  stroke: var(--text-1);
+}
+.scene-node[data-state="verified"] {
+  fill: var(--signal-truth);
+  stroke: var(--signal-truth);
+}
+.scene-node[data-state="partial"] {
+  fill: var(--signal-partial);
+  stroke: var(--signal-partial);
+}
+.scene-thumbs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.scene-thumbs li {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  width: 96px;
+  opacity: 0;
+  transition: opacity var(--d-panel);
+  pointer-events: none;
+}
+.scene-thumbs li[data-on] {
+  opacity: 1;
+  animation: bloom 900ms var(--ease-out-expo) both;
+}
+@keyframes bloom {
+  from {
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+}
+.scene-thumbs img {
+  width: 80px;
+  height: 50px;
+  border: 1px solid var(--hairline);
+}
+.scene-thumbs .caps {
+  font-size: 9px;
+  color: var(--text-2);
+  text-align: center;
+  max-width: 96px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.theater-enter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: enter-pulse 2.4s ease-in-out infinite;
+  background: rgba(4, 5, 10, 0.6);
+}
+@keyframes enter-pulse {
+  50% {
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 18%, transparent);
+  }
+}
+.theater-counts {
+  font-size: 0.8rem;
+  color: var(--text-2);
+  margin-bottom: var(--s-4);
+}
+.fact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s-3);
+}
+.fact-card {
+  background: var(--ink-1);
+  border-top: 1px solid var(--hairline-strong);
+  padding: var(--s-3) var(--s-3) var(--s-3);
+  animation: fact-in 520ms var(--ease-out-expo) both;
+  transition: opacity var(--d-panel);
+}
+.fact-card[data-cited] {
+  border-top-color: var(--signal-truth);
+}
+@keyframes fact-in {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+.fact-cite {
+  margin-top: var(--s-1);
+  color: var(--text-2);
+  font-size: 0.82rem;
+}
+.theater-status {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-8);
+  padding: var(--s-4) 0 var(--s-6);
+  border-top: 1px solid var(--hairline);
+  font-size: 0.82rem;
+  color: var(--text-2);
+}
+.theater-status .btn-secondary {
+  margin-left: auto;
+}
+.theater-replay {
+  color: var(--signal-partial);
+}
+.theater-speed {
+  display: inline-flex;
+  gap: 4px;
+}
+.theater-speed button {
+  padding: 2px 6px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-control);
+  color: var(--text-2);
+}
+.theater-speed button[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: var(--text-1);
+}
+@media (max-width: 1023px) {
+  .theater {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .theater-scenes {
+    order: -1;
+    width: min(100%, 52vh);
+  }
+  .theater-log ol {
+    grid-auto-flow: column;
+    grid-auto-columns: 78%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+  .log-item {
+    scroll-snap-align: start;
+  }
+  .fact-list {
+    grid-auto-flow: column;
+    grid-auto-columns: 78%;
+    overflow-x: auto;
+  }
+}

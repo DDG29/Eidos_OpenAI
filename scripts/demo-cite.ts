@@ -2,6 +2,7 @@
 import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type { World } from "../src/lib/world/types";
+import { paragraphAt } from "../src/lib/world/paragraph";
 
 const dir = "public/worlds";
 let failures = 0;
@@ -34,7 +35,7 @@ for (const f of files) {
       failures++;
       continue;
     }
-    const paragraph = source.slice(0, start).split(/\n\s*\n/).filter((p) => p.trim() && !p.trim().startsWith("#")).length + 1;
+    const paragraph = paragraphAt(source, start);
     fact.citations = [{ kind: "char", citedText: fact.quote, documentIndex: 0, documentTitle: title, startChar: start, endChar: start + fact.quote.length, paragraph }];
     fact.origin = "source";
     n++;

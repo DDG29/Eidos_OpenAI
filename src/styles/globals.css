@@ -4,6 +4,7 @@
 @import "./components.css";
 @import "./player.css";
 @import "./reading.css";
+@import "./theater.css";
 
 @theme inline {
   --color-ink-0: var(--ink-0);
