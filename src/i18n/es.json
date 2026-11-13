@@ -313,5 +313,16 @@
   "theater.noWeb": "Sin búsqueda web: Claude explica desde su conocimiento general.",
   "theater.searching": "Buscando: {q}",
   "theater.waiting": "En espera",
-  "theater.scenes": "Escenas"
+  "theater.scenes": "Escenas",
+  "atlas.topic": "Tema",
+  "atlas.palette.aurora": "Física y tecnología",
+  "atlas.palette.magma": "Energía y química",
+  "atlas.palette.abismo": "Agua y cosmos",
+  "atlas.palette.bioluz": "Biología",
+  "atlas.palette.solar": "Sol y economía",
+  "atlas.palette.tinta": "Matemáticas e historia",
+  "atlas.palette.jade": "Salud y dinero",
+  "atlas.palette.nebulosa": "Astrofísica",
+  "lab.random": "Morfosis aleatoria",
+  "lab.copy": "Copiar como capa JSON"
 }
