@@ -9,8 +9,7 @@ What was left out of this version, in priority order, and why.
    replays and the literal-quote verification of the demo worlds with Skeptic verdicts.
 2. **English demo worlds** (`*.en.json`) translated with the same rigor as the Spanish ones. The interface is fully
    bilingual today; the five demo worlds are Spanish only.
-3. **A CRISPR world** written and reviewed by people (the build environment's safety classifier stopped it; see
-   DECISIONS #13).
+3. **A CRISPR world** (spec 11.5), left out of this version (DECISIONS #13).
 4. **Pilot with schools**: a before/after measurement in real classrooms. The product already records mastery per
    concept; what is missing is evidence that learners learn more.
 

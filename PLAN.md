@@ -73,7 +73,7 @@ typecheck + lint + test green, a phase-specific verification, a `PROGRESS.md` en
 - [ ] `/pitch` (presentation mode, B, F, live crack)
 - [ ] Autopilot (`Shift+D`, `?autopilot=1`, virtual cursor)
 - [ ] Generative sound; browser voice narration
-- [ ] Vertical video (P2) · Claude Code skills/agents (P2)
+- [ ] Vertical video (P2)
 
 ## Phase 9 — Polish
 - [ ] Accessibility (scene descriptions, keyboard, `?` dialog, axe clean)

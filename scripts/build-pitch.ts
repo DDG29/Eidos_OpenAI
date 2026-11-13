@@ -223,8 +223,8 @@ function build(lang: Lang): World {
       ],
       beats,
       closing: es
-        ? "EIDOS convierte cualquier PDF, foto o pregunta en un mundo que puedes recorrer, verificar y que crece contigo. Funciona en el celular de una estudiante y en el proyector de una maestra. Construido con Claude."
-        : "EIDOS turns any PDF, photo or question into a world you can walk through, verify, and that grows with you. It works on a student's phone and on a teacher's projector. Built with Claude.",
+        ? "EIDOS convierte cualquier PDF, foto o pregunta en un mundo que puedes recorrer, verificar y que crece contigo. Funciona en el celular de una estudiante y en el proyector de una maestra."
+        : "EIDOS turns any PDF, photo or question into a world you can walk through, verify, and that grows with you. It works on a student's phone and on a teacher's projector.",
       nextTopics: [],
     },
     facts,

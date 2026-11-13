@@ -2,7 +2,7 @@
   "name": "eidos",
   "version": "0.1.0",
   "private": true,
-  "description": "EIDOS — Every idea has a shape. Turn any source into an explorable world of light, built with Claude.",
+  "description": "EIDOS — Every idea has a shape. Turn any source into an explorable world of light.",
   "license": "MIT",
   "type": "module",
   "engines": {

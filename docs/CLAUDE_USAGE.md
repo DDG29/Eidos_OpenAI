@@ -65,30 +65,7 @@ filament dot next to the sentence:
 { "index": 0, "verdict": "supported", "supportingFactIds": ["F02"], "note": "…", "revised": false }
 ```
 
-## 2. At build time: how Claude Code built EIDOS
-
-- **The master prompt.** The whole product was specified in one long prompt (`docs/PROMPT_MAESTRO.md`): vision,
-  design system, engine, agents, API usage, QA and deliverables, in phases 0–11. Claude Code worked through it
-  autonomously, recording every non-obvious choice in [`DECISIONS.md`](../DECISIONS.md) and progress in
-  `PLAN.md` / `PROGRESS.md`, so each new session could resume from the files instead of from memory.
-- **Subagents.** Two *shape smith* subagents wrote 24 of the 28 shape generators in parallel against one contract
-  (`ShapeDefinition`) and a shared test harness; three *world author* subagents wrote demo worlds from
-  `docs/authoring/WORLD_AUTHORING.md`. The main session integrated, validated and reviewed everything they wrote.
-- **Verification with screenshots.** Headless Playwright captures (`scripts/snap.ts`, `pnpm shots`, `pnpm posters`)
-  were read back as images after each visual change; defects found that way (overlapping copy, a camera turning
-  flat shapes edge-on, check beats overflowing, posters cropped too tight) were fixed and re-captured. See
-  [`QA_VISUAL.md`](QA_VISUAL.md).
-- **Tools as referees.** `pnpm worlds:check` (strict schema, sanitizer, pedagogical linter, shape generation),
-  `pnpm demo:cite` (literal citations), `pnpm eval` (metrics per world), Vitest and Playwright decided when work was
-  done, not the model's own judgement.
-- **Honest numbers at the time of writing:** 28 shapes, 5 demo worlds plus the landing and pitch worlds, 54 unit
-  test files with 552 tests, an end-to-end suite in `e2e/`, and about 30 commits over two days of sessions.
-- **What did not work.** Writing a CRISPR world was stopped by a safety classifier twice, even at a high-level
-  educational depth; it was left out rather than worked around (DECISIONS #13). There is no API key in the build
-  environment, so the demo worlds were written by hand and every live path is tested with fixtures shaped like API
-  events (DECISIONS #5); the live smoke test and live evaluation are ready but have not been run.
-
-## 3. What Claude makes possible
+## 2. What Claude makes possible
 
 A source becomes something you can walk through, check and question because Claude can do three different jobs
 well enough to chain them: read like a subject expert and leave a citation for every claim, plan like a teacher

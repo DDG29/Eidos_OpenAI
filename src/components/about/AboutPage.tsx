@@ -50,7 +50,7 @@ const CONTENT: Record<"es" | "en", { title: string; lead: string; sections: Sect
       {
         h: "Créditos",
         p: [
-          "Construido con Claude. Tipografías Bodoni Moda y Atkinson Hyperlegible Next y Mono (SIL Open Font License). Ruido simplex de Stefan Gustavson y Ashima Arts (MIT). three.js, postprocessing, GSAP, Lenis, Zod y Next.js.",
+          "Tipografías Bodoni Moda y Atkinson Hyperlegible Next y Mono (SIL Open Font License). Ruido simplex de Stefan Gustavson y Ashima Arts (MIT). three.js, postprocessing, GSAP, Lenis, Zod y Next.js.",
           "EIDOS es un prototipo educativo. No sustituye a tus maestros ni a tus libros: te ayuda a entenderlos.",
         ],
       },
@@ -92,7 +92,7 @@ const CONTENT: Record<"es" | "en", { title: string; lead: string; sections: Sect
       {
         h: "Credits",
         p: [
-          "Built with Claude. Typefaces Bodoni Moda and Atkinson Hyperlegible Next and Mono (SIL Open Font License). Simplex noise by Stefan Gustavson and Ashima Arts (MIT). three.js, postprocessing, GSAP, Lenis, Zod and Next.js.",
+          "Typefaces Bodoni Moda and Atkinson Hyperlegible Next and Mono (SIL Open Font License). Simplex noise by Stefan Gustavson and Ashima Arts (MIT). three.js, postprocessing, GSAP, Lenis, Zod and Next.js.",
           "EIDOS is an educational prototype. It does not replace your teachers or your books: it helps you understand them.",
         ],
       },

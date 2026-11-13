@@ -19,7 +19,7 @@
 
 **Next**: Phase 1 — engine core.
 
-## 2026-11-12 — Phases 1–4 in progress (session paused: usage limit)
+## 2026-11-12 — Phases 1–4 in progress (paused)
 
 **Done and verified**
 - Engine core committed (c7f7c3c): particle field, GPGPU cursor layer, shaders, Stage, CameraRig, QualityManager,
@@ -30,7 +30,7 @@
   `pnpm catalog`, `pnpm demo:cite`, `pnpm worlds:check`, SSE parser, pricing/estimate, offline grader.
 
 **Unfinished (resume here)**
-- Shape subagents were stopped mid-work. Shape files present in `src/engine/shapes/` need review, tests run
+- Shape work was paused midway. Shape files present in `src/engine/shapes/` need review, tests run
   (`pnpm vitest run src/engine/shapes`) and registration in `registry.ts`; missing generators must be finished
   (24 total beyond sphere/helix/text/nebula). Then `pnpm catalog`.
 - `src/components/player/Player.tsx` imports modules not yet written: `grow.ts`, `AskPanel.tsx`,
