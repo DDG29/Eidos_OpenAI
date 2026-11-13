@@ -26,33 +26,38 @@ export function AutopilotHost() {
     ctrl.current = null;
   }, []);
 
+  const [runId, setRunId] = useState(0);
   const start = useCallback(() => {
     if (ctrl.current) return;
-    const ac = new AbortController();
-    ctrl.current = ac;
+    ctrl.current = new AbortController();
     setRunning(true);
-    // The cursor elements mount with `running`; start on the next frame.
-    requestAnimationFrame(() => {
-      if (!cursorEl.current || ac.signal.aborted) return;
-      const env = {
-        navigate: (url: string) => router.push(url),
-        signal: ac.signal,
-        cursor: new VirtualCursor(cursorEl.current, trailEl.current),
-        say: (l: PilotLine) => setLine(l),
-        speed: 2,
-      };
-      const run = window.location.pathname.startsWith("/pitch") ? runPitchScript(env) : runMainScript(env, locale);
-      run
-        .catch((e: unknown) => {
-          if (!(e instanceof AutopilotAborted)) console.warn("[autopilot]", e instanceof Error ? e.message : e);
-        })
-        .finally(() => {
-          if (ctrl.current === ac) ctrl.current = null;
-          setRunning(false);
-          setLine(null);
-        });
-    });
-  }, [router, locale]);
+    setRunId((n) => n + 1);
+  }, []);
+
+  // The script starts after the commit that mounts the cursor, so its element always exists by then.
+  useEffect(() => {
+    const ac = ctrl.current;
+    if (!runId || !ac || ac.signal.aborted || !cursorEl.current) return;
+    const env = {
+      navigate: (url: string) => router.push(url),
+      signal: ac.signal,
+      cursor: new VirtualCursor(cursorEl.current, trailEl.current),
+      say: (l: PilotLine) => setLine(l),
+      speed: 2,
+    };
+    const run = window.location.pathname.startsWith("/pitch") ? runPitchScript(env) : runMainScript(env, locale);
+    void run
+      .catch((e: unknown) => {
+        if (!(e instanceof AutopilotAborted)) console.warn("[autopilot]", e instanceof Error ? e.message : e);
+      })
+      .finally(() => {
+        if (ctrl.current === ac) ctrl.current = null;
+        setRunning(false);
+        setLine(null);
+      });
+    // Runs once per start; router and locale changes during a run must not restart it.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [runId]);
 
   useEffect(() => {
     const q = new URLSearchParams(window.location.search).get("autopilot");

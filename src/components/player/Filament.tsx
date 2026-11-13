@@ -28,6 +28,8 @@ export function Filament({ status, label, verdict, note, passages, children, onA
   revisedLabel?: string;
 }) {
   const [open, setOpen] = useState(false);
+  // Hover opens the panel on mouse devices; a click that follows the hover must not toggle it shut again.
+  const hoverOpenedAt = useRef(0);
   const btn = useRef<HTMLButtonElement>(null);
   const panel = useRef<HTMLDivElement>(null);
   const id = useId();
@@ -75,8 +77,12 @@ export function Filament({ status, label, verdict, note, passages, children, onA
         aria-expanded={open}
         aria-controls={open ? id : undefined}
         aria-label={label}
-        onClick={() => setOpen((o) => !o)}
-        onMouseEnter={() => window.matchMedia("(hover: hover)").matches && setOpen(true)}
+        onClick={() => setOpen((o) => (o && performance.now() - hoverOpenedAt.current < 600 ? true : !o))}
+        onMouseEnter={() => {
+          if (!window.matchMedia("(hover: hover)").matches) return;
+          hoverOpenedAt.current = performance.now();
+          setOpen(true);
+        }}
       >
         <span className="filament-dot" aria-hidden />
       </button>

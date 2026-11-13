@@ -14,8 +14,8 @@ export function LanguageToggle() {
       type="button"
       className="lang-toggle caps"
       onClick={() => setLocale(locale === "es" ? "en" : "es")}
-      aria-label={t("ui.languageSwitch")}
     >
+      {/* No aria-label: the accessible name must start with the visible "ES / EN" (WCAG 2.5.3). */}
       <span aria-current={locale === "es" ? "true" : undefined} data-on={locale === "es"}>
         ES
       </span>
@@ -25,6 +25,7 @@ export function LanguageToggle() {
       <span aria-current={locale === "en" ? "true" : undefined} data-on={locale === "en"}>
         EN
       </span>
+      <span className="sr-only">{t("ui.languageSwitch")}</span>
     </button>
   );
 }

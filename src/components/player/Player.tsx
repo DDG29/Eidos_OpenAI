@@ -8,7 +8,7 @@ import { useSettings, prefersReducedMotion } from "@/lib/settings/store";
 import { Narrator } from "@/engine/audio/Narrator";
 import { loadWorld } from "@/lib/storage/worlds";
 import { whenStage, getStage } from "@/engine/stage/stageRef";
-import { stageStore } from "@/engine/stage/stageStore";
+import { stageStore, useStage } from "@/engine/stage/stageStore";
 import { programFromBeats } from "@/engine/stage/programFromBeats";
 import { ScrollConductor } from "@/engine/scroll/ScrollConductor";
 import { pick } from "@/engine/interaction/Picker";
@@ -218,6 +218,7 @@ export function Player({ worldId, present = false, brightnessFor }: { worldId: s
 
   // Voice narration (spec 12.7): read the beat the reading point settles on; leaving it stops the voice.
   const voiceOn = useSettings((s) => s.voice);
+  const stageStatus = useStage((s) => s.status);
   const narrator = useRef<Narrator | null>(null);
   useEffect(() => {
     narrator.current ??= new Narrator();
@@ -632,7 +633,7 @@ export function Player({ worldId, present = false, brightnessFor }: { worldId: s
           );
         })}
       </main>
-      {cur && <Annotations items={cur.beat.annotations} visible={annotationsVisible} mobile={mobile} onHover={(a) => highlightAnnotation(a)} />}
+      {cur && <Annotations items={cur.beat.annotations} visible={annotationsVisible} mobile={mobile} onHover={(a) => highlightAnnotation(a)} onPick={(a) => openAsk({ question: lang === "es" ? `¿Qué es esto? (${a.text})` : `What is this? (${a.text})`, region: a.text })} />}
       {radial && (
         <RadialMenu
           x={radial.x}
@@ -648,6 +649,12 @@ export function Player({ worldId, present = false, brightnessFor }: { worldId: s
             window.setTimeout(() => getStage()?.setHighlight({ index: radial.regionIndex }), 50);
           }}
         />
+      )}
+      {(stageStatus === "nowebgl" || stageStatus === "lost") && (
+        <p className="nowebgl-note ui" role="status" data-ui>
+          {t("player.noWebgl")}{" "}
+          <Link href={`/m/${encodeURIComponent(worldId)}/leer`}>{t("player.openReading")}</Link>
+        </p>
       )}
       {!present && (
         <button type="button" className="ask-bar ui" data-ui onClick={() => openAsk(null)} aria-keyshortcuts="/">

@@ -339,5 +339,7 @@
   "autopilot.finale": "La Constelación",
   "autopilot.engine": "La Sala de Máquinas",
   "autopilot.end": "Toda idea tiene forma.",
-  "autopilot.pitch": "Presentación"
+  "autopilot.pitch": "Presentación",
+  "player.noWebgl": "Este dispositivo no puede mostrar las partículas en 3D. El modo lectura tiene el mismo contenido, con figuras fijas.",
+  "player.openReading": "Abrir modo lectura"
 }

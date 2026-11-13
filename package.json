@@ -27,13 +27,13 @@
     "bake": "tsx scripts/bake.ts",
     "record-replay": "tsx scripts/pending.ts record-replay 7",
     "synth-replay": "tsx scripts/synth-replay.ts",
-    "shots": "tsx scripts/pending.ts shots 10",
+    "shots": "tsx scripts/shots.ts",
     "posters": "tsx scripts/posters.ts",
     "smoke:live": "tsx scripts/smoke-live.ts",
     "eval": "tsx scripts/eval.ts",
-    "bench": "tsx scripts/pending.ts bench 3",
+    "bench": "tsx scripts/bench.ts",
     "lighthouse": "tsx scripts/pending.ts lighthouse 9",
-    "audit:placeholders": "tsx scripts/pending.ts audit:placeholders 11"
+    "audit:placeholders": "tsx scripts/audit-placeholders.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "1.8.0",

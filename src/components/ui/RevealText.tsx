@@ -19,7 +19,7 @@ export function RevealText({ as: Tag = "p", visible, children, className, delay 
       gsap.to(el, { opacity: visible ? 1 : 0, duration: 0.3 });
       return;
     }
-    if (!split.current) split.current = SplitText.create(el, { type: "lines", mask: "lines", linesClass: "reveal-line", autoSplit: true });
+    if (!split.current) split.current = SplitText.create(el, { type: "lines", mask: "lines", linesClass: "reveal-line", autoSplit: true, aria: "none" });
     const lines = split.current.lines;
     gsap.set(el, { opacity: 1 });
     gsap.killTweensOf(lines);

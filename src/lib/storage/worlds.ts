@@ -66,7 +66,17 @@ export async function loadWorld(id: string, lang: Lang): Promise<World | null> {
     }
   };
   if (!/^[a-z0-9_-]{1,64}$/i.test(id)) return null;
-  return (lang === "en" ? await tryFetch(`/worlds/${id}.en.json`) : null) ?? (await tryFetch(`/worlds/${id}.json`));
+  // Ask the manifest first: requesting a translation that does not exist would log a 404 on every visit.
+  return (lang === "en" && (await demoHasEnglish(id)) ? await tryFetch(`/worlds/${id}.en.json`) : null) ?? (await tryFetch(`/worlds/${id}.json`));
+}
+
+let manifest: Promise<DemoManifestEntry[]> | null = null;
+/** The demo manifest, fetched once per page load. */
+export function demoManifest(): Promise<DemoManifestEntry[]> {
+  return (manifest ??= loadDemoManifest());
+}
+export async function demoHasEnglish(id: string): Promise<boolean> {
+  return (await demoManifest()).some((e) => e.id === id && e.hasEnglish);
 }
 
 export interface DemoManifestEntry extends WorldSummary {

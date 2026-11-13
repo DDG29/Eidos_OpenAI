@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 import { StageMount } from "./StageMount";
 import { AutopilotHost } from "@/components/demo/AutopilotHost";
+import { PerfHud } from "./PerfHud";
 
 export function AppShell({ children }: { children: ReactNode }) {
   const { t } = useI18n();
@@ -15,6 +16,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       <StageMount />
       {children}
       <AutopilotHost />
+      <PerfHud />
     </>
   );
 }

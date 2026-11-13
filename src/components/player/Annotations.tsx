@@ -13,7 +13,7 @@ import { MOTION_TYPES } from "@/engine/types";
  * Scene annotations (spec 4.8.4, 5.10.3): small caps labels joined by a 1 px guide to the projected centroid
  * of their region. Positioned every frame from the engine loop via direct DOM writes (no React re-renders).
  */
-export function Annotations({ items, visible, onHover, mobile }: { items: Annotation[]; visible: boolean; onHover: (a: Annotation | null) => void; mobile: boolean }) {
+export function Annotations({ items, visible, onHover, onPick, mobile }: { items: Annotation[]; visible: boolean; onHover: (a: Annotation | null) => void; onPick: (a: Annotation) => void; mobile: boolean }) {
   const root = useRef<HTMLDivElement>(null);
   const labels = useRef<(HTMLButtonElement | null)[]>([]);
   const lines = useRef<(SVGLineElement | null)[]>([]);
@@ -128,6 +128,7 @@ export function Annotations({ items, visible, onHover, mobile }: { items: Annota
           type="button"
           className="anno-label caps"
           style={{ ["--i" as string]: i }}
+          onClick={() => onPick(a)}
           onMouseEnter={() => onHover(a)}
           onMouseLeave={() => onHover(null)}
           onFocus={() => onHover(a)}

@@ -16,6 +16,7 @@ import { makeLayer, kv } from "@/lib/world/layer";
 import { isFlatBeat } from "@/engine/stage/programFromBeats";
 import type { Beat, PaletteId } from "@/lib/world/types";
 import { useHealth } from "@/lib/useHealth";
+import { demoHasEnglish } from "@/lib/storage/worlds";
 
 const STAGES: StageName[] = ["ingest", "reader", "cartographer", "director", "skeptic", "compiler"];
 const MODEL_OF: Partial<Record<StageName, string>> = { reader: "Sonnet 5.5", cartographer: "Opus 5.5", director: "Opus 5.5", skeptic: "Sonnet 5.5", compiler: "local" };
@@ -55,7 +56,7 @@ export function ForgeTheater({ sessionId }: { sessionId: string }) {
     if (useForgeStore.getState().sessions[sessionId]) return;
     void (async () => {
       if (demoId) {
-        const lang = locale === "en" ? ".en" : "";
+        const lang = locale === "en" && (await demoHasEnglish(demoId)) ? ".en" : "";
         const r = (await fetch(`/replays/${demoId}${lang}.forge.json`).then((x) => (x.ok ? x : fetch(`/replays/${demoId}.forge.json`))).then((x) => (x.ok ? x.json() : null))) as ReplayFile | null;
         if (!r) return setGone(true);
         const speed = Number(new URLSearchParams(window.location.search).get("speed") ?? 2) || 2;

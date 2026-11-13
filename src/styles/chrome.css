@@ -219,3 +219,18 @@
     max-height: none;
   }
 }
+
+.perf-hud {
+  position: fixed;
+  right: var(--s-3);
+  top: calc(var(--topbar-h) + var(--s-2));
+  z-index: 96;
+  margin: 0;
+  padding: 4px 8px;
+  font-size: 11px;
+  color: var(--text-1);
+  background: color-mix(in oklab, var(--ink-0) 80%, transparent);
+  border: 1px solid var(--ink-3);
+  border-radius: 2px;
+  pointer-events: none;
+}

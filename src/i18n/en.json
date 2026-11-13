@@ -339,5 +339,7 @@
   "autopilot.finale": "The Constellation",
   "autopilot.engine": "The Engine Room",
   "autopilot.end": "Every idea has a shape.",
-  "autopilot.pitch": "Presentation"
+  "autopilot.pitch": "Presentation",
+  "player.noWebgl": "This device cannot show the 3D particles. Reading mode has the same content, with still figures.",
+  "player.openReading": "Open reading mode"
 }

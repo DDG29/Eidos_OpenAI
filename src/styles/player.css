@@ -922,3 +922,24 @@
     background-size: 100% 1px;
   }
 }
+
+/* No WebGL or a lost context: the stage shows a poster; point to reading mode (spec 14.3 #11). */
+.nowebgl-note {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--s-6) + 48px);
+  transform: translateX(-50%);
+  z-index: 60;
+  max-width: min(560px, calc(100vw - 2 * var(--s-4)));
+  margin: 0;
+  padding: var(--s-3) var(--s-4);
+  background: color-mix(in oklab, var(--ink-0) 88%, transparent);
+  border: 1px solid var(--ink-3);
+  border-radius: 2px;
+  color: var(--text-2);
+}
+.nowebgl-note a {
+  color: var(--text-1);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
