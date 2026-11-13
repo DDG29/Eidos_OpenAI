@@ -1,0 +1,5678 @@
+{
+ "id": "agujeros-negros",
+ "schemaVersion": 1,
+ "createdAt": "2026-11-13T00:00:00.000Z",
+ "origin": "demo",
+ "source": {
+  "mode": "text",
+  "title": "Donde el espacio se curva"
+ },
+ "spec": {
+  "title": "Donde el espacio se curva",
+  "subtitle": "Gravedad, horizontes y la primera imagen de un agujero negro",
+  "language": "es",
+  "level": "prepa",
+  "palette": "nebulosa",
+  "concepts": [
+   {
+    "id": "C01",
+    "name": "Espacio-tiempo curvo",
+    "summary": "Según la relatividad general, la masa y la energía curvan el espacio-tiempo, y esa curvatura es la gravedad.",
+    "dependsOn": []
+   },
+   {
+    "id": "C02",
+    "name": "Velocidad de escape",
+    "summary": "Rapidez mínima para alejarse de un cuerpo sin volver a caer; crece si la misma masa se comprime.",
+    "dependsOn": []
+   },
+   {
+    "id": "C03",
+    "name": "Agujero negro",
+    "summary": "Región donde la masa está tan concentrada que nada, ni siquiera la luz, puede escapar.",
+    "dependsOn": [
+     "C01",
+     "C02"
+    ]
+   },
+   {
+    "id": "C04",
+    "name": "Horizonte de sucesos",
+    "summary": "Frontera de no retorno de un agujero negro; no es sólida y su radio es proporcional a la masa.",
+    "dependsOn": [
+     "C03"
+    ]
+   },
+   {
+    "id": "C05",
+    "name": "Disco de acreción",
+    "summary": "Gas que gira alrededor de un agujero negro, se calienta a millones de grados y brilla.",
+    "dependsOn": [
+     "C03"
+    ]
+   },
+   {
+    "id": "C06",
+    "name": "Dilatación temporal",
+    "summary": "Cerca de una gran masa el tiempo pasa más lento, y la luz que sale se estira hacia el rojo.",
+    "dependsOn": [
+     "C01"
+    ]
+   },
+   {
+    "id": "C07",
+    "name": "Sombra y anillo",
+    "summary": "En las imágenes del EHT, luz de gas caliente desviada por la gravedad forma un anillo alrededor de una sombra.",
+    "dependsOn": [
+     "C04",
+     "C05"
+    ]
+   },
+   {
+    "id": "C08",
+    "name": "Gravedad a distancia",
+    "summary": "Lejos de un agujero negro, su gravedad es la de cualquier objeto de la misma masa.",
+    "dependsOn": [
+     "C03"
+    ]
+   }
+  ],
+  "beats": [
+   {
+    "id": "b01",
+    "kind": "hook",
+    "title": "¿Puede algo ser tan pesado que ni la luz escape?",
+    "sentences": [
+     {
+      "text": "Lanza una pelota hacia arriba: sube, se frena y vuelve a caer.",
+      "factIds": [
+       "F07"
+      ]
+     },
+     {
+      "text": "A finales del siglo XVIII, John Michell imaginó estrellas tan compactas que ni su luz lograría escapar.",
+      "factIds": [
+       "F01"
+      ]
+     },
+     {
+      "text": "Hoy sabemos que existen: son los agujeros negros, regiones de donde nada, ni siquiera la luz, puede salir.",
+      "factIds": [
+       "F10"
+      ]
+     }
+    ],
+    "conceptIds": [
+     "C03"
+    ],
+    "layers": [
+     {
+      "shape": "burst",
+      "params": [
+       {
+        "key": "rays",
+        "value": 150
+       },
+       {
+        "key": "length",
+        "value": 1
+       },
+       {
+        "key": "core",
+        "value": 0.14
+       },
+       {
+        "key": "randomness",
+        "value": 0.35
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.9,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1,
+      "colorMode": "radial",
+      "tint": "primary"
+     }
+    ],
+    "transition": "explode",
+    "camera": "orbit_close",
+    "annotations": [
+     {
+      "layerIndex": 0,
+      "regionId": "core",
+      "text": "Una estrella"
+     },
+     {
+      "layerIndex": 0,
+      "regionId": "rays",
+      "text": "Luz que escapa"
+     }
+    ],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "wonder",
+    "weight": 1
+   },
+   {
+    "id": "b02",
+    "kind": "concept",
+    "title": "La gravedad curva el espacio-tiempo",
+    "sentences": [
+     {
+      "text": "En 1915, Einstein propuso que la gravedad es la curvatura del espacio-tiempo causada por la masa y la energía.",
+      "factIds": [
+       "F02"
+      ]
+     },
+     {
+      "text": "Los planetas y hasta la luz siguen el camino más recto posible en ese tejido curvo, y por eso se desvían.",
+      "factIds": [
+       "F03"
+      ]
+     },
+     {
+      "text": "Imagina una tela elástica con una bola pesada: se hunde, y una canica que pasa cerca se desvía hacia ella.",
+      "factIds": []
+     }
+    ],
+    "conceptIds": [
+     "C01"
+    ],
+    "layers": [
+     {
+      "shape": "grid",
+      "params": [
+       {
+        "key": "resolution",
+        "value": 44
+       },
+       {
+        "key": "wells",
+        "value": 1
+       },
+       {
+        "key": "depth",
+        "value": 0.8
+       },
+       {
+        "key": "spread",
+        "value": 0.25
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.8,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1,
+      "colorMode": "height",
+      "tint": "primary"
+     },
+     {
+      "shape": "sphere",
+      "params": [
+       {
+        "key": "radius",
+        "value": 0.2
+       },
+       {
+        "key": "noise",
+        "value": 0.02
+       },
+       {
+        "key": "core_density",
+        "value": 2.5
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.12,
+      "position": {
+       "x": 0,
+       "y": -0.3,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 0.55,
+      "colorMode": "single",
+      "tint": "glow"
+     }
+    ],
+    "transition": "rain",
+    "camera": "orbit_close",
+    "annotations": [
+     {
+      "layerIndex": 0,
+      "regionId": "well_0",
+      "text": "Espacio-tiempo curvo"
+     },
+     {
+      "layerIndex": 1,
+      "regionId": "body",
+      "text": "Masa"
+     }
+    ],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "calm",
+    "weight": 1.1
+   },
+   {
+    "id": "b03",
+    "kind": "interactive",
+    "title": "Más masa, pozo más hondo",
+    "sentences": [
+     {
+      "text": "Cuanta más masa se concentra en una región, más se curva el espacio-tiempo a su alrededor.",
+      "factIds": [
+       "F04"
+      ]
+     },
+     {
+      "text": "Sube la perilla: con más masa en el mismo lugar, el pozo se hunde y sus paredes se empinan.",
+      "factIds": [
+       "F04"
+      ]
+     },
+     {
+      "text": "Un agujero negro lleva esto al extremo: no es un hueco vacío, sino muchísima masa en una región diminuta.",
+      "factIds": [
+       "F10",
+       "F11"
+      ]
+     }
+    ],
+    "conceptIds": [
+     "C01",
+     "C03"
+    ],
+    "layers": [
+     {
+      "shape": "grid",
+      "params": [
+       {
+        "key": "resolution",
+        "value": 56
+       },
+       {
+        "key": "wells",
+        "value": 1
+       },
+       {
+        "key": "depth",
+        "value": 0.6
+       },
+       {
+        "key": "spread",
+        "value": 0.22
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.92,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1,
+      "colorMode": "height",
+      "tint": "primary"
+     }
+    ],
+    "transition": "flow",
+    "camera": "low_angle",
+    "annotations": [
+     {
+      "layerIndex": 0,
+      "regionId": "well_0",
+      "text": "Pozo de gravedad"
+     }
+    ],
+    "knob": {
+     "enabled": true,
+     "label": "Masa concentrada",
+     "layerIndex": 0,
+     "paramKey": "depth",
+     "min": 0.2,
+     "max": 1.5,
+     "initial": 0.6,
+     "step": 0.05,
+     "unit": "",
+     "readout": "Profundidad {value}: más masa, más curvatura"
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "playful",
+    "weight": 1
+   },
+   {
+    "id": "b04",
+    "kind": "concept",
+    "title": "Velocidad de escape",
+    "sentences": [
+     {
+      "text": "Para alejarte de un planeta sin volver a caer, necesitas una rapidez mínima: la velocidad de escape.",
+      "factIds": [
+       "F05"
+      ]
+     },
+     {
+      "text": "Desde la superficie de la Tierra es de unos 11.2 km/s, más de 40 000 km/h.",
+      "factIds": [
+       "F06"
+      ]
+     },
+     {
+      "text": "Si lanzas algo más lento, cae o queda en órbita; si va más rápido, se aleja para siempre.",
+      "factIds": [
+       "F07"
+      ]
+     },
+     {
+      "text": "Y si comprimes la misma masa en menos espacio, la velocidad de escape en su superficie crece.",
+      "factIds": [
+       "F08"
+      ]
+     }
+    ],
+    "conceptIds": [
+     "C02"
+    ],
+    "layers": [
+     {
+      "shape": "curve",
+      "params": [
+       {
+        "key": "t_min",
+        "value": 0
+       },
+       {
+        "key": "t_max",
+        "value": 1.6
+       },
+       {
+        "key": "thickness",
+        "value": 0.022
+       },
+       {
+        "key": "glow_head",
+        "value": 0.55
+       }
+      ],
+      "expr": [
+       {
+        "key": "x",
+        "value": "0.864*sin(t)/(1+1.4*cos(t))"
+       },
+       {
+        "key": "y",
+        "value": "0.864*cos(t)/(1+1.4*cos(t))"
+       },
+       {
+        "key": "z",
+        "value": "0"
+       }
+      ],
+      "data": [],
+      "share": 0.36,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1,
+      "colorMode": "single",
+      "tint": "accent"
+     },
+     {
+      "shape": "curve",
+      "params": [
+       {
+        "key": "t_min",
+        "value": 0
+       },
+       {
+        "key": "t_max",
+        "value": 1.37
+       },
+       {
+        "key": "thickness",
+        "value": 0.022
+       },
+       {
+        "key": "glow_head",
+        "value": 0.3
+       }
+      ],
+      "expr": [
+       {
+        "key": "x",
+        "value": "0.18*sin(t)/(1-0.5*cos(t))"
+       },
+       {
+        "key": "y",
+        "value": "0.18*cos(t)/(1-0.5*cos(t))"
+       },
+       {
+        "key": "z",
+        "value": "0"
+       }
+      ],
+      "data": [],
+      "share": 0.24,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1,
+      "colorMode": "single",
+      "tint": "primary"
+     },
+     {
+      "shape": "sphere",
+      "params": [
+       {
+        "key": "radius",
+        "value": 0.2
+       },
+       {
+        "key": "noise",
+        "value": 0.03
+       },
+       {
+        "key": "core_density",
+        "value": 1.2
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.26,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1,
+      "colorMode": "radial",
+      "tint": "primary"
+     }
+    ],
+    "transition": "swirl",
+    "camera": "orbit_close",
+    "annotations": [
+     {
+      "layerIndex": 0,
+      "regionId": "end",
+      "text": "Escapa"
+     },
+     {
+      "layerIndex": 1,
+      "regionId": "end",
+      "text": "Vuelve a caer"
+     },
+     {
+      "layerIndex": 2,
+      "regionId": "body",
+      "text": "Planeta"
+     }
+    ],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "playful",
+    "weight": 1.2
+   },
+   {
+    "id": "b05",
+    "kind": "concept",
+    "title": "El horizonte de sucesos",
+    "sentences": [
+     {
+      "text": "Si la velocidad de escape superara la de la luz, unos 300 000 km/s, nada podría salir.",
+      "factIds": [
+       "F09"
+      ]
+     },
+     {
+      "text": "Esa frontera se llama horizonte de sucesos: lo que la cruza ya no puede regresar ni enviar señales.",
+      "factIds": [
+       "F12"
+      ]
+     },
+     {
+      "text": "No es una superficie sólida, sino un límite en el espacio-tiempo: quien lo cruzara no chocaría contra nada.",
+      "factIds": [
+       "F13"
+      ]
+     },
+     {
+      "text": "Su radio es proporcional a la masa: el Sol necesitaría unos 3 km de radio, y la Tierra, unos 9 mm.",
+      "factIds": [
+       "F14",
+       "F15",
+       "F16"
+      ]
+     }
+    ],
+    "conceptIds": [
+     "C04",
+     "C03"
+    ],
+    "layers": [
+     {
+      "shape": "shell",
+      "params": [
+       {
+        "key": "radius",
+        "value": 0.8
+       },
+       {
+        "key": "thickness",
+        "value": 0.025
+       },
+       {
+        "key": "noise",
+        "value": 0.015
+       },
+       {
+        "key": "opening",
+        "value": 0
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.72,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1,
+      "colorMode": "single",
+      "tint": "secondary"
+     },
+     {
+      "shape": "sphere",
+      "params": [
+       {
+        "key": "radius",
+        "value": 0.2
+       },
+       {
+        "key": "noise",
+        "value": 0
+       },
+       {
+        "key": "core_density",
+        "value": 4
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.18,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 0.4,
+      "colorMode": "single",
+      "tint": "glow"
+     }
+    ],
+    "transition": "fold",
+    "camera": "dolly_in",
+    "annotations": [
+     {
+      "layerIndex": 0,
+      "regionId": "surface",
+      "text": "Horizonte de sucesos"
+     },
+     {
+      "layerIndex": 1,
+      "regionId": "core",
+      "text": "Masa comprimida"
+     }
+    ],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "wonder",
+    "weight": 1.2
+   },
+   {
+    "id": "b06",
+    "kind": "mechanism",
+    "title": "Un disco que brilla",
+    "sentences": [
+     {
+      "text": "Un agujero negro no emite luz propia: lo que vemos es la luz del material caliente que lo rodea.",
+      "factIds": [
+       "F23"
+      ]
+     },
+     {
+      "text": "El gas que cae no entra en línea recta: gira a su alrededor y forma un disco de acreción.",
+      "factIds": [
+       "F20"
+      ]
+     },
+     {
+      "text": "Las partes interiores del disco giran más rápido que las exteriores.",
+      "factIds": [
+       "F21"
+      ]
+     },
+     {
+      "text": "El roce y la compresión lo calientan hasta millones de grados, y brilla incluso en rayos X.",
+      "factIds": [
+       "F22"
+      ]
+     }
+    ],
+    "conceptIds": [
+     "C05"
+    ],
+    "layers": [
+     {
+      "shape": "vortex",
+      "params": [
+       {
+        "key": "disk_radius",
+        "value": 1
+       },
+       {
+        "key": "inner_radius",
+        "value": 0.16
+       },
+       {
+        "key": "funnel_depth",
+        "value": 0.5
+       },
+       {
+        "key": "photon_ring",
+        "value": 0
+       },
+       {
+        "key": "jets",
+        "value": 0
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.92,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1,
+      "colorMode": "radial",
+      "tint": "primary"
+     }
+    ],
+    "transition": "swirl",
+    "camera": "orbit_close",
+    "annotations": [
+     {
+      "layerIndex": 0,
+      "regionId": "disk",
+      "text": "Disco de acreción"
+     },
+     {
+      "layerIndex": 0,
+      "regionId": "horizon",
+      "text": "Horizonte"
+     },
+     {
+      "layerIndex": 0,
+      "regionId": "funnel",
+      "text": "Pozo de gravedad"
+     }
+    ],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "wonder",
+    "weight": 1.2
+   },
+   {
+    "id": "b07",
+    "kind": "check",
+    "title": "¿Y si el Sol fuera un agujero negro?",
+    "sentences": [
+     {
+      "text": "El Sol nunca será un agujero negro: no tiene masa suficiente para colapsar así.",
+      "factIds": [
+       "F17"
+      ]
+     },
+     {
+      "text": "Pero imagina que se comprimiera hasta tener un horizonte de unos 3 km de radio, sin perder nada de masa.",
+      "factIds": [
+       "F15"
+      ]
+     },
+     {
+      "text": "¿Qué crees que le pasaría a la órbita de la Tierra?",
+      "factIds": []
+     }
+    ],
+    "conceptIds": [
+     "C08"
+    ],
+    "layers": [
+     {
+      "shape": "orbits",
+      "params": [
+       {
+        "key": "rings",
+        "value": 1
+       },
+       {
+        "key": "center_size",
+        "value": 0.22
+       },
+       {
+        "key": "body_size",
+        "value": 0.06
+       },
+       {
+        "key": "tilt",
+        "value": 0
+       },
+       {
+        "key": "eccentricity",
+        "value": 0.02
+       }
+      ],
+      "expr": [],
+      "data": [
+       0.85
+      ],
+      "share": 0.9,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1,
+      "colorMode": "region",
+      "tint": "primary"
+     }
+    ],
+    "transition": "flow",
+    "camera": "top_down",
+    "annotations": [
+     {
+      "layerIndex": 0,
+      "regionId": "center",
+      "text": "Sol"
+     },
+     {
+      "layerIndex": 0,
+      "regionId": "body_0",
+      "text": "Tierra"
+     },
+     {
+      "layerIndex": 0,
+      "regionId": "ring_0",
+      "text": "Una vuelta al año"
+     }
+    ],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": true,
+     "question": "Si el Sol se convirtiera en un agujero negro con la misma masa, ¿qué le pasaría a la órbita de la Tierra?",
+     "choices": [
+      {
+       "text": "La Tierra sería tragada: el agujero negro la jalaría hacia adentro.",
+       "misconceptionId": "M01"
+      },
+      {
+       "text": "Saldría disparada, porque el Sol ya no la atraería.",
+       "misconceptionId": ""
+      },
+      {
+       "text": "Seguiría igual, aunque nos quedaríamos sin la luz y el calor del Sol.",
+       "misconceptionId": ""
+      },
+      {
+       "text": "Caería en espiral hacia el horizonte, cada vez más rápido.",
+       "misconceptionId": "M01"
+      }
+     ],
+     "correctIndex": 2,
+     "allowFreeText": true,
+     "idealAnswer": "La órbita no cambiaría: a esa distancia, la gravedad de un agujero negro es igual a la de cualquier objeto de la misma masa.",
+     "explanation": "Lejos de un objeto, lo que cuenta es su masa, no qué tan compacto es. Con la misma masa, la Tierra seguiría dando una vuelta cada año; solo perderíamos la luz y el calor del Sol.",
+     "conceptIds": [
+      "C01",
+      "C03"
+     ]
+    },
+    "ambient": "calm",
+    "weight": 1
+   },
+   {
+    "id": "b08",
+    "kind": "misconception",
+    "title": "No son aspiradoras cósmicas",
+    "sentences": [
+     {
+      "text": "Mucha gente piensa que los agujeros negros succionan todo a su alrededor, como aspiradoras.",
+      "factIds": []
+     },
+     {
+      "text": "En realidad, lejos de un agujero negro, su gravedad es igual a la de cualquier objeto de la misma masa.",
+      "factIds": [
+       "F24"
+      ]
+     },
+     {
+      "text": "Con el Sol cambiado por un agujero negro de igual masa, la Tierra seguiría en su órbita, aunque a oscuras.",
+      "factIds": [
+       "F25"
+      ]
+     },
+     {
+      "text": "Solo atrapa lo que se acerca mucho: varias estrellas orbitan establemente a Sagitario A*, y seguirlas permitió medir su masa.",
+      "factIds": [
+       "F26",
+       "F27"
+      ]
+     }
+    ],
+    "conceptIds": [
+     "C08"
+    ],
+    "layers": [
+     {
+      "shape": "orbits",
+      "params": [
+       {
+        "key": "rings",
+        "value": 3
+       },
+       {
+        "key": "center_size",
+        "value": 0.05
+       },
+       {
+        "key": "body_size",
+        "value": 0.05
+       },
+       {
+        "key": "tilt",
+        "value": 0.25
+       },
+       {
+        "key": "eccentricity",
+        "value": 0.4
+       }
+      ],
+      "expr": [],
+      "data": [
+       0.5,
+       0.72,
+       0.95
+      ],
+      "share": 0.62,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1,
+      "colorMode": "region",
+      "tint": "primary"
+     },
+     {
+      "shape": "vortex",
+      "params": [
+       {
+        "key": "disk_radius",
+        "value": 1
+       },
+       {
+        "key": "inner_radius",
+        "value": 0.2
+       },
+       {
+        "key": "funnel_depth",
+        "value": 0.3
+       },
+       {
+        "key": "photon_ring",
+        "value": 1
+       },
+       {
+        "key": "jets",
+        "value": 0
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.3,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 0.3,
+      "colorMode": "radial",
+      "tint": "primary"
+     }
+    ],
+    "transition": "dissolve",
+    "camera": "orbit_wide",
+    "annotations": [
+     {
+      "layerIndex": 1,
+      "regionId": "disk",
+      "text": "Agujero negro"
+     },
+     {
+      "layerIndex": 0,
+      "regionId": "ring_2",
+      "text": "Órbita estable"
+     },
+     {
+      "layerIndex": 0,
+      "regionId": "body_1",
+      "text": "Estrella"
+     }
+    ],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "calm",
+    "weight": 1.1
+   },
+   {
+    "id": "b09",
+    "kind": "mechanism",
+    "title": "El tiempo se estira",
+    "sentences": [
+     {
+      "text": "Cerca de una gran masa, el tiempo transcurre más lento que lejos de ella: es la dilatación temporal gravitacional.",
+      "factIds": [
+       "F28"
+      ]
+     },
+     {
+      "text": "La luz que sube desde cerca del horizonte pierde energía: su longitud de onda se estira hacia el rojo.",
+      "factIds": [
+       "F30"
+      ]
+     },
+     {
+      "text": "Desde lejos, verías que algo que cae se frena y se apaga, sin llegar a verlo cruzar.",
+      "factIds": [
+       "F31"
+      ]
+     },
+     {
+      "text": "No es ficción: los relojes de los satélites GPS se adelantan unos 38 microsegundos al día, y hay que corregirlos.",
+      "factIds": [
+       "F29"
+      ]
+     }
+    ],
+    "conceptIds": [
+     "C06"
+    ],
+    "layers": [
+     {
+      "shape": "curve",
+      "params": [
+       {
+        "key": "t_min",
+        "value": 0
+       },
+       {
+        "key": "t_max",
+        "value": 1
+       },
+       {
+        "key": "thickness",
+        "value": 0.016
+       },
+       {
+        "key": "glow_head",
+        "value": 0
+       }
+      ],
+      "expr": [
+       {
+        "key": "x",
+        "value": "-0.6+1.55*t"
+       },
+       {
+        "key": "y",
+        "value": "0.22*sin(2*pi*8*log(1+5*t)/log(6))"
+       },
+       {
+        "key": "z",
+        "value": "0"
+       }
+      ],
+      "data": [],
+      "share": 0.7,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1,
+      "colorMode": "palette",
+      "tint": "primary"
+     },
+     {
+      "shape": "shell",
+      "params": [
+       {
+        "key": "radius",
+        "value": 0.25
+       },
+       {
+        "key": "thickness",
+        "value": 0.06
+       },
+       {
+        "key": "noise",
+        "value": 0.02
+       },
+       {
+        "key": "opening",
+        "value": 0
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.22,
+      "position": {
+       "x": -0.92,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1,
+      "colorMode": "single",
+      "tint": "secondary"
+     }
+    ],
+    "transition": "fold",
+    "camera": "orbit_close",
+    "annotations": [
+     {
+      "layerIndex": 0,
+      "regionId": "start",
+      "text": "Cerca: onda corta"
+     },
+     {
+      "layerIndex": 0,
+      "regionId": "end",
+      "text": "Lejos: onda estirada"
+     },
+     {
+      "layerIndex": 1,
+      "regionId": "surface",
+      "text": "Horizonte"
+     }
+    ],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "tense",
+    "weight": 1.2
+   },
+   {
+    "id": "b10",
+    "kind": "application",
+    "title": "La primera imagen de un agujero negro",
+    "sentences": [
+     {
+      "text": "El Event Horizon Telescope une radiotelescopios de todo el planeta; en 2017, uno de ellos fue el Gran Telescopio Milimétrico, en Puebla.",
+      "factIds": [
+       "F32",
+       "F33"
+      ]
+     },
+     {
+      "text": "En 2019 publicó la primera imagen de un agujero negro: M87*, de unos 6 500 millones de masas solares.",
+      "factIds": [
+       "F34"
+      ]
+     },
+     {
+      "text": "En 2022 mostró a Sagitario A*, el agujero negro supermasivo del centro de la Vía Láctea, con unos 4 millones de masas solares.",
+      "factIds": [
+       "F35",
+       "F19"
+      ]
+     },
+     {
+      "text": "Las dos imágenes se parecen mucho, aunque sus masas son muy distintas, como predice la relatividad general.",
+      "factIds": [
+       "F36"
+      ]
+     }
+    ],
+    "conceptIds": [
+     "C07"
+    ],
+    "layers": [
+     {
+      "shape": "vortex",
+      "params": [
+       {
+        "key": "disk_radius",
+        "value": 0.9
+       },
+       {
+        "key": "inner_radius",
+        "value": 0.3
+       },
+       {
+        "key": "funnel_depth",
+        "value": 0
+       },
+       {
+        "key": "photon_ring",
+        "value": 1
+       },
+       {
+        "key": "jets",
+        "value": 0
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.92,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1,
+      "colorMode": "radial",
+      "tint": "primary"
+     }
+    ],
+    "transition": "explode",
+    "camera": "top_down",
+    "annotations": [
+     {
+      "layerIndex": 0,
+      "regionId": "photon_ring",
+      "text": "Anillo de luz"
+     },
+     {
+      "layerIndex": 0,
+      "regionId": "horizon",
+      "text": "Sombra"
+     }
+    ],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "triumphant",
+    "weight": 1.3
+   },
+   {
+    "id": "b11",
+    "kind": "check",
+    "title": "¿Por qué un anillo y no un punto negro?",
+    "sentences": [
+     {
+      "text": "Las imágenes del EHT muestran un anillo brillante alrededor de una región oscura llamada sombra.",
+      "factIds": [
+       "F37"
+      ]
+     },
+     {
+      "text": "Recuerda dos pistas: un agujero negro no emite luz propia, y la gravedad dobla el camino de la luz.",
+      "factIds": [
+       "F23",
+       "F03"
+      ]
+     },
+     {
+      "text": "Con eso, ¿puedes explicar de dónde sale el anillo?",
+      "factIds": []
+     }
+    ],
+    "conceptIds": [
+     "C07"
+    ],
+    "layers": [
+     {
+      "shape": "torus",
+      "params": [
+       {
+        "key": "major",
+        "value": 0.62
+       },
+       {
+        "key": "minor",
+        "value": 0.1
+       },
+       {
+        "key": "fill",
+        "value": 0.15
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.9,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1,
+      "colorMode": "radial",
+      "tint": "primary"
+     }
+    ],
+    "transition": "flow",
+    "camera": "orbit_close",
+    "annotations": [
+     {
+      "layerIndex": 0,
+      "regionId": "ring",
+      "text": "¿De dónde sale?"
+     }
+    ],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": true,
+     "question": "¿Por qué la imagen de un agujero negro es un anillo de luz y no un simple punto negro?",
+     "choices": [
+      {
+       "text": "Porque es una foto del agujero negro mismo, que brilla en su orilla.",
+       "misconceptionId": "M02"
+      },
+      {
+       "text": "Porque la gravedad desvía la luz del gas caliente alrededor de la sombra.",
+       "misconceptionId": ""
+      },
+      {
+       "text": "Porque un agujero negro es un hueco vacío con forma de dona.",
+       "misconceptionId": "M04"
+      },
+      {
+       "text": "Porque al telescopio le faltaron datos justo en el centro.",
+       "misconceptionId": ""
+      }
+     ],
+     "correctIndex": 1,
+     "allowFreeText": true,
+     "idealAnswer": "El anillo es luz del gas caliente que la gravedad desvía alrededor del agujero negro; la sombra es la región de donde no nos llega esa luz.",
+     "explanation": "El agujero negro no brilla: brilla el gas que lo rodea. Su gravedad dobla esa luz y nos llega desde todos los lados, formando un anillo. En el centro queda la sombra, más grande que el horizonte.",
+     "conceptIds": [
+      "C05",
+      "C07"
+     ]
+    },
+    "ambient": "calm",
+    "weight": 1
+   },
+   {
+    "id": "b12",
+    "kind": "recap",
+    "title": "Tres ideas para quedarte",
+    "sentences": [
+     {
+      "text": "La masa curva el espacio-tiempo, y un agujero negro es esa curvatura llevada al extremo.",
+      "factIds": [
+       "F02",
+       "F10"
+      ]
+     },
+     {
+      "text": "El horizonte de sucesos es una frontera de no retorno, no una superficie sólida.",
+      "factIds": [
+       "F12",
+       "F13"
+      ]
+     },
+     {
+      "text": "Lo que vemos es la luz del gas caliente que lo rodea, desviada por su gravedad alrededor de una sombra.",
+      "factIds": [
+       "F38",
+       "F39"
+      ]
+     }
+    ],
+    "conceptIds": [
+     "C01",
+     "C04",
+     "C07"
+    ],
+    "layers": [
+     {
+      "shape": "grid",
+      "params": [
+       {
+        "key": "resolution",
+        "value": 40
+       },
+       {
+        "key": "wells",
+        "value": 1
+       },
+       {
+        "key": "depth",
+        "value": 0.9
+       },
+       {
+        "key": "spread",
+        "value": 0.2
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.5,
+      "position": {
+       "x": 0,
+       "y": -0.45,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1.25,
+      "colorMode": "height",
+      "tint": "primary"
+     },
+     {
+      "shape": "shell",
+      "params": [
+       {
+        "key": "radius",
+        "value": 0.3
+       },
+       {
+        "key": "thickness",
+        "value": 0.04
+       },
+       {
+        "key": "noise",
+        "value": 0.01
+       },
+       {
+        "key": "opening",
+        "value": 0
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.16,
+      "position": {
+       "x": 0,
+       "y": 0.35,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1,
+      "colorMode": "single",
+      "tint": "secondary"
+     },
+     {
+      "shape": "torus",
+      "params": [
+       {
+        "key": "major",
+        "value": 0.55
+       },
+       {
+        "key": "minor",
+        "value": 0.04
+       },
+       {
+        "key": "fill",
+        "value": 0.1
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.28,
+      "position": {
+       "x": 0,
+       "y": 0.35,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1,
+      "colorMode": "single",
+      "tint": "glow"
+     }
+    ],
+    "transition": "swirl",
+    "camera": "orbit_wide",
+    "annotations": [
+     {
+      "layerIndex": 0,
+      "regionId": "well_0",
+      "text": "Curvatura"
+     },
+     {
+      "layerIndex": 1,
+      "regionId": "surface",
+      "text": "Horizonte"
+     },
+     {
+      "layerIndex": 2,
+      "regionId": "ring",
+      "text": "Luz desviada"
+     }
+    ],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "triumphant",
+    "weight": 1.1
+   },
+   {
+    "id": "b13",
+    "kind": "finale",
+    "title": "Donde el espacio se curva",
+    "sentences": [],
+    "conceptIds": [],
+    "layers": [
+     {
+      "shape": "nebula",
+      "params": [
+       {
+        "key": "scale",
+        "value": 1.1
+       },
+       {
+        "key": "density_contrast",
+        "value": 0.5
+       },
+       {
+        "key": "filaments",
+        "value": 0.6
+       }
+      ],
+      "expr": [],
+      "data": [],
+      "share": 0.6,
+      "position": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 1,
+      "colorMode": "palette",
+      "tint": "primary"
+     }
+    ],
+    "transition": "dissolve",
+    "camera": "orbit_wide",
+    "annotations": [],
+    "knob": {
+     "enabled": false,
+     "label": "",
+     "layerIndex": 0,
+     "paramKey": "",
+     "min": 0,
+     "max": 0,
+     "initial": 0,
+     "step": 0,
+     "unit": "",
+     "readout": ""
+    },
+    "check": {
+     "enabled": false,
+     "question": "",
+     "choices": [],
+     "correctIndex": 0,
+     "allowFreeText": false,
+     "idealAnswer": "",
+     "explanation": "",
+     "conceptIds": []
+    },
+    "ambient": "calm",
+    "weight": 1.2
+   }
+  ],
+  "closing": "Empezaste con una pelota que vuelve a caer y terminaste frente a la primera imagen de un agujero negro. Ahora sabes que la masa curva el espacio-tiempo, que un agujero negro es esa curvatura llevada al extremo y que su horizonte es una frontera de no retorno, no una pared. También sabes que lo que vemos es luz de gas caliente, doblada por la gravedad alrededor de una sombra. Y la próxima vez que mires hacia el centro de la Vía Láctea, recuerda que ahí hay uno con unos 4 millones de veces la masa del Sol, rodeado de estrellas que giran sin caer.",
+  "nextTopics": [
+   "Ondas gravitacionales: cuando chocan dos agujeros negros",
+   "La vida y la muerte de las estrellas",
+   "Cómo funciona el GPS y por qué necesita a Einstein"
+  ]
+ },
+ "facts": [
+  {
+   "id": "F01",
+   "text": "A finales del siglo XVIII, John Michell imaginó estrellas tan compactas que ni siquiera su luz podría escapar de ellas.",
+   "conceptId": "C03",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "A finales del siglo XVIII, el británico John Michell imaginó estrellas tan compactas que ni siquiera su luz lograría escapar de ellas.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 186,
+     "endChar": 320,
+     "paragraph": 1
+    }
+   ],
+   "origin": "source",
+   "quote": "A finales del siglo XVIII, el británico John Michell imaginó estrellas tan compactas que ni siquiera su luz lograría escapar de ellas."
+  },
+  {
+   "id": "F02",
+   "text": "Según la relatividad general, propuesta por Einstein en 1915, la gravedad es la curvatura del espacio-tiempo causada por la masa y la energía.",
+   "conceptId": "C01",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "En 1915, Albert Einstein propuso una idea más profunda con su teoría de la relatividad general. Según esta teoría, la gravedad es la curvatura del espacio-tiempo causada por la masa y la energía.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 598,
+     "endChar": 793,
+     "paragraph": 2
+    }
+   ],
+   "origin": "source",
+   "quote": "En 1915, Albert Einstein propuso una idea más profunda con su teoría de la relatividad general. Según esta teoría, la gravedad es la curvatura del espacio-tiempo causada por la masa y la energía."
+  },
+  {
+   "id": "F03",
+   "text": "Los planetas y hasta la luz siguen el camino más recto posible en el espacio-tiempo curvo, y por eso sus trayectorias se doblan cerca de una masa grande.",
+   "conceptId": "C01",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "Los planetas, las piedras y hasta la luz siguen el camino más recto posible dentro de ese tejido curvo, y por eso sus trayectorias se doblan cerca de una masa grande.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 867,
+     "endChar": 1033,
+     "paragraph": 2
+    }
+   ],
+   "origin": "source",
+   "quote": "Los planetas, las piedras y hasta la luz siguen el camino más recto posible dentro de ese tejido curvo, y por eso sus trayectorias se doblan cerca de una masa grande."
+  },
+  {
+   "id": "F04",
+   "text": "Cuanta más masa se concentra en una región, más se curva el espacio-tiempo a su alrededor.",
+   "conceptId": "C01",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "cuanta más masa se concentra en una región, más se curva el espacio-tiempo a su alrededor.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 1295,
+     "endChar": 1385,
+     "paragraph": 3
+    }
+   ],
+   "origin": "source",
+   "quote": "cuanta más masa se concentra en una región, más se curva el espacio-tiempo a su alrededor."
+  },
+  {
+   "id": "F05",
+   "text": "La velocidad de escape es la rapidez mínima con la que algo debe salir de un planeta para alejarse sin volver a caer.",
+   "conceptId": "C02",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "Para alejarte de un planeta sin volver a caer, necesitas salir con una rapidez mínima llamada velocidad de escape.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 1414,
+     "endChar": 1528,
+     "paragraph": 4
+    }
+   ],
+   "origin": "source",
+   "quote": "Para alejarte de un planeta sin volver a caer, necesitas salir con una rapidez mínima llamada velocidad de escape."
+  },
+  {
+   "id": "F06",
+   "text": "Desde la superficie de la Tierra, la velocidad de escape es de unos 11.2 km/s, más de 40 000 km/h.",
+   "conceptId": "C02",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "Desde la superficie de la Tierra, la velocidad de escape es de unos 11.2 km/s, es decir, más de 40 000 km/h.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 1529,
+     "endChar": 1637,
+     "paragraph": 4
+    }
+   ],
+   "origin": "source",
+   "quote": "Desde la superficie de la Tierra, la velocidad de escape es de unos 11.2 km/s, es decir, más de 40 000 km/h."
+  },
+  {
+   "id": "F07",
+   "text": "Lo que se lanza más lento que la velocidad de escape vuelve a caer o queda en órbita; lo que va más rápido se aleja para siempre.",
+   "conceptId": "C02",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "Si algo se lanza más lento que la velocidad de escape, vuelve a caer o queda dando vueltas en órbita; si se lanza más rápido, se aleja para siempre.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 1638,
+     "endChar": 1786,
+     "paragraph": 4
+    }
+   ],
+   "origin": "source",
+   "quote": "Si algo se lanza más lento que la velocidad de escape, vuelve a caer o queda dando vueltas en órbita; si se lanza más rápido, se aleja para siempre."
+  },
+  {
+   "id": "F08",
+   "text": "Si la misma masa se comprime en un tamaño menor, la velocidad de escape en su superficie crece.",
+   "conceptId": "C02",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "si comprimes la misma masa en un tamaño cada vez menor, la velocidad de escape en su superficie crece.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 1948,
+     "endChar": 2050,
+     "paragraph": 5
+    }
+   ],
+   "origin": "source",
+   "quote": "si comprimes la misma masa en un tamaño cada vez menor, la velocidad de escape en su superficie crece."
+  },
+  {
+   "id": "F09",
+   "text": "Una estrella muy compacta tendría una velocidad de escape mayor que la de la luz, unos 300 000 km/s, y nada que lleve información viaja más rápido.",
+   "conceptId": "C02",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "su velocidad de escape superaría la de la luz, que viaja a unos 300 000 km/s. Nada que lleve información puede viajar más rápido que la luz",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 2115,
+     "endChar": 2254,
+     "paragraph": 5
+    }
+   ],
+   "origin": "source",
+   "quote": "su velocidad de escape superaría la de la luz, que viaja a unos 300 000 km/s. Nada que lleve información puede viajar más rápido que la luz"
+  },
+  {
+   "id": "F10",
+   "text": "Un agujero negro es una región del espacio donde la masa está tan concentrada que nada, ni siquiera la luz, puede escapar.",
+   "conceptId": "C03",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "Un agujero negro es una región del espacio donde la masa está tan concentrada que nada, ni siquiera la luz, puede escapar de ella.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 2325,
+     "endChar": 2455,
+     "paragraph": 6
+    }
+   ],
+   "origin": "source",
+   "quote": "Un agujero negro es una región del espacio donde la masa está tan concentrada que nada, ni siquiera la luz, puede escapar de ella."
+  },
+  {
+   "id": "F11",
+   "text": "Un agujero negro no es un hueco vacío, sino una enorme cantidad de masa comprimida en una región diminuta.",
+   "conceptId": "C03",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "A pesar de su nombre, un agujero negro no es un hueco vacío: es una enorme cantidad de masa comprimida en una región diminuta.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 2456,
+     "endChar": 2582,
+     "paragraph": 6
+    }
+   ],
+   "origin": "source",
+   "quote": "A pesar de su nombre, un agujero negro no es un hueco vacío: es una enorme cantidad de masa comprimida en una región diminuta."
+  },
+  {
+   "id": "F12",
+   "text": "El horizonte de sucesos es la frontera de un agujero negro: lo que la cruza ya no puede regresar ni enviar señales hacia afuera, ni con luz.",
+   "conceptId": "C04",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "La frontera de un agujero negro se llama horizonte de sucesos. Es una frontera de no retorno: lo que la cruza ya no puede regresar ni enviar señales hacia afuera, ni siquiera con luz.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 3014,
+     "endChar": 3197,
+     "paragraph": 8
+    }
+   ],
+   "origin": "source",
+   "quote": "La frontera de un agujero negro se llama horizonte de sucesos. Es una frontera de no retorno: lo que la cruza ya no puede regresar ni enviar señales hacia afuera, ni siquiera con luz."
+  },
+  {
+   "id": "F13",
+   "text": "El horizonte no es una superficie sólida sino un límite en el espacio-tiempo, sin material; quien cayera a través de él no chocaría contra nada.",
+   "conceptId": "C04",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "El horizonte no es una superficie sólida, sino un límite en el espacio-tiempo, sin ningún material que se pueda tocar. Alguien que cayera a través de él no chocaría contra nada.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 3198,
+     "endChar": 3375,
+     "paragraph": 8
+    }
+   ],
+   "origin": "source",
+   "quote": "El horizonte no es una superficie sólida, sino un límite en el espacio-tiempo, sin ningún material que se pueda tocar. Alguien que cayera a través de él no chocaría contra nada."
+  },
+  {
+   "id": "F14",
+   "text": "En un agujero negro sin rotación, el radio del horizonte, llamado radio de Schwarzschild, es proporcional a la masa.",
+   "conceptId": "C04",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "el tamaño del horizonte está dado por el radio de Schwarzschild, que es proporcional a la masa: el doble de masa da un horizonte del doble de radio.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 3413,
+     "endChar": 3561,
+     "paragraph": 9
+    }
+   ],
+   "origin": "source",
+   "quote": "el tamaño del horizonte está dado por el radio de Schwarzschild, que es proporcional a la masa: el doble de masa da un horizonte del doble de radio."
+  },
+  {
+   "id": "F15",
+   "text": "Para tener un horizonte, el Sol tendría que comprimir toda su masa en una esfera de unos 3 km de radio.",
+   "conceptId": "C04",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "Para tener un horizonte, el Sol tendría que comprimir toda su masa en una esfera de unos 3 km de radio.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 3562,
+     "endChar": 3665,
+     "paragraph": 9
+    }
+   ],
+   "origin": "source",
+   "quote": "Para tener un horizonte, el Sol tendría que comprimir toda su masa en una esfera de unos 3 km de radio."
+  },
+  {
+   "id": "F16",
+   "text": "Para tener un horizonte, la Tierra tendría que caber en una esfera de unos 9 mm de radio, del tamaño de una canica.",
+   "conceptId": "C04",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "La Tierra tendría que caber en una esfera de unos 9 mm de radio, más o menos del tamaño de una canica.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 3666,
+     "endChar": 3768,
+     "paragraph": 9
+    }
+   ],
+   "origin": "source",
+   "quote": "La Tierra tendría que caber en una esfera de unos 9 mm de radio, más o menos del tamaño de una canica."
+  },
+  {
+   "id": "F17",
+   "text": "La Tierra y el Sol nunca se convertirán en agujeros negros, porque no tienen masa suficiente para colapsar así.",
+   "conceptId": "C03",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "La Tierra y el Sol nunca se convertirán en agujeros negros, porque no tienen masa suficiente para colapsar así.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 3805,
+     "endChar": 3916,
+     "paragraph": 10
+    }
+   ],
+   "origin": "source",
+   "quote": "La Tierra y el Sol nunca se convertirán en agujeros negros, porque no tienen masa suficiente para colapsar así."
+  },
+  {
+   "id": "F18",
+   "text": "Los agujeros negros de masa estelar se forman cuando el núcleo de una estrella muy masiva colapsa al final de su vida.",
+   "conceptId": "C03",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "Los agujeros negros de masa estelar se forman cuando el núcleo de una estrella muy masiva colapsa al final de su vida.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 3917,
+     "endChar": 4035,
+     "paragraph": 10
+    }
+   ],
+   "origin": "source",
+   "quote": "Los agujeros negros de masa estelar se forman cuando el núcleo de una estrella muy masiva colapsa al final de su vida."
+  },
+  {
+   "id": "F19",
+   "text": "En el centro de muchas galaxias, incluida la Vía Láctea, hay agujeros negros supermasivos, de millones a miles de millones de veces la masa del Sol.",
+   "conceptId": "C03",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "en el centro de muchas galaxias, incluida la nuestra, hay agujeros negros supermasivos, con masas de millones a miles de millones de veces la masa del Sol.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 4044,
+     "endChar": 4199,
+     "paragraph": 10
+    }
+   ],
+   "origin": "source",
+   "quote": "en el centro de muchas galaxias, incluida la nuestra, hay agujeros negros supermasivos, con masas de millones a miles de millones de veces la masa del Sol."
+  },
+  {
+   "id": "F20",
+   "text": "El gas que cae hacia un agujero negro casi nunca entra en línea recta: gira a su alrededor y forma un disco de acreción.",
+   "conceptId": "C05",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "El gas que cae hacia un agujero negro casi nunca entra en línea recta: como tiene algo de giro, se acomoda dando vueltas a su alrededor y forma un disco de acreción.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 4312,
+     "endChar": 4477,
+     "paragraph": 11
+    }
+   ],
+   "origin": "source",
+   "quote": "El gas que cae hacia un agujero negro casi nunca entra en línea recta: como tiene algo de giro, se acomoda dando vueltas a su alrededor y forma un disco de acreción."
+  },
+  {
+   "id": "F21",
+   "text": "En un disco de acreción, las partes interiores giran más rápido que las exteriores.",
+   "conceptId": "C05",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "En ese disco, las partes interiores giran más rápido que las exteriores, igual que los planetas cercanos al Sol se mueven más rápido que los lejanos.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 4478,
+     "endChar": 4627,
+     "paragraph": 11
+    }
+   ],
+   "origin": "source",
+   "quote": "En ese disco, las partes interiores giran más rápido que las exteriores, igual que los planetas cercanos al Sol se mueven más rápido que los lejanos."
+  },
+  {
+   "id": "F22",
+   "text": "El roce entre capas de gas y la compresión calientan el disco hasta millones de grados, y brilla en luz visible, ultravioleta y rayos X.",
+   "conceptId": "C05",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "El roce entre capas de gas que giran a distintas velocidades y la compresión calientan el disco hasta millones de grados. Por eso brilla con enorme intensidad, en luz visible, ultravioleta y rayos X.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 4629,
+     "endChar": 4828,
+     "paragraph": 12
+    }
+   ],
+   "origin": "source",
+   "quote": "El roce entre capas de gas que giran a distintas velocidades y la compresión calientan el disco hasta millones de grados. Por eso brilla con enorme intensidad, en luz visible, ultravioleta y rayos X."
+  },
+  {
+   "id": "F23",
+   "text": "Los agujeros negros no emiten luz propia: lo que se observa es la luz del material caliente que los rodea.",
+   "conceptId": "C05",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "Los agujeros negros no emiten luz propia: lo que observamos es la luz del material caliente que los rodea.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 4829,
+     "endChar": 4935,
+     "paragraph": 12
+    }
+   ],
+   "origin": "source",
+   "quote": "Los agujeros negros no emiten luz propia: lo que observamos es la luz del material caliente que los rodea."
+  },
+  {
+   "id": "F24",
+   "text": "Lejos de un agujero negro, su gravedad es igual a la de cualquier otro objeto de la misma masa.",
+   "conceptId": "C08",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "Lejos de un agujero negro, su gravedad es igual a la de cualquier otro objeto de la misma masa.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 5221,
+     "endChar": 5316,
+     "paragraph": 13
+    }
+   ],
+   "origin": "source",
+   "quote": "Lejos de un agujero negro, su gravedad es igual a la de cualquier otro objeto de la misma masa."
+  },
+  {
+   "id": "F25",
+   "text": "Si el Sol se reemplazara por un agujero negro de la misma masa, la órbita de la Tierra no cambiaría, aunque nos quedaríamos sin luz ni calor.",
+   "conceptId": "C08",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "Si el Sol se reemplazara por un agujero negro de la misma masa, la órbita de la Tierra no cambiaría: seguiría dando una vuelta cada año, aunque nos quedaríamos sin luz ni calor.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 5317,
+     "endChar": 5494,
+     "paragraph": 13
+    }
+   ],
+   "origin": "source",
+   "quote": "Si el Sol se reemplazara por un agujero negro de la misma masa, la órbita de la Tierra no cambiaría: seguiría dando una vuelta cada año, aunque nos quedaríamos sin luz ni calor."
+  },
+  {
+   "id": "F26",
+   "text": "Solo lo que se acerca mucho a un agujero negro queda atrapado; en el centro de la galaxia hay estrellas en órbitas estables alrededor de Sagitario A*.",
+   "conceptId": "C08",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "Solo lo que se acerca mucho queda atrapado. En el centro de nuestra galaxia hay estrellas que giran alrededor del agujero negro supermasivo Sagitario A* en órbitas estables",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 5496,
+     "endChar": 5668,
+     "paragraph": 14
+    }
+   ],
+   "origin": "source",
+   "quote": "Solo lo que se acerca mucho queda atrapado. En el centro de nuestra galaxia hay estrellas que giran alrededor del agujero negro supermasivo Sagitario A* en órbitas estables"
+  },
+  {
+   "id": "F27",
+   "text": "Seguir durante años las órbitas de esas estrellas permitió medir la masa de Sagitario A*, trabajo que recibió el Premio Nobel de Física de 2020.",
+   "conceptId": "C08",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "seguir esas órbitas durante años permitió medir su masa. Ese trabajo recibió el Premio Nobel de Física de 2020.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 5672,
+     "endChar": 5783,
+     "paragraph": 14
+    }
+   ],
+   "origin": "source",
+   "quote": "seguir esas órbitas durante años permitió medir su masa. Ese trabajo recibió el Premio Nobel de Física de 2020."
+  },
+  {
+   "id": "F28",
+   "text": "Cerca de una gran masa, el tiempo transcurre más lento que lejos de ella: es la dilatación temporal gravitacional.",
+   "conceptId": "C06",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "cerca de una gran masa, el tiempo transcurre más lento que lejos de ella. Es la dilatación temporal gravitacional.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 5866,
+     "endChar": 5980,
+     "paragraph": 15
+    }
+   ],
+   "origin": "source",
+   "quote": "cerca de una gran masa, el tiempo transcurre más lento que lejos de ella. Es la dilatación temporal gravitacional."
+  },
+  {
+   "id": "F29",
+   "text": "Los relojes de los satélites GPS se adelantan unos 38 microsegundos al día, sobre todo por la gravedad más débil; sin corregirlo, tu ubicación fallaría por kilómetros.",
+   "conceptId": "C06",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "se adelantan unos 38 microsegundos al día respecto a los de la superficie, sobre todo porque allá arriba la gravedad es más débil. Si el sistema no corrigiera ese efecto, tu ubicación se desviaría",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 6125,
+     "endChar": 6321,
+     "paragraph": 15
+    }
+   ],
+   "origin": "source",
+   "quote": "se adelantan unos 38 microsegundos al día respecto a los de la superficie, sobre todo porque allá arriba la gravedad es más débil. Si el sistema no corrigiera ese efecto, tu ubicación se desviaría"
+  },
+  {
+   "id": "F30",
+   "text": "La luz que sale de cerca del horizonte pierde energía al subir: su longitud de onda se estira y se corre hacia el rojo.",
+   "conceptId": "C06",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "La luz que sale de cerca del horizonte pierde energía al subir por el pozo de gravedad: su longitud de onda se estira y se corre hacia el rojo.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 6412,
+     "endChar": 6555,
+     "paragraph": 16
+    }
+   ],
+   "origin": "source",
+   "quote": "La luz que sale de cerca del horizonte pierde energía al subir por el pozo de gravedad: su longitud de onda se estira y se corre hacia el rojo."
+  },
+  {
+   "id": "F31",
+   "text": "Visto desde lejos, un objeto que cae hacia el horizonte parece moverse cada vez más lento y apagarse, sin que se le vea cruzar.",
+   "conceptId": "C06",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "Visto desde lejos, un objeto que cae hacia el horizonte parece moverse cada vez más lento y apagarse, sin que lleguemos a verlo cruzar.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 6597,
+     "endChar": 6732,
+     "paragraph": 16
+    }
+   ],
+   "origin": "source",
+   "quote": "Visto desde lejos, un objeto que cae hacia el horizonte parece moverse cada vez más lento y apagarse, sin que lleguemos a verlo cruzar."
+  },
+  {
+   "id": "F32",
+   "text": "El Event Horizon Telescope es una red de radiotelescopios en distintos lugares de la Tierra que combinan sus datos como un solo telescopio del tamaño del planeta.",
+   "conceptId": "C07",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "una red de radiotelescopios en distintos lugares del planeta que observan al mismo tiempo y combinan sus datos, como si fueran un solo telescopio del tamaño de la Tierra.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 6979,
+     "endChar": 7149,
+     "paragraph": 17
+    }
+   ],
+   "origin": "source",
+   "quote": "una red de radiotelescopios en distintos lugares del planeta que observan al mismo tiempo y combinan sus datos, como si fueran un solo telescopio del tamaño de la Tierra."
+  },
+  {
+   "id": "F33",
+   "text": "En la campaña de 2017 del EHT participaron ocho radiotelescopios en seis sitios, entre ellos el Gran Telescopio Milimétrico Alfonso Serrano, en Puebla, México.",
+   "conceptId": "C07",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "En la campaña de 2017 participaron ocho radiotelescopios en seis sitios, entre ellos el Gran Telescopio Milimétrico Alfonso Serrano, en Puebla, México.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 7205,
+     "endChar": 7356,
+     "paragraph": 17
+    }
+   ],
+   "origin": "source",
+   "quote": "En la campaña de 2017 participaron ocho radiotelescopios en seis sitios, entre ellos el Gran Telescopio Milimétrico Alfonso Serrano, en Puebla, México."
+  },
+  {
+   "id": "F34",
+   "text": "En abril de 2019, el EHT publicó la primera imagen de un agujero negro: M87*, de unos 6 500 millones de masas solares, a unos 55 millones de años luz.",
+   "conceptId": "C07",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "En abril de 2019, el EHT publicó la primera imagen de un agujero negro: M87*, en el centro de la galaxia M87. M87* tiene unos 6 500 millones de veces la masa del Sol y está a unos 55 millones de años luz.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 7358,
+     "endChar": 7562,
+     "paragraph": 18
+    }
+   ],
+   "origin": "source",
+   "quote": "En abril de 2019, el EHT publicó la primera imagen de un agujero negro: M87*, en el centro de la galaxia M87. M87* tiene unos 6 500 millones de veces la masa del Sol y está a unos 55 millones de años luz."
+  },
+  {
+   "id": "F35",
+   "text": "En 2022, el EHT presentó la imagen de Sagitario A*, el agujero negro del centro de la Vía Láctea, con unos 4 millones de masas solares.",
+   "conceptId": "C07",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "En 2022, el EHT presentó la imagen de Sagitario A*, el agujero negro del centro de la Vía Láctea, con unos 4 millones de masas solares",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 7563,
+     "endChar": 7697,
+     "paragraph": 18
+    }
+   ],
+   "origin": "source",
+   "quote": "En 2022, el EHT presentó la imagen de Sagitario A*, el agujero negro del centro de la Vía Láctea, con unos 4 millones de masas solares"
+  },
+  {
+   "id": "F36",
+   "text": "Las imágenes de M87* y Sagitario A* se parecen mucho aunque sus masas son muy distintas, tal como predice la relatividad general.",
+   "conceptId": "C07",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "Las dos imágenes se parecen mucho, aunque sus masas son muy distintas, tal como predice la relatividad general.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 7735,
+     "endChar": 7846,
+     "paragraph": 18
+    }
+   ],
+   "origin": "source",
+   "quote": "Las dos imágenes se parecen mucho, aunque sus masas son muy distintas, tal como predice la relatividad general."
+  },
+  {
+   "id": "F37",
+   "text": "Las imágenes del EHT muestran un anillo brillante alrededor de una región oscura llamada sombra.",
+   "conceptId": "C07",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "Las imágenes del EHT muestran un anillo brillante alrededor de una región oscura llamada sombra.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 7870,
+     "endChar": 7966,
+     "paragraph": 19
+    }
+   ],
+   "origin": "source",
+   "quote": "Las imágenes del EHT muestran un anillo brillante alrededor de una región oscura llamada sombra."
+  },
+  {
+   "id": "F38",
+   "text": "El anillo es luz del gas caliente que la gravedad desvía alrededor del agujero negro, de modo que nos llega desde todos los lados.",
+   "conceptId": "C07",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "El anillo no es el agujero negro: es luz del gas caliente que la gravedad desvía alrededor del agujero, de modo que nos llega desde todos los lados.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 7967,
+     "endChar": 8115,
+     "paragraph": 19
+    }
+   ],
+   "origin": "source",
+   "quote": "El anillo no es el agujero negro: es luz del gas caliente que la gravedad desvía alrededor del agujero, de modo que nos llega desde todos los lados."
+  },
+  {
+   "id": "F39",
+   "text": "La sombra es la región de donde no llega esa luz, y es más grande que el horizonte porque la gravedad dobla los rayos que pasan cerca.",
+   "conceptId": "C07",
+   "citations": [
+    {
+     "kind": "char",
+     "citedText": "La sombra es la región de donde no nos llega esa luz, y es más grande que el propio horizonte, porque la gravedad dobla los rayos que pasan cerca.",
+     "documentIndex": 0,
+     "documentTitle": "Donde el espacio se curva",
+     "startChar": 8116,
+     "endChar": 8262,
+     "paragraph": 19
+    }
+   ],
+   "origin": "source",
+   "quote": "La sombra es la región de donde no nos llega esa luz, y es más grande que el propio horizonte, porque la gravedad dobla los rayos que pasan cerca."
+  }
+ ],
+ "misconceptions": [
+  {
+   "id": "M01",
+   "wrongIdea": "Un agujero negro succiona todo lo que hay a su alrededor, como una aspiradora cósmica.",
+   "correction": "Lejos de él, su gravedad es la de cualquier objeto de la misma masa; solo queda atrapado lo que se acerca mucho.",
+   "factIds": [
+    "F24",
+    "F25",
+    "F26"
+   ]
+  },
+  {
+   "id": "M02",
+   "wrongIdea": "La imagen del EHT es una foto del agujero negro mismo, que brilla.",
+   "correction": "Un agujero negro no emite luz: el anillo es luz del gas caliente desviada por su gravedad alrededor de una sombra.",
+   "factIds": [
+    "F23",
+    "F38",
+    "F39"
+   ]
+  },
+  {
+   "id": "M03",
+   "wrongIdea": "El horizonte de sucesos es una superficie sólida, como la corteza de un planeta.",
+   "correction": "Es un límite en el espacio-tiempo, sin material: quien lo cruzara no chocaría contra nada, aunque ya no podría regresar.",
+   "factIds": [
+    "F13",
+    "F12"
+   ]
+  },
+  {
+   "id": "M04",
+   "wrongIdea": "Un agujero negro es un hueco vacío en el espacio.",
+   "correction": "Es una enorme cantidad de masa comprimida en una región diminuta.",
+   "factIds": [
+    "F11",
+    "F10"
+   ]
+  },
+  {
+   "id": "M05",
+   "wrongIdea": "Que el tiempo se estire cerca de una masa es ciencia ficción: no se puede medir.",
+   "correction": "La dilatación temporal se mide: los relojes de los satélites GPS se adelantan unos 38 microsegundos al día y el sistema lo corrige.",
+   "factIds": [
+    "F28",
+    "F29"
+   ]
+  }
+ ],
+ "verification": {
+  "b01": [
+   {
+    "index": 0,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F07"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 1,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F01"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 2,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F10"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   }
+  ],
+  "b02": [
+   {
+    "index": 0,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F02"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 1,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F03"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 2,
+    "verdict": "general",
+    "supportingFactIds": [],
+    "note": "",
+    "revised": false
+   }
+  ],
+  "b03": [
+   {
+    "index": 0,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F04"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 1,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F04"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 2,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F10",
+     "F11"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   }
+  ],
+  "b04": [
+   {
+    "index": 0,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F05"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 1,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F06"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 2,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F07"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 3,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F08"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   }
+  ],
+  "b05": [
+   {
+    "index": 0,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F09"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 1,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F12"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 2,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F13"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 3,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F14",
+     "F15",
+     "F16"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   }
+  ],
+  "b06": [
+   {
+    "index": 0,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F23"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 1,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F20"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 2,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F21"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 3,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F22"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   }
+  ],
+  "b07": [
+   {
+    "index": 0,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F17"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 1,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F15"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 2,
+    "verdict": "general",
+    "supportingFactIds": [],
+    "note": "",
+    "revised": false
+   }
+  ],
+  "b08": [
+   {
+    "index": 0,
+    "verdict": "general",
+    "supportingFactIds": [],
+    "note": "",
+    "revised": false
+   },
+   {
+    "index": 1,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F24"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 2,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F25"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 3,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F26",
+     "F27"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   }
+  ],
+  "b09": [
+   {
+    "index": 0,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F28"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 1,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F30"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 2,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F31"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 3,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F29"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   }
+  ],
+  "b10": [
+   {
+    "index": 0,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F32",
+     "F33"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 1,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F34"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 2,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F35",
+     "F19"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 3,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F36"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   }
+  ],
+  "b11": [
+   {
+    "index": 0,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F37"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 1,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F23",
+     "F03"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 2,
+    "verdict": "general",
+    "supportingFactIds": [],
+    "note": "",
+    "revised": false
+   }
+  ],
+  "b12": [
+   {
+    "index": 0,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F02",
+     "F10"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 1,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F12",
+     "F13"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   },
+   {
+    "index": 2,
+    "verdict": "supported",
+    "supportingFactIds": [
+     "F38",
+     "F39"
+    ],
+    "note": "Cita literal comprobada (mundo de demostración, revisado a mano)",
+    "revised": false
+   }
+  ]
+ },
+ "inserted": [],
+ "levelVariants": {
+  "curioso": {
+   "b01": [
+    {
+     "text": "Avienta una pelota hacia arriba: sube, se frena y regresa a tus manos.",
+     "factIds": [
+      "F07"
+     ]
+    },
+    {
+     "text": "Hace más de 200 años, un científico llamado John Michell imaginó estrellas tan apretadas que ni su luz podría salir.",
+     "factIds": [
+      "F01"
+     ]
+    },
+    {
+     "text": "¡Y sí existen! Se llaman agujeros negros, y de ellos no sale nada, ni siquiera la luz.",
+     "factIds": [
+      "F10"
+     ]
+    }
+   ],
+   "b02": [
+    {
+     "text": "Einstein descubrió que la gravedad es una curva en el espacio, hecha por las cosas con mucha masa.",
+     "factIds": [
+      "F02"
+     ]
+    },
+    {
+     "text": "Los planetas y la luz siguen el camino más derechito que pueden, pero ese camino está curvado.",
+     "factIds": [
+      "F03"
+     ]
+    },
+    {
+     "text": "Imagina una cama elástica con una bola de boliche: se hunde, y una canica rueda hacia ella.",
+     "factIds": []
+    }
+   ],
+   "b03": [
+    {
+     "text": "Entre más masa hay en un lugar, más se hunde y se curva el espacio.",
+     "factIds": [
+      "F04"
+     ]
+    },
+    {
+     "text": "Mueve la perilla y mira cómo el pozo se hace más hondo.",
+     "factIds": [
+      "F04"
+     ]
+    },
+    {
+     "text": "Un agujero negro es un pozo tan hondo que nada sale, y no está vacío: guarda muchísima masa apretada.",
+     "factIds": [
+      "F10",
+      "F11"
+     ]
+    }
+   ],
+   "b04": [
+    {
+     "text": "Para irte de un planeta para siempre, tienes que salir muy, muy rápido: eso se llama velocidad de escape.",
+     "factIds": [
+      "F05"
+     ]
+    },
+    {
+     "text": "En la Tierra son unos 11.2 kilómetros por segundo, ¡más de 40 000 kilómetros por hora!",
+     "factIds": [
+      "F06"
+     ]
+    },
+    {
+     "text": "Si vas más lento, caes o te quedas dando vueltas; si vas más rápido, te escapas.",
+     "factIds": [
+      "F07"
+     ]
+    },
+    {
+     "text": "Y si aprietas un planeta para hacerlo más chico, escapar de él se vuelve más difícil.",
+     "factIds": [
+      "F08"
+     ]
+    }
+   ],
+   "b05": [
+    {
+     "text": "Si para escapar hubiera que ir más rápido que la luz, nada podría salir.",
+     "factIds": [
+      "F09"
+     ]
+    },
+    {
+     "text": "La orilla de un agujero negro se llama horizonte de sucesos: si la cruzas, ya no hay regreso.",
+     "factIds": [
+      "F12"
+     ]
+    },
+    {
+     "text": "No es una pared dura: es una frontera invisible, y al cruzarla no chocarías con nada.",
+     "factIds": [
+      "F13"
+     ]
+    },
+    {
+     "text": "Para ser un agujero negro, la Tierra tendría que encogerse al tamaño de una canica.",
+     "factIds": [
+      "F16"
+     ]
+    }
+   ],
+   "b06": [
+    {
+     "text": "Un agujero negro no brilla; lo que brilla es el gas que lo rodea.",
+     "factIds": [
+      "F23"
+     ]
+    },
+    {
+     "text": "Ese gas no cae derecho: da vueltas y forma un disco, como el agua que se va por un desagüe.",
+     "factIds": [
+      "F20"
+     ]
+    },
+    {
+     "text": "Lo de adentro gira más rápido que lo de afuera.",
+     "factIds": [
+      "F21"
+     ]
+    },
+    {
+     "text": "El gas se calienta a millones de grados y brilla muchísimo.",
+     "factIds": [
+      "F22"
+     ]
+    }
+   ],
+   "b07": [
+    {
+     "text": "El Sol nunca será un agujero negro, porque no tiene suficiente masa.",
+     "factIds": [
+      "F17"
+     ]
+    },
+    {
+     "text": "Pero imagina que lo apretaras hasta medir unos 3 km de radio, sin quitarle nada de masa.",
+     "factIds": [
+      "F15"
+     ]
+    },
+    {
+     "text": "¿Qué le pasaría al camino de la Tierra alrededor de él?",
+     "factIds": []
+    }
+   ],
+   "b08": [
+    {
+     "text": "Mucha gente cree que los agujeros negros chupan todo, como aspiradoras.",
+     "factIds": []
+    },
+    {
+     "text": "¡No es así! De lejos, jalan igual que cualquier cosa con la misma masa.",
+     "factIds": [
+      "F24"
+     ]
+    },
+    {
+     "text": "Si el Sol fuera un agujero negro igual de pesado, la Tierra seguiría dando vueltas, pero a oscuras.",
+     "factIds": [
+      "F25"
+     ]
+    },
+    {
+     "text": "Solo atrapan lo que se acerca muchísimo; hay estrellas que giran a su alrededor sin caer.",
+     "factIds": [
+      "F26"
+     ]
+    }
+   ],
+   "b09": [
+    {
+     "text": "Cerca de algo con muchísima masa, el tiempo pasa más despacio que lejos.",
+     "factIds": [
+      "F28"
+     ]
+    },
+    {
+     "text": "La luz que sale de cerca de un agujero negro se estira, y su color se corre hacia el rojo.",
+     "factIds": [
+      "F30"
+     ]
+    },
+    {
+     "text": "Hasta los satélites del GPS lo notan: sus relojes se adelantan un poquito cada día, y hay que corregirlos.",
+     "factIds": [
+      "F29"
+     ]
+    }
+   ],
+   "b10": [
+    {
+     "text": "Científicos de todo el mundo unieron radiotelescopios, uno de ellos en Puebla, México, como si fueran uno gigante.",
+     "factIds": [
+      "F32",
+      "F33"
+     ]
+    },
+    {
+     "text": "En 2019 lograron la primera imagen de un agujero negro, llamado M87*.",
+     "factIds": [
+      "F34"
+     ]
+    },
+    {
+     "text": "En 2022 retrataron a Sagitario A*, el que está en el centro de nuestra galaxia.",
+     "factIds": [
+      "F35",
+      "F19"
+     ]
+    }
+   ],
+   "b11": [
+    {
+     "text": "En las imágenes se ve un anillo de luz alrededor de una mancha oscura, la sombra.",
+     "factIds": [
+      "F37"
+     ]
+    },
+    {
+     "text": "Pista: el agujero negro no brilla, y su gravedad dobla el camino de la luz.",
+     "factIds": [
+      "F23",
+      "F03"
+     ]
+    },
+    {
+     "text": "¿Por qué crees que se ve un anillo?",
+     "factIds": []
+    }
+   ],
+   "b12": [
+    {
+     "text": "Las cosas con mucha masa curvan el espacio, y un agujero negro lo curva muchísimo.",
+     "factIds": [
+      "F02",
+      "F10"
+     ]
+    },
+    {
+     "text": "Su orilla, el horizonte, es una frontera sin regreso, no una pared.",
+     "factIds": [
+      "F12",
+      "F13"
+     ]
+    },
+    {
+     "text": "Lo que vemos es el gas caliente que brilla alrededor de una sombra.",
+     "factIds": [
+      "F38",
+      "F39"
+     ]
+    }
+   ]
+  },
+  "prepa": {
+   "b01": [
+    {
+     "text": "Lanza una pelota hacia arriba: sube, se frena y vuelve a caer.",
+     "factIds": [
+      "F07"
+     ]
+    },
+    {
+     "text": "A finales del siglo XVIII, John Michell imaginó estrellas tan compactas que ni su luz lograría escapar.",
+     "factIds": [
+      "F01"
+     ]
+    },
+    {
+     "text": "Hoy sabemos que existen: son los agujeros negros, regiones de donde nada, ni siquiera la luz, puede salir.",
+     "factIds": [
+      "F10"
+     ]
+    }
+   ],
+   "b02": [
+    {
+     "text": "En 1915, Einstein propuso que la gravedad es la curvatura del espacio-tiempo causada por la masa y la energía.",
+     "factIds": [
+      "F02"
+     ]
+    },
+    {
+     "text": "Los planetas y hasta la luz siguen el camino más recto posible en ese tejido curvo, y por eso se desvían.",
+     "factIds": [
+      "F03"
+     ]
+    },
+    {
+     "text": "Imagina una tela elástica con una bola pesada: se hunde, y una canica que pasa cerca se desvía hacia ella.",
+     "factIds": []
+    }
+   ],
+   "b03": [
+    {
+     "text": "Cuanta más masa se concentra en una región, más se curva el espacio-tiempo a su alrededor.",
+     "factIds": [
+      "F04"
+     ]
+    },
+    {
+     "text": "Sube la perilla: con más masa en el mismo lugar, el pozo se hunde y sus paredes se empinan.",
+     "factIds": [
+      "F04"
+     ]
+    },
+    {
+     "text": "Un agujero negro lleva esto al extremo: no es un hueco vacío, sino muchísima masa en una región diminuta.",
+     "factIds": [
+      "F10",
+      "F11"
+     ]
+    }
+   ],
+   "b04": [
+    {
+     "text": "Para alejarte de un planeta sin volver a caer, necesitas una rapidez mínima: la velocidad de escape.",
+     "factIds": [
+      "F05"
+     ]
+    },
+    {
+     "text": "Desde la superficie de la Tierra es de unos 11.2 km/s, más de 40 000 km/h.",
+     "factIds": [
+      "F06"
+     ]
+    },
+    {
+     "text": "Si lanzas algo más lento, cae o queda en órbita; si va más rápido, se aleja para siempre.",
+     "factIds": [
+      "F07"
+     ]
+    },
+    {
+     "text": "Y si comprimes la misma masa en menos espacio, la velocidad de escape en su superficie crece.",
+     "factIds": [
+      "F08"
+     ]
+    }
+   ],
+   "b05": [
+    {
+     "text": "Si la velocidad de escape superara la de la luz, unos 300 000 km/s, nada podría salir.",
+     "factIds": [
+      "F09"
+     ]
+    },
+    {
+     "text": "Esa frontera se llama horizonte de sucesos: lo que la cruza ya no puede regresar ni enviar señales.",
+     "factIds": [
+      "F12"
+     ]
+    },
+    {
+     "text": "No es una superficie sólida, sino un límite en el espacio-tiempo: quien lo cruzara no chocaría contra nada.",
+     "factIds": [
+      "F13"
+     ]
+    },
+    {
+     "text": "Su radio es proporcional a la masa: el Sol necesitaría unos 3 km de radio, y la Tierra, unos 9 mm.",
+     "factIds": [
+      "F14",
+      "F15",
+      "F16"
+     ]
+    }
+   ],
+   "b06": [
+    {
+     "text": "Un agujero negro no emite luz propia: lo que vemos es la luz del material caliente que lo rodea.",
+     "factIds": [
+      "F23"
+     ]
+    },
+    {
+     "text": "El gas que cae no entra en línea recta: gira a su alrededor y forma un disco de acreción.",
+     "factIds": [
+      "F20"
+     ]
+    },
+    {
+     "text": "Las partes interiores del disco giran más rápido que las exteriores.",
+     "factIds": [
+      "F21"
+     ]
+    },
+    {
+     "text": "El roce y la compresión lo calientan hasta millones de grados, y brilla incluso en rayos X.",
+     "factIds": [
+      "F22"
+     ]
+    }
+   ],
+   "b07": [
+    {
+     "text": "El Sol nunca será un agujero negro: no tiene masa suficiente para colapsar así.",
+     "factIds": [
+      "F17"
+     ]
+    },
+    {
+     "text": "Pero imagina que se comprimiera hasta tener un horizonte de unos 3 km de radio, sin perder nada de masa.",
+     "factIds": [
+      "F15"
+     ]
+    },
+    {
+     "text": "¿Qué crees que le pasaría a la órbita de la Tierra?",
+     "factIds": []
+    }
+   ],
+   "b08": [
+    {
+     "text": "Mucha gente piensa que los agujeros negros succionan todo a su alrededor, como aspiradoras.",
+     "factIds": []
+    },
+    {
+     "text": "En realidad, lejos de un agujero negro, su gravedad es igual a la de cualquier objeto de la misma masa.",
+     "factIds": [
+      "F24"
+     ]
+    },
+    {
+     "text": "Con el Sol cambiado por un agujero negro de igual masa, la Tierra seguiría en su órbita, aunque a oscuras.",
+     "factIds": [
+      "F25"
+     ]
+    },
+    {
+     "text": "Solo atrapa lo que se acerca mucho: varias estrellas orbitan establemente a Sagitario A*, y seguirlas permitió medir su masa.",
+     "factIds": [
+      "F26",
+      "F27"
+     ]
+    }
+   ],
+   "b09": [
+    {
+     "text": "Cerca de una gran masa, el tiempo transcurre más lento que lejos de ella: es la dilatación temporal gravitacional.",
+     "factIds": [
+      "F28"
+     ]
+    },
+    {
+     "text": "La luz que sube desde cerca del horizonte pierde energía: su longitud de onda se estira hacia el rojo.",
+     "factIds": [
+      "F30"
+     ]
+    },
+    {
+     "text": "Desde lejos, verías que algo que cae se frena y se apaga, sin llegar a verlo cruzar.",
+     "factIds": [
+      "F31"
+     ]
+    },
+    {
+     "text": "No es ficción: los relojes de los satélites GPS se adelantan unos 38 microsegundos al día, y hay que corregirlos.",
+     "factIds": [
+      "F29"
+     ]
+    }
+   ],
+   "b10": [
+    {
+     "text": "El Event Horizon Telescope une radiotelescopios de todo el planeta; en 2017, uno de ellos fue el Gran Telescopio Milimétrico, en Puebla.",
+     "factIds": [
+      "F32",
+      "F33"
+     ]
+    },
+    {
+     "text": "En 2019 publicó la primera imagen de un agujero negro: M87*, de unos 6 500 millones de masas solares.",
+     "factIds": [
+      "F34"
+     ]
+    },
+    {
+     "text": "En 2022 mostró a Sagitario A*, el agujero negro supermasivo del centro de la Vía Láctea, con unos 4 millones de masas solares.",
+     "factIds": [
+      "F35",
+      "F19"
+     ]
+    },
+    {
+     "text": "Las dos imágenes se parecen mucho, aunque sus masas son muy distintas, como predice la relatividad general.",
+     "factIds": [
+      "F36"
+     ]
+    }
+   ],
+   "b11": [
+    {
+     "text": "Las imágenes del EHT muestran un anillo brillante alrededor de una región oscura llamada sombra.",
+     "factIds": [
+      "F37"
+     ]
+    },
+    {
+     "text": "Recuerda dos pistas: un agujero negro no emite luz propia, y la gravedad dobla el camino de la luz.",
+     "factIds": [
+      "F23",
+      "F03"
+     ]
+    },
+    {
+     "text": "Con eso, ¿puedes explicar de dónde sale el anillo?",
+     "factIds": []
+    }
+   ],
+   "b12": [
+    {
+     "text": "La masa curva el espacio-tiempo, y un agujero negro es esa curvatura llevada al extremo.",
+     "factIds": [
+      "F02",
+      "F10"
+     ]
+    },
+    {
+     "text": "El horizonte de sucesos es una frontera de no retorno, no una superficie sólida.",
+     "factIds": [
+      "F12",
+      "F13"
+     ]
+    },
+    {
+     "text": "Lo que vemos es la luz del gas caliente que lo rodea, desviada por su gravedad alrededor de una sombra.",
+     "factIds": [
+      "F38",
+      "F39"
+     ]
+    }
+   ]
+  },
+  "universidad": {
+   "b01": [
+    {
+     "text": "Un proyectil lanzado hacia arriba con rapidez menor que la de escape se detiene y regresa.",
+     "factIds": [
+      "F07"
+     ]
+    },
+    {
+     "text": "A finales del siglo XVIII, John Michell propuso, con gravitación newtoniana, estrellas tan compactas que retendrían su propia luz.",
+     "factIds": [
+      "F01"
+     ]
+    },
+    {
+     "text": "Hoy las llamamos agujeros negros: regiones de las que nada, ni siquiera la luz, puede escapar.",
+     "factIds": [
+      "F10"
+     ]
+    }
+   ],
+   "b02": [
+    {
+     "text": "En la relatividad general (1915), la gravedad no es una fuerza: es la curvatura del espacio-tiempo producida por la masa y la energía.",
+     "factIds": [
+      "F02"
+     ]
+    },
+    {
+     "text": "Las partículas libres y la luz siguen las trayectorias más rectas posibles de esa geometría curva, llamadas geodésicas.",
+     "factIds": [
+      "F03"
+     ]
+    },
+    {
+     "text": "La membrana elástica es solo una analogía: la curvatura real es la de un espacio-tiempo de cuatro dimensiones.",
+     "factIds": []
+    }
+   ],
+   "b03": [
+    {
+     "text": "La curvatura crece con la masa concentrada en una región.",
+     "factIds": [
+      "F04"
+     ]
+    },
+    {
+     "text": "Al aumentar la masa, el pozo se profundiza y sus pendientes se vuelven más pronunciadas.",
+     "factIds": [
+      "F04"
+     ]
+    },
+    {
+     "text": "Un agujero negro es el caso extremo: una gran masa en un volumen diminuto, no un hueco vacío.",
+     "factIds": [
+      "F10",
+      "F11"
+     ]
+    }
+   ],
+   "b04": [
+    {
+     "text": "La velocidad de escape es la rapidez mínima para alejarse indefinidamente de un cuerpo sin propulsión adicional.",
+     "factIds": [
+      "F05"
+     ]
+    },
+    {
+     "text": "En la superficie terrestre vale unos 11.2 km/s.",
+     "factIds": [
+      "F06"
+     ]
+    },
+    {
+     "text": "Por debajo de ese valor, la trayectoria queda ligada: cae o entra en órbita; por encima, el objeto escapa.",
+     "factIds": [
+      "F07"
+     ]
+    },
+    {
+     "text": "Para una masa fija, comprimirla a un radio menor aumenta la velocidad de escape en su superficie.",
+     "factIds": [
+      "F08"
+     ]
+    }
+   ],
+   "b05": [
+    {
+     "text": "Si la velocidad de escape superara la de la luz, unos 300 000 km/s, ninguna señal podría salir.",
+     "factIds": [
+      "F09"
+     ]
+    },
+    {
+     "text": "El horizonte de sucesos es la frontera de no retorno: lo que la cruza no puede regresar ni enviar señales al exterior.",
+     "factIds": [
+      "F12"
+     ]
+    },
+    {
+     "text": "No es una superficie material, sino un límite del espacio-tiempo; atravesarlo no implica chocar con nada.",
+     "factIds": [
+      "F13"
+     ]
+    },
+    {
+     "text": "Sin rotación, el radio de Schwarzschild es proporcional a la masa: unos 3 km para el Sol y unos 9 mm para la Tierra.",
+     "factIds": [
+      "F14",
+      "F15",
+      "F16"
+     ]
+    }
+   ],
+   "b06": [
+    {
+     "text": "Un agujero negro no emite radiación propia; lo que detectamos proviene del material que lo rodea.",
+     "factIds": [
+      "F23"
+     ]
+    },
+    {
+     "text": "Por su momento angular, el gas no cae radialmente: forma un disco de acreción.",
+     "factIds": [
+      "F20"
+     ]
+    },
+    {
+     "text": "La rotación es diferencial: las regiones internas giran más rápido que las externas.",
+     "factIds": [
+      "F21"
+     ]
+    },
+    {
+     "text": "La fricción y la compresión calientan el gas a millones de grados, y emite desde el visible hasta los rayos X.",
+     "factIds": [
+      "F22"
+     ]
+    }
+   ],
+   "b07": [
+    {
+     "text": "El Sol no tiene masa suficiente para colapsar en un agujero negro.",
+     "factIds": [
+      "F17"
+     ]
+    },
+    {
+     "text": "Supón, aun así, que se comprimiera por debajo de su radio de Schwarzschild, unos 3 km, conservando su masa.",
+     "factIds": [
+      "F15"
+     ]
+    },
+    {
+     "text": "¿Cómo cambiaría la órbita terrestre?",
+     "factIds": []
+    }
+   ],
+   "b08": [
+    {
+     "text": "Es común imaginar que un agujero negro succiona la materia a su alrededor.",
+     "factIds": []
+    },
+    {
+     "text": "Sin embargo, a gran distancia su campo gravitacional es el de cualquier objeto de igual masa.",
+     "factIds": [
+      "F24"
+     ]
+    },
+    {
+     "text": "Si el Sol se reemplazara por un agujero negro de la misma masa, la órbita terrestre no cambiaría.",
+     "factIds": [
+      "F25"
+     ]
+    },
+    {
+     "text": "Solo la materia muy cercana queda capturada; las órbitas estables de estrellas alrededor de Sagitario A* permitieron medir su masa.",
+     "factIds": [
+      "F26",
+      "F27"
+     ]
+    }
+   ],
+   "b09": [
+    {
+     "text": "La dilatación temporal gravitacional hace que los relojes cercanos a una gran masa marchen más lento que los lejanos.",
+     "factIds": [
+      "F28"
+     ]
+    },
+    {
+     "text": "La luz que escapa de cerca del horizonte pierde energía: sufre corrimiento al rojo gravitacional.",
+     "factIds": [
+      "F30"
+     ]
+    },
+    {
+     "text": "Para un observador lejano, un objeto que cae parece frenarse y desvanecerse sin cruzar el horizonte.",
+     "factIds": [
+      "F31"
+     ]
+    },
+    {
+     "text": "En el GPS el efecto es medible: los relojes en órbita se adelantan unos 38 microsegundos diarios y el sistema lo corrige.",
+     "factIds": [
+      "F29"
+     ]
+    }
+   ],
+   "b10": [
+    {
+     "text": "El Event Horizon Telescope combina radiotelescopios repartidos por el planeta, entre ellos el Gran Telescopio Milimétrico en Puebla, como una apertura del tamaño de la Tierra.",
+     "factIds": [
+      "F32",
+      "F33"
+     ]
+    },
+    {
+     "text": "En 2019 publicó la imagen de M87*, de unos 6 500 millones de masas solares, a unos 55 millones de años luz.",
+     "factIds": [
+      "F34"
+     ]
+    },
+    {
+     "text": "En 2022 presentó la de Sagitario A*, el agujero negro supermasivo de la Vía Láctea, de unos 4 millones de masas solares.",
+     "factIds": [
+      "F35",
+      "F19"
+     ]
+    },
+    {
+     "text": "Ambas imágenes se parecen pese a la enorme diferencia de masa, como predice la relatividad general.",
+     "factIds": [
+      "F36"
+     ]
+    }
+   ],
+   "b11": [
+    {
+     "text": "Las imágenes muestran un anillo brillante que rodea una región oscura, la sombra.",
+     "factIds": [
+      "F37"
+     ]
+    },
+    {
+     "text": "Considera que el agujero negro no emite luz y que la gravedad curva las trayectorias de la luz.",
+     "factIds": [
+      "F23",
+      "F03"
+     ]
+    },
+    {
+     "text": "¿Qué origina entonces el anillo?",
+     "factIds": []
+    }
+   ],
+   "b12": [
+    {
+     "text": "La masa curva el espacio-tiempo; un agujero negro es el caso extremo de esa curvatura.",
+     "factIds": [
+      "F02",
+      "F10"
+     ]
+    },
+    {
+     "text": "El horizonte de sucesos es una frontera sin retorno, no una superficie material.",
+     "factIds": [
+      "F12",
+      "F13"
+     ]
+    },
+    {
+     "text": "Lo observable es la emisión del gas caliente, desviada por la gravedad alrededor de una sombra mayor que el horizonte.",
+     "factIds": [
+      "F38",
+      "F39"
+     ]
+    }
+   ]
+  },
+  "experto": {
+   "b01": [
+    {
+     "text": "Una trayectoria balística por debajo de la velocidad de escape queda ligada al cuerpo y vuelve a caer.",
+     "factIds": [
+      "F07"
+     ]
+    },
+    {
+     "text": "Michell, a finales del siglo XVIII, dedujo en el marco newtoniano que un cuerpo suficientemente compacto atraparía su propia luz.",
+     "factIds": [
+      "F01"
+     ]
+    },
+    {
+     "text": "La relatividad general convierte esa intuición en un objeto preciso: el agujero negro, del que ninguna señal puede escapar.",
+     "factIds": [
+      "F10"
+     ]
+    }
+   ],
+   "b02": [
+    {
+     "text": "La relatividad general (1915) identifica la gravedad con la curvatura del espacio-tiempo, determinada por la masa y la energía.",
+     "factIds": [
+      "F02"
+     ]
+    },
+    {
+     "text": "Partículas libres y fotones siguen geodésicas de esa geometría; la desviación aparente es geometría, no fuerza.",
+     "factIds": [
+      "F03"
+     ]
+    },
+    {
+     "text": "La membrana elástica ilustra solo la parte espacial y presupone una gravedad externa: tómala como heurística.",
+     "factIds": []
+    }
+   ],
+   "b03": [
+    {
+     "text": "A mayor masa concentrada, mayor curvatura del espacio-tiempo en su entorno.",
+     "factIds": [
+      "F04"
+     ]
+    },
+    {
+     "text": "En la analogía del pozo, el parámetro de profundidad escala con la masa de la fuente.",
+     "factIds": [
+      "F04"
+     ]
+    },
+    {
+     "text": "En el límite, una masa enorme confinada en un volumen diminuto produce un agujero negro, no un hueco vacío.",
+     "factIds": [
+      "F10",
+      "F11"
+     ]
+    }
+   ],
+   "b04": [
+    {
+     "text": "La velocidad de escape es la rapidez mínima para alejarse indefinidamente sin empuje adicional.",
+     "factIds": [
+      "F05"
+     ]
+    },
+    {
+     "text": "En la superficie terrestre ronda los 11.2 km/s.",
+     "factIds": [
+      "F06"
+     ]
+    },
+    {
+     "text": "Por debajo, las órbitas son ligadas, balísticas o elípticas; por encima, abiertas.",
+     "factIds": [
+      "F07"
+     ]
+    },
+    {
+     "text": "Como depende de la masa y del radio, comprimir una masa fija la incrementa.",
+     "factIds": [
+      "F08"
+     ]
+    }
+   ],
+   "b05": [
+    {
+     "text": "El argumento newtoniano compara la velocidad de escape con la de la luz, unos 300 000 km/s.",
+     "factIds": [
+      "F09"
+     ]
+    },
+    {
+     "text": "En relatividad general, el horizonte de sucesos separa los eventos que ya no pueden enviar señales al exterior.",
+     "factIds": [
+      "F12"
+     ]
+    },
+    {
+     "text": "Localmente no hay superficie material: un observador en caída libre lo atraviesa sin encontrar ninguna pared.",
+     "factIds": [
+      "F13"
+     ]
+    },
+    {
+     "text": "En la solución de Schwarzschild, el radio del horizonte escala linealmente con la masa: unos 3 km para una masa solar y 9 mm para la terrestre.",
+     "factIds": [
+      "F14",
+      "F15",
+      "F16"
+     ]
+    }
+   ],
+   "b06": [
+    {
+     "text": "El agujero negro no emite; la radiación observada procede de la materia en acreción.",
+     "factIds": [
+      "F23"
+     ]
+    },
+    {
+     "text": "El momento angular del gas impide la caída radial y lo organiza en un disco de acreción.",
+     "factIds": [
+      "F20"
+     ]
+    },
+    {
+     "text": "La rotación es diferencial, más rápida hacia el interior, como en un sistema kepleriano.",
+     "factIds": [
+      "F21"
+     ]
+    },
+    {
+     "text": "La disipación por fricción y la compresión elevan la temperatura a millones de grados, con emisión hasta rayos X.",
+     "factIds": [
+      "F22"
+     ]
+    }
+   ],
+   "b07": [
+    {
+     "text": "Una estrella como el Sol no alcanza la masa necesaria para colapsar en agujero negro.",
+     "factIds": [
+      "F17"
+     ]
+    },
+    {
+     "text": "Considera, como experimento mental, comprimirlo bajo su radio de Schwarzschild, unos 3 km, a masa constante.",
+     "factIds": [
+      "F15"
+     ]
+    },
+    {
+     "text": "¿Qué ocurre con la órbita terrestre?",
+     "factIds": []
+    }
+   ],
+   "b08": [
+    {
+     "text": "La imagen del agujero negro como aspiradora confunde el régimen de campo fuerte con el lejano.",
+     "factIds": []
+    },
+    {
+     "text": "Lejos del horizonte, el campo es indistinguible del de cualquier cuerpo de igual masa.",
+     "factIds": [
+      "F24"
+     ]
+    },
+    {
+     "text": "Sustituir el Sol por un agujero negro de igual masa dejaría intacta la órbita terrestre.",
+     "factIds": [
+      "F25"
+     ]
+    },
+    {
+     "text": "La captura solo ocurre en las proximidades; las órbitas estelares en torno a Sagitario A* permitieron medir su masa.",
+     "factIds": [
+      "F26",
+      "F27"
+     ]
+    }
+   ],
+   "b09": [
+    {
+     "text": "La dilatación temporal gravitacional ralentiza los relojes situados más hondo en el pozo respecto a observadores lejanos.",
+     "factIds": [
+      "F28"
+     ]
+    },
+    {
+     "text": "La luz emitida cerca del horizonte llega con corrimiento al rojo gravitacional: su longitud de onda se estira.",
+     "factIds": [
+      "F30"
+     ]
+    },
+    {
+     "text": "Para un observador lejano, un objeto en caída parece congelarse y apagarse antes de cruzar el horizonte.",
+     "factIds": [
+      "F31"
+     ]
+    },
+    {
+     "text": "En el GPS, el efecto neto adelanta los relojes en órbita unos 38 microsegundos diarios y debe corregirse.",
+     "factIds": [
+      "F29"
+     ]
+    }
+   ],
+   "b10": [
+    {
+     "text": "El EHT sintetiza una apertura del tamaño de la Tierra con radiotelescopios repartidos por el planeta, incluido el Gran Telescopio Milimétrico en Puebla.",
+     "factIds": [
+      "F32",
+      "F33"
+     ]
+    },
+    {
+     "text": "En 2019 publicó la imagen de M87*, de unos 6 500 millones de masas solares, a unos 55 millones de años luz.",
+     "factIds": [
+      "F34"
+     ]
+    },
+    {
+     "text": "En 2022 publicó la de Sagitario A*, el agujero negro supermasivo de la Vía Láctea, de unos 4 millones de masas solares.",
+     "factIds": [
+      "F35",
+      "F19"
+     ]
+    },
+    {
+     "text": "La similitud de ambas imágenes, pese a unos tres órdenes de magnitud de diferencia en masa, es consistente con la relatividad general.",
+     "factIds": [
+      "F36"
+     ]
+    }
+   ],
+   "b11": [
+    {
+     "text": "Las imágenes muestran un anillo de emisión en torno a una depresión central de brillo, la sombra.",
+     "factIds": [
+      "F37"
+     ]
+    },
+    {
+     "text": "Recuerda que el agujero negro no emite y que la gravedad curva las trayectorias de los fotones.",
+     "factIds": [
+      "F23",
+      "F03"
+     ]
+    },
+    {
+     "text": "¿Qué explica la morfología anular?",
+     "factIds": []
+    }
+   ],
+   "b12": [
+    {
+     "text": "La gravedad es curvatura del espacio-tiempo; un agujero negro es su régimen extremo.",
+     "factIds": [
+      "F02",
+      "F10"
+     ]
+    },
+    {
+     "text": "El horizonte de sucesos es una frontera causal, no una superficie material.",
+     "factIds": [
+      "F12",
+      "F13"
+     ]
+    },
+    {
+     "text": "Lo observado es la emisión del plasma caliente, desviada en torno a una sombra mayor que el horizonte.",
+     "factIds": [
+      "F38",
+      "F39"
+     ]
+    }
+   ]
+  }
+ },
+ "mastery": {},
+ "telemetry": [
+  {
+   "id": "cartographer-1800",
+   "agent": "cartographer",
+   "model": "claude-opus-5-5",
+   "effort": "high",
+   "startedAt": "2026-11-13T12:00:01.800Z",
+   "durationMs": 28000,
+   "inputTokens": 5311,
+   "outputTokens": 2275,
+   "cacheReadTokens": 0,
+   "cacheWriteTokens": 0,
+   "webSearches": 0,
+   "webFetches": 0,
+   "costUsd": 0.066744,
+   "stopReason": "end_turn",
+   "thinkingSummary": "Leo la fuente completa sobre «Donde el espacio se curva» y separo mecanismos, definiciones y cifras. Cada hecho debe sostenerse solo y llevar su pasaje: resuelvo pronombres y nombro el sujeto. Identifico 8 conceptos; Velocidad de escape depende de Espacio-tiempo curvo. Un malentendido frecuente: «Un agujero negro succiona todo lo que hay a su alrededor, como una aspiradora cósmica.». Lo anoto con los hechos que lo corrigen. Propongo la paleta nebulosa y motivos visuales sacados de la propia fuente.",
+   "replay": true
+  },
+  {
+   "id": "director-29800",
+   "agent": "director",
+   "model": "claude-opus-5-5",
+   "effort": "high",
+   "startedAt": "2026-11-13T12:00:29.800Z",
+   "durationMs": 37600,
+   "inputTokens": 8225,
+   "outputTokens": 8364,
+   "cacheReadTokens": 9200,
+   "cacheWriteTokens": 0,
+   "webSearches": 0,
+   "webFetches": 0,
+   "costUsd": 0.20202,
+   "stopReason": "end_turn",
+   "thinkingSummary": "Abro con una imagen que sorprenda: «¿Puede algo ser tan pesado que ni la luz escape?». Presento Espacio-tiempo curvo antes de usarlo en el mecanismo. Formas que se transforman con sentido: cada escena hereda algo de la anterior. La primera comprobación va en la escena 7, cuando ya hay con qué razonar. El error común se deshace con una transición de disolución.",
+   "replay": true
+  },
+  {
+   "id": "skeptic-37955.36239244975",
+   "agent": "skeptic",
+   "model": "claude-sonnet-5-5",
+   "effort": "medium",
+   "startedAt": "2026-11-13T12:00:37.955Z",
+   "durationMs": 2600,
+   "inputTokens": 9025,
+   "outputTokens": 600,
+   "cacheReadTokens": 0,
+   "cacheWriteTokens": 0,
+   "webSearches": 0,
+   "webFetches": 0,
+   "costUsd": 0.02405,
+   "stopReason": "end_turn",
+   "thinkingSummary": "Reviso que cada oración diga solo lo que dicen sus hechos citados.",
+   "replay": true
+  },
+  {
+   "id": "skeptic-42800.98223651294",
+   "agent": "skeptic",
+   "model": "claude-sonnet-5-5",
+   "effort": "medium",
+   "startedAt": "2026-11-13T12:00:42.800Z",
+   "durationMs": 2600,
+   "inputTokens": 9025,
+   "outputTokens": 600,
+   "cacheReadTokens": 0,
+   "cacheWriteTokens": 0,
+   "webSearches": 0,
+   "webFetches": 0,
+   "costUsd": 0.02405,
+   "stopReason": "end_turn",
+   "thinkingSummary": "Reviso que cada oración diga solo lo que dicen sus hechos citados.",
+   "replay": true
+  },
+  {
+   "id": "skeptic-47472.54918131512",
+   "agent": "skeptic",
+   "model": "claude-sonnet-5-5",
+   "effort": "medium",
+   "startedAt": "2026-11-13T12:00:47.472Z",
+   "durationMs": 2600,
+   "inputTokens": 9025,
+   "outputTokens": 600,
+   "cacheReadTokens": 0,
+   "cacheWriteTokens": 0,
+   "webSearches": 0,
+   "webFetches": 0,
+   "costUsd": 0.02405,
+   "stopReason": "end_turn",
+   "thinkingSummary": "Reviso que cada oración diga solo lo que dicen sus hechos citados.",
+   "replay": true
+  },
+  {
+   "id": "skeptic-55268.34292639978",
+   "agent": "skeptic",
+   "model": "claude-sonnet-5-5",
+   "effort": "medium",
+   "startedAt": "2026-11-13T12:00:55.268Z",
+   "durationMs": 2600,
+   "inputTokens": 9025,
+   "outputTokens": 600,
+   "cacheReadTokens": 0,
+   "cacheWriteTokens": 0,
+   "webSearches": 0,
+   "webFetches": 0,
+   "costUsd": 0.02405,
+   "stopReason": "end_turn",
+   "thinkingSummary": "Reviso que cada oración diga solo lo que dicen sus hechos citados.",
+   "replay": true
+  },
+  {
+   "id": "skeptic-62733.6163549684",
+   "agent": "skeptic",
+   "model": "claude-sonnet-5-5",
+   "effort": "medium",
+   "startedAt": "2026-11-13T12:01:02.733Z",
+   "durationMs": 2600,
+   "inputTokens": 9025,
+   "outputTokens": 600,
+   "cacheReadTokens": 0,
+   "cacheWriteTokens": 0,
+   "webSearches": 0,
+   "webFetches": 0,
+   "costUsd": 0.02405,
+   "stopReason": "end_turn",
+   "thinkingSummary": "Reviso que cada oración diga solo lo que dicen sus hechos citados.",
+   "replay": true
+  }
+ ],
+ "specReport": {
+  "corrections": []
+ },
+ "lintReport": {
+  "score": 100,
+  "errors": [],
+  "warnings": []
+ },
+ "posterBeat": "b10",
+ "demoAssets": {
+  "remedials": {
+   "b07": [
+    {
+     "id": "r01a",
+     "kind": "misconception",
+     "title": "Misma masa, misma órbita",
+     "sentences": [
+      {
+       "text": "Compara: a la izquierda, la Tierra alrededor del Sol; a la derecha, alrededor de un agujero negro de la misma masa.",
+       "factIds": [
+        "F25"
+       ]
+      },
+      {
+       "text": "Lejos de un objeto, su gravedad depende de su masa, no de qué tan compacto sea.",
+       "factIds": [
+        "F24"
+       ]
+      },
+      {
+       "text": "Por eso las dos órbitas son idénticas: la Tierra daría una vuelta cada año, solo que a oscuras.",
+       "factIds": [
+        "F25"
+       ]
+      }
+     ],
+     "conceptIds": [
+      "C08"
+     ],
+     "layers": [
+      {
+       "shape": "orbits",
+       "params": [
+        {
+         "key": "rings",
+         "value": 1
+        },
+        {
+         "key": "center_size",
+         "value": 0.3
+        },
+        {
+         "key": "body_size",
+         "value": 0.07
+        },
+        {
+         "key": "tilt",
+         "value": 0
+        },
+        {
+         "key": "eccentricity",
+         "value": 0.02
+        }
+       ],
+       "expr": [],
+       "data": [
+        0.85
+       ],
+       "share": 0.45,
+       "position": {
+        "x": -0.9,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 0.8,
+       "colorMode": "region",
+       "tint": "primary"
+      },
+      {
+       "shape": "orbits",
+       "params": [
+        {
+         "key": "rings",
+         "value": 1
+        },
+        {
+         "key": "center_size",
+         "value": 0.05
+        },
+        {
+         "key": "body_size",
+         "value": 0.07
+        },
+        {
+         "key": "tilt",
+         "value": 0
+        },
+        {
+         "key": "eccentricity",
+         "value": 0.02
+        }
+       ],
+       "expr": [],
+       "data": [
+        0.85
+       ],
+       "share": 0.45,
+       "position": {
+        "x": 0.9,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 0.8,
+       "colorMode": "region",
+       "tint": "primary"
+      }
+     ],
+     "transition": "dissolve",
+     "camera": "top_down",
+     "annotations": [
+      {
+       "layerIndex": 0,
+       "regionId": "center",
+       "text": "Sol"
+      },
+      {
+       "layerIndex": 1,
+       "regionId": "center",
+       "text": "Agujero negro"
+      },
+      {
+       "layerIndex": 1,
+       "regionId": "ring_0",
+       "text": "Misma órbita"
+      }
+     ],
+     "knob": {
+      "enabled": false,
+      "label": "",
+      "layerIndex": 0,
+      "paramKey": "",
+      "min": 0,
+      "max": 0,
+      "initial": 0,
+      "step": 0,
+      "unit": "",
+      "readout": ""
+     },
+     "check": {
+      "enabled": false,
+      "question": "",
+      "choices": [],
+      "correctIndex": 0,
+      "allowFreeText": false,
+      "idealAnswer": "",
+      "explanation": "",
+      "conceptIds": []
+     },
+     "ambient": "calm",
+     "weight": 1
+    },
+    {
+     "id": "r01b",
+     "kind": "mechanism",
+     "title": "Solo de cerca cambia todo",
+     "sentences": [
+      {
+       "text": "Comprimir el Sol no cambia su gravedad lejana: el pozo es igual en las orillas.",
+       "factIds": [
+        "F24"
+       ]
+      },
+      {
+       "text": "La diferencia aparece muy cerca del centro, donde el pozo del agujero negro se vuelve profundísimo.",
+       "factIds": [
+        "F08"
+       ]
+      },
+      {
+       "text": "Solo lo que se acerca mucho queda atrapado; la Tierra está demasiado lejos para notarlo.",
+       "factIds": [
+        "F26",
+        "F25"
+       ]
+      }
+     ],
+     "conceptIds": [
+      "C08",
+      "C01"
+     ],
+     "layers": [
+      {
+       "shape": "grid",
+       "params": [
+        {
+         "key": "resolution",
+         "value": 34
+        },
+        {
+         "key": "wells",
+         "value": 1
+        },
+        {
+         "key": "depth",
+         "value": 0.4
+        },
+        {
+         "key": "spread",
+         "value": 0.3
+        }
+       ],
+       "expr": [],
+       "data": [],
+       "share": 0.45,
+       "position": {
+        "x": -0.9,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 0.72,
+       "colorMode": "height",
+       "tint": "primary"
+      },
+      {
+       "shape": "grid",
+       "params": [
+        {
+         "key": "resolution",
+         "value": 34
+        },
+        {
+         "key": "wells",
+         "value": 1
+        },
+        {
+         "key": "depth",
+         "value": 1.5
+        },
+        {
+         "key": "spread",
+         "value": 0.155
+        }
+       ],
+       "expr": [],
+       "data": [],
+       "share": 0.45,
+       "position": {
+        "x": 0.9,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 0.72,
+       "colorMode": "height",
+       "tint": "primary"
+      }
+     ],
+     "transition": "fold",
+     "camera": "orbit_wide",
+     "annotations": [
+      {
+       "layerIndex": 0,
+       "regionId": "well_0",
+       "text": "El Sol"
+      },
+      {
+       "layerIndex": 1,
+       "regionId": "well_0",
+       "text": "Agujero negro"
+      }
+     ],
+     "knob": {
+      "enabled": false,
+      "label": "",
+      "layerIndex": 0,
+      "paramKey": "",
+      "min": 0,
+      "max": 0,
+      "initial": 0,
+      "step": 0,
+      "unit": "",
+      "readout": ""
+     },
+     "check": {
+      "enabled": false,
+      "question": "",
+      "choices": [],
+      "correctIndex": 0,
+      "allowFreeText": false,
+      "idealAnswer": "",
+      "explanation": "",
+      "conceptIds": []
+     },
+     "ambient": "wonder",
+     "weight": 1
+    },
+    {
+     "id": "r01c",
+     "kind": "check",
+     "title": "Una pregunta más directa",
+     "sentences": [
+      {
+       "text": "Prueba con esta, más sencilla.",
+       "factIds": []
+      },
+      {
+       "text": "Piensa en un agujero negro con la misma masa del Sol, y en la Tierra a la distancia de siempre.",
+       "factIds": [
+        "F25"
+       ]
+      }
+     ],
+     "conceptIds": [
+      "C08"
+     ],
+     "layers": [
+      {
+       "shape": "orbits",
+       "params": [
+        {
+         "key": "rings",
+         "value": 1
+        },
+        {
+         "key": "center_size",
+         "value": 0.06
+        },
+        {
+         "key": "body_size",
+         "value": 0.06
+        },
+        {
+         "key": "tilt",
+         "value": 0
+        },
+        {
+         "key": "eccentricity",
+         "value": 0.02
+        }
+       ],
+       "expr": [],
+       "data": [
+        0.85
+       ],
+       "share": 0.9,
+       "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 1,
+       "colorMode": "region",
+       "tint": "primary"
+      }
+     ],
+     "transition": "flow",
+     "camera": "orbit_close",
+     "annotations": [
+      {
+       "layerIndex": 0,
+       "regionId": "body_0",
+       "text": "Tierra"
+      }
+     ],
+     "knob": {
+      "enabled": false,
+      "label": "",
+      "layerIndex": 0,
+      "paramKey": "",
+      "min": 0,
+      "max": 0,
+      "initial": 0,
+      "step": 0,
+      "unit": "",
+      "readout": ""
+     },
+     "check": {
+      "enabled": true,
+      "question": "A la misma distancia, ¿cómo atrae a la Tierra un agujero negro con la masa del Sol, comparado con el Sol?",
+      "choices": [
+       {
+        "text": "Igual que el Sol.",
+        "misconceptionId": ""
+       },
+       {
+        "text": "Muchísimo más: la succionaría.",
+        "misconceptionId": "M01"
+       },
+       {
+        "text": "Nada: un agujero negro no atrae hacia afuera.",
+        "misconceptionId": ""
+       }
+      ],
+      "correctIndex": 0,
+      "allowFreeText": true,
+      "idealAnswer": "Igual: lejos de un agujero negro, su gravedad es la de cualquier objeto de la misma masa.",
+      "explanation": "La gravedad lejana depende de la masa. Misma masa y misma distancia dan la misma atracción, así que la órbita no cambia.",
+      "conceptIds": [
+       "C08"
+      ]
+     },
+     "ambient": "calm",
+     "weight": 0.8
+    }
+   ],
+   "b11": [
+    {
+     "id": "r02a",
+     "kind": "misconception",
+     "title": "Lo que brilla es el gas",
+     "sentences": [
+      {
+       "text": "Un agujero negro no emite luz propia: lo que brilla es el gas caliente que lo rodea.",
+       "factIds": [
+        "F23"
+       ]
+      },
+      {
+       "text": "Su gravedad dobla el camino de esa luz, como estas líneas que se curvan al pasar cerca del centro.",
+       "factIds": [
+        "F03"
+       ]
+      },
+      {
+       "text": "Así, la luz del gas nos llega desde todos los lados y dibuja un anillo.",
+       "factIds": [
+        "F38"
+       ]
+      }
+     ],
+     "conceptIds": [
+      "C07",
+      "C05"
+     ],
+     "layers": [
+      {
+       "shape": "torus",
+       "params": [
+        {
+         "key": "major",
+         "value": 0.62
+        },
+        {
+         "key": "minor",
+         "value": 0.1
+        },
+        {
+         "key": "fill",
+         "value": 0.15
+        }
+       ],
+       "expr": [],
+       "data": [],
+       "share": 0.35,
+       "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 1,
+       "colorMode": "radial",
+       "tint": "primary"
+      },
+      {
+       "shape": "field",
+       "params": [
+        {
+         "key": "seeds",
+         "value": 9
+        },
+        {
+         "key": "steps",
+         "value": 110
+        },
+        {
+         "key": "step_size",
+         "value": 0.02
+        },
+        {
+         "key": "planar",
+         "value": 1
+        }
+       ],
+       "expr": [
+        {
+         "key": "vx",
+         "value": "1"
+        },
+        {
+         "key": "vy",
+         "value": "-0.22*y/((x^2+y^2)^1.5+0.02)"
+        },
+        {
+         "key": "vz",
+         "value": "0"
+        }
+       ],
+       "data": [],
+       "share": 0.55,
+       "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 1,
+       "colorMode": "palette",
+       "tint": "primary"
+      }
+     ],
+     "transition": "dissolve",
+     "camera": "orbit_close",
+     "annotations": [
+      {
+       "layerIndex": 0,
+       "regionId": "ring",
+       "text": "Anillo de luz"
+      },
+      {
+       "layerIndex": 1,
+       "regionId": "lines",
+       "text": "Luz desviada"
+      }
+     ],
+     "knob": {
+      "enabled": false,
+      "label": "",
+      "layerIndex": 0,
+      "paramKey": "",
+      "min": 0,
+      "max": 0,
+      "initial": 0,
+      "step": 0,
+      "unit": "",
+      "readout": ""
+     },
+     "check": {
+      "enabled": false,
+      "question": "",
+      "choices": [],
+      "correctIndex": 0,
+      "allowFreeText": false,
+      "idealAnswer": "",
+      "explanation": "",
+      "conceptIds": []
+     },
+     "ambient": "wonder",
+     "weight": 1
+    },
+    {
+     "id": "r02b",
+     "kind": "mechanism",
+     "title": "La sombra es más grande que el horizonte",
+     "sentences": [
+      {
+       "text": "La sombra es la región de donde no nos llega esa luz.",
+       "factIds": [
+        "F39"
+       ]
+      },
+      {
+       "text": "Es más grande que el horizonte, porque la gravedad dobla los rayos que pasan cerca.",
+       "factIds": [
+        "F39"
+       ]
+      },
+      {
+       "text": "El horizonte, la frontera de no retorno, queda escondido dentro de la sombra.",
+       "factIds": [
+        "F12",
+        "F39"
+       ]
+      }
+     ],
+     "conceptIds": [
+      "C07",
+      "C04"
+     ],
+     "layers": [
+      {
+       "shape": "torus",
+       "params": [
+        {
+         "key": "major",
+         "value": 0.7
+        },
+        {
+         "key": "minor",
+         "value": 0.08
+        },
+        {
+         "key": "fill",
+         "value": 0.15
+        }
+       ],
+       "expr": [],
+       "data": [],
+       "share": 0.6,
+       "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 1,
+       "colorMode": "radial",
+       "tint": "primary"
+      },
+      {
+       "shape": "shell",
+       "params": [
+        {
+         "key": "radius",
+         "value": 0.28
+        },
+        {
+         "key": "thickness",
+         "value": 0.04
+        },
+        {
+         "key": "noise",
+         "value": 0.01
+        },
+        {
+         "key": "opening",
+         "value": 0
+        }
+       ],
+       "expr": [],
+       "data": [],
+       "share": 0.3,
+       "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 1,
+       "colorMode": "single",
+       "tint": "secondary"
+      }
+     ],
+     "transition": "fold",
+     "camera": "orbit_close",
+     "annotations": [
+      {
+       "layerIndex": 0,
+       "regionId": "ring",
+       "text": "Anillo de luz"
+      },
+      {
+       "layerIndex": 1,
+       "regionId": "surface",
+       "text": "Horizonte, más pequeño"
+      }
+     ],
+     "knob": {
+      "enabled": false,
+      "label": "",
+      "layerIndex": 0,
+      "paramKey": "",
+      "min": 0,
+      "max": 0,
+      "initial": 0,
+      "step": 0,
+      "unit": "",
+      "readout": ""
+     },
+     "check": {
+      "enabled": false,
+      "question": "",
+      "choices": [],
+      "correctIndex": 0,
+      "allowFreeText": false,
+      "idealAnswer": "",
+      "explanation": "",
+      "conceptIds": []
+     },
+     "ambient": "calm",
+     "weight": 1
+    },
+    {
+     "id": "r02c",
+     "kind": "check",
+     "title": "¿Qué es lo que brilla?",
+     "sentences": [
+      {
+       "text": "Ahora, una más sencilla.",
+       "factIds": []
+      },
+      {
+       "text": "Recuerda qué rodea al agujero negro y se calienta.",
+       "factIds": [
+        "F22"
+       ]
+      }
+     ],
+     "conceptIds": [
+      "C07"
+     ],
+     "layers": [
+      {
+       "shape": "torus",
+       "params": [
+        {
+         "key": "major",
+         "value": 0.62
+        },
+        {
+         "key": "minor",
+         "value": 0.1
+        },
+        {
+         "key": "fill",
+         "value": 0.15
+        }
+       ],
+       "expr": [],
+       "data": [],
+       "share": 0.9,
+       "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 1,
+       "colorMode": "radial",
+       "tint": "primary"
+      }
+     ],
+     "transition": "flow",
+     "camera": "dolly_out",
+     "annotations": [],
+     "knob": {
+      "enabled": false,
+      "label": "",
+      "layerIndex": 0,
+      "paramKey": "",
+      "min": 0,
+      "max": 0,
+      "initial": 0,
+      "step": 0,
+      "unit": "",
+      "readout": ""
+     },
+     "check": {
+      "enabled": true,
+      "question": "En la imagen de un agujero negro, ¿qué es lo que brilla?",
+      "choices": [
+       {
+        "text": "El gas caliente que lo rodea.",
+        "misconceptionId": ""
+       },
+       {
+        "text": "El propio agujero negro.",
+        "misconceptionId": "M02"
+       },
+       {
+        "text": "Estrellas lejanas que están detrás.",
+        "misconceptionId": ""
+       }
+      ],
+      "correctIndex": 0,
+      "allowFreeText": true,
+      "idealAnswer": "El gas caliente que lo rodea; el agujero negro no emite luz propia.",
+      "explanation": "Lo que brilla es el gas del disco, calentado a temperaturas enormes. La gravedad dobla su luz y forma el anillo alrededor de la sombra.",
+      "conceptIds": [
+       "C07"
+      ]
+     },
+     "ambient": "calm",
+     "weight": 0.8
+    }
+   ]
+  },
+  "askReplays": [
+   {
+    "question": "¿Qué me pasaría si cayera dentro de un agujero negro?",
+    "beatId": "b05",
+    "answer": [
+     {
+      "text": "Al cruzar el horizonte de sucesos ya no podrías regresar ni enviar señales hacia afuera.",
+      "factIds": [
+       "F12"
+      ]
+     },
+     {
+      "text": "Como el horizonte no es una superficie sólida, al cruzarlo no chocarías contra nada.",
+      "factIds": [
+       "F13"
+      ]
+     },
+     {
+      "text": "Quien te observara desde lejos te vería frenarte y apagarte, sin llegar a verte cruzar.",
+      "factIds": [
+       "F31"
+      ]
+     }
+    ],
+    "project": {
+     "caption": "Una trayectoria que cruza el horizonte: no hay vuelta atrás",
+     "layers": [
+      {
+       "shape": "shell",
+       "params": [
+        {
+         "key": "radius",
+         "value": 0.45
+        },
+        {
+         "key": "thickness",
+         "value": 0.03
+        },
+        {
+         "key": "noise",
+         "value": 0.01
+        },
+        {
+         "key": "opening",
+         "value": 0
+        }
+       ],
+       "expr": [],
+       "data": [],
+       "share": 0.45,
+       "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 1,
+       "colorMode": "single",
+       "tint": "secondary"
+      },
+      {
+       "shape": "curve",
+       "params": [
+        {
+         "key": "t_min",
+         "value": 0
+        },
+        {
+         "key": "t_max",
+         "value": 1
+        },
+        {
+         "key": "thickness",
+         "value": 0.02
+        },
+        {
+         "key": "glow_head",
+         "value": 0.6
+        }
+       ],
+       "expr": [
+        {
+         "key": "x",
+         "value": "(0.95-0.85*t)*cos(9*t)"
+        },
+        {
+         "key": "y",
+         "value": "0.35*(1-t)"
+        },
+        {
+         "key": "z",
+         "value": "(0.95-0.85*t)*sin(9*t)"
+        }
+       ],
+       "data": [],
+       "share": 0.45,
+       "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 1,
+       "colorMode": "single",
+       "tint": "accent"
+      }
+     ],
+     "transition": "swirl",
+     "camera": "orbit_close"
+    }
+   },
+   {
+    "question": "¿El Sol se va a convertir en un agujero negro?",
+    "beatId": "b07",
+    "answer": [
+     {
+      "text": "No: el Sol no tiene masa suficiente para colapsar en un agujero negro.",
+      "factIds": [
+       "F17"
+      ]
+     },
+     {
+      "text": "Los agujeros negros de masa estelar se forman cuando colapsa el núcleo de una estrella muy masiva al final de su vida.",
+      "factIds": [
+       "F18"
+      ]
+     },
+     {
+      "text": "Y aunque se convirtiera en uno con la misma masa, la órbita de la Tierra no cambiaría.",
+      "factIds": [
+       "F25"
+      ]
+     }
+    ],
+    "project": null
+   },
+   {
+    "question": "¿Cómo se puede fotografiar algo que no deja escapar la luz?",
+    "beatId": "b10",
+    "answer": [
+     {
+      "text": "No se fotografía el agujero negro, sino la luz del gas caliente que lo rodea.",
+      "factIds": [
+       "F23"
+      ]
+     },
+     {
+      "text": "El Event Horizon Telescope combina radiotelescopios de todo el planeta como si fueran un solo telescopio del tamaño de la Tierra.",
+      "factIds": [
+       "F32"
+      ]
+     },
+     {
+      "text": "En 2017 participaron ocho, entre ellos el Gran Telescopio Milimétrico Alfonso Serrano, en Puebla, México.",
+      "factIds": [
+       "F33"
+      ]
+     },
+     {
+      "text": "La gravedad desvía la luz del gas y forma un anillo alrededor de una región oscura, la sombra.",
+      "factIds": [
+       "F38",
+       "F37"
+      ]
+     }
+    ],
+    "project": {
+     "caption": "La red del EHT en 2017: ocho radiotelescopios que observan juntos",
+     "layers": [
+      {
+       "shape": "network",
+       "params": [
+        {
+         "key": "node_size",
+         "value": 0.07
+        },
+        {
+         "key": "edge_density",
+         "value": 0.3
+        },
+        {
+         "key": "dimension",
+         "value": 3
+        }
+       ],
+       "expr": [
+        {
+         "key": "edges",
+         "value": "0-1;0-2;0-3;0-4;0-5;0-6;0-7;1-2;1-3;1-4;1-5;1-6;1-7;2-3;2-4;2-5;2-6;2-7;3-4;3-5;3-6;3-7;4-5;4-6;4-7;5-6;5-7;6-7"
+        },
+        {
+         "key": "labels",
+         "value": "ALMA|APEX|GTM (México)|SMT|JCMT|SMA|IRAM 30 m|SPT"
+        }
+       ],
+       "data": [],
+       "share": 0.9,
+       "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 1,
+       "colorMode": "region",
+       "tint": "primary"
+      }
+     ],
+     "transition": "flow",
+     "camera": "orbit_wide"
+    }
+   }
+  ],
+  "branches": {
+   "b05": [
+    {
+     "id": "x01a",
+     "kind": "concept",
+     "title": "¿Y si la Tierra se comprimiera hasta ser un agujero negro?",
+     "sentences": [
+      {
+       "text": "Para tener un horizonte, toda la masa de la Tierra tendría que caber en una esfera de unos 9 mm de radio.",
+       "factIds": [
+        "F16"
+       ]
+      },
+      {
+       "text": "Sería un agujero negro del tamaño de una canica, con la misma masa que nuestro planeta.",
+       "factIds": []
+      },
+      {
+       "text": "Imagina montañas, océanos y todo el planeta apretados en algo que cabe en tu mano.",
+       "factIds": []
+      }
+     ],
+     "conceptIds": [
+      "C04"
+     ],
+     "layers": [
+      {
+       "shape": "sphere",
+       "params": [
+        {
+         "key": "radius",
+         "value": 0.9
+        },
+        {
+         "key": "noise",
+         "value": 0.05
+        },
+        {
+         "key": "core_density",
+         "value": 1
+        }
+       ],
+       "expr": [],
+       "data": [],
+       "share": 0.7,
+       "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 1,
+       "colorMode": "radial",
+       "tint": "primary"
+      },
+      {
+       "shape": "sphere",
+       "params": [
+        {
+         "key": "radius",
+         "value": 0.2
+        },
+        {
+         "key": "noise",
+         "value": 0
+        },
+        {
+         "key": "core_density",
+         "value": 4
+        }
+       ],
+       "expr": [],
+       "data": [],
+       "share": 0.2,
+       "position": {
+        "x": 1.3,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 0.3,
+       "colorMode": "single",
+       "tint": "glow"
+      }
+     ],
+     "transition": "fold",
+     "camera": "orbit_close",
+     "annotations": [
+      {
+       "layerIndex": 0,
+       "regionId": "body",
+       "text": "La Tierra hoy"
+      },
+      {
+       "layerIndex": 1,
+       "regionId": "core",
+       "text": "Unos 9 mm"
+      }
+     ],
+     "knob": {
+      "enabled": false,
+      "label": "",
+      "layerIndex": 0,
+      "paramKey": "",
+      "min": 0,
+      "max": 0,
+      "initial": 0,
+      "step": 0,
+      "unit": "",
+      "readout": ""
+     },
+     "check": {
+      "enabled": false,
+      "question": "",
+      "choices": [],
+      "correctIndex": 0,
+      "allowFreeText": false,
+      "idealAnswer": "",
+      "explanation": "",
+      "conceptIds": []
+     },
+     "ambient": "wonder",
+     "weight": 1
+    },
+    {
+     "id": "x01b",
+     "kind": "mechanism",
+     "title": "¿Y la Luna?",
+     "sentences": [
+      {
+       "text": "La Luna seguiría girando igual, porque lejos de un agujero negro la gravedad depende solo de la masa.",
+       "factIds": [
+        "F24"
+       ]
+      },
+      {
+       "text": "Lo que desaparecería es el suelo: no quedaría ninguna superficie donde vivir.",
+       "factIds": []
+      }
+     ],
+     "conceptIds": [
+      "C08"
+     ],
+     "layers": [
+      {
+       "shape": "orbits",
+       "params": [
+        {
+         "key": "rings",
+         "value": 1
+        },
+        {
+         "key": "center_size",
+         "value": 0.05
+        },
+        {
+         "key": "body_size",
+         "value": 0.06
+        },
+        {
+         "key": "tilt",
+         "value": 0.1
+        },
+        {
+         "key": "eccentricity",
+         "value": 0.05
+        }
+       ],
+       "expr": [],
+       "data": [
+        0.9
+       ],
+       "share": 0.9,
+       "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 1,
+       "colorMode": "region",
+       "tint": "primary"
+      }
+     ],
+     "transition": "swirl",
+     "camera": "orbit_wide",
+     "annotations": [
+      {
+       "layerIndex": 0,
+       "regionId": "center",
+       "text": "Tierra comprimida"
+      },
+      {
+       "layerIndex": 0,
+       "regionId": "body_0",
+       "text": "Luna"
+      }
+     ],
+     "knob": {
+      "enabled": false,
+      "label": "",
+      "layerIndex": 0,
+      "paramKey": "",
+      "min": 0,
+      "max": 0,
+      "initial": 0,
+      "step": 0,
+      "unit": "",
+      "readout": ""
+     },
+     "check": {
+      "enabled": false,
+      "question": "",
+      "choices": [],
+      "correctIndex": 0,
+      "allowFreeText": false,
+      "idealAnswer": "",
+      "explanation": "",
+      "conceptIds": []
+     },
+     "ambient": "tense",
+     "weight": 1
+    },
+    {
+     "id": "x01c",
+     "kind": "recap",
+     "title": "En la realidad",
+     "sentences": [
+      {
+       "text": "En la realidad, la Tierra y el Sol nunca se convertirán en agujeros negros: no tienen masa suficiente.",
+       "factIds": [
+        "F17"
+       ]
+      },
+      {
+       "text": "Los agujeros negros de masa estelar nacen cuando colapsa el núcleo de una estrella muy masiva al final de su vida.",
+       "factIds": [
+        "F18"
+       ]
+      },
+      {
+       "text": "Nuestro planeta seguirá siendo una esfera de roca, y la Luna seguirá girando a su alrededor.",
+       "factIds": []
+      }
+     ],
+     "conceptIds": [
+      "C03"
+     ],
+     "layers": [
+      {
+       "shape": "sphere",
+       "params": [
+        {
+         "key": "radius",
+         "value": 0.5
+        },
+        {
+         "key": "noise",
+         "value": 0.05
+        },
+        {
+         "key": "core_density",
+         "value": 1
+        }
+       ],
+       "expr": [],
+       "data": [],
+       "share": 0.45,
+       "position": {
+        "x": -0.9,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 0.8,
+       "colorMode": "radial",
+       "tint": "primary"
+      },
+      {
+       "shape": "burst",
+       "params": [
+        {
+         "key": "rays",
+         "value": 120
+        },
+        {
+         "key": "length",
+         "value": 0.9
+        },
+        {
+         "key": "core",
+         "value": 0.1
+        },
+        {
+         "key": "randomness",
+         "value": 0.5
+        }
+       ],
+       "expr": [],
+       "data": [],
+       "share": 0.45,
+       "position": {
+        "x": 0.9,
+        "y": 0,
+        "z": 0
+       },
+       "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+       },
+       "scale": 0.8,
+       "colorMode": "radial",
+       "tint": "primary"
+      }
+     ],
+     "transition": "explode",
+     "camera": "orbit_wide",
+     "annotations": [
+      {
+       "layerIndex": 0,
+       "regionId": "body",
+       "text": "Planeta: no colapsa"
+      },
+      {
+       "layerIndex": 1,
+       "regionId": "core",
+       "text": "Estrella muy masiva"
+      }
+     ],
+     "knob": {
+      "enabled": false,
+      "label": "",
+      "layerIndex": 0,
+      "paramKey": "",
+      "min": 0,
+      "max": 0,
+      "initial": 0,
+      "step": 0,
+      "unit": "",
+      "readout": ""
+     },
+     "check": {
+      "enabled": false,
+      "question": "",
+      "choices": [],
+      "correctIndex": 0,
+      "allowFreeText": false,
+      "idealAnswer": "",
+      "explanation": "",
+      "conceptIds": []
+     },
+     "ambient": "calm",
+     "weight": 1
+    }
+   ]
+  },
+  "forgeReplay": "/replays/agujeros-negros.forge.json"
+ }
+}
