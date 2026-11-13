@@ -18,7 +18,7 @@ const files = readdirSync(dir)
   .filter((f) => !only || f.startsWith(only))
   .sort();
 let failed = 0;
-const manifest: (ReturnType<typeof summarize> & { hasEnglish: boolean })[] = [];
+const manifest: (ReturnType<typeof summarize> & { hasEnglish: boolean; poster: boolean })[] = [];
 
 for (const f of files) {
   const problems: string[] = [];
@@ -116,7 +116,7 @@ for (const f of files) {
   if (process.argv.includes("--verbose") || !ok) for (const n of notes) console.log(`  · ${n}`);
   if (!internal && ok) {
     const base = f.replace(/\.en\.json$|\.json$/, "");
-    manifest.push({ ...summarize(w), id: base, hasEnglish: existsSync(join(dir, `${base}.en.json`)) });
+    manifest.push({ ...summarize(w), id: base, hasEnglish: existsSync(join(dir, `${base}.en.json`)), poster: existsSync(join("public/posters", `${base}.webp`)) });
   }
 }
 if (!only) writeFileSync(join(dir, "index.json"), JSON.stringify({ generatedAt: new Date().toISOString(), worlds: manifest }, null, 1) + "\n");

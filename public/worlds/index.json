@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-13T18:22:25.525Z",
+ "generatedAt": "2026-11-13T18:59:00.461Z",
  "worlds": [
   {
    "id": "agujeros-negros",
@@ -13,8 +13,9 @@
    "origin": "demo",
    "supportedPct": 90,
    "createdAt": "2026-11-13T00:00:00.000Z",
-   "posterBeat": "b10",
-   "hasEnglish": false
+   "posterBeat": "b06",
+   "hasEnglish": false,
+   "poster": true
   },
   {
    "id": "ajolote",
@@ -29,7 +30,8 @@
    "supportedPct": 91,
    "createdAt": "2026-11-13T00:00:00.000Z",
    "posterBeat": "b02",
-   "hasEnglish": false
+   "hasEnglish": false,
+   "poster": true
   },
   {
    "id": "fotosintesis",
@@ -43,8 +45,9 @@
    "origin": "demo",
    "supportedPct": 89,
    "createdAt": "2026-11-13T00:00:00.000Z",
-   "posterBeat": "b04",
-   "hasEnglish": false
+   "posterBeat": "b03",
+   "hasEnglish": false,
+   "poster": true
   },
   {
    "id": "interes-compuesto",
@@ -59,7 +62,8 @@
    "supportedPct": 93,
    "createdAt": "2026-11-13T00:00:00.000Z",
    "posterBeat": "b08",
-   "hasEnglish": false
+   "hasEnglish": false,
+   "poster": true
   },
   {
    "id": "transformer",
@@ -74,7 +78,8 @@
    "supportedPct": 93,
    "createdAt": "2026-11-13T00:00:00.000Z",
    "posterBeat": "b04",
-   "hasEnglish": false
+   "hasEnglish": false,
+   "poster": true
   }
  ]
 }

@@ -10,7 +10,7 @@ import type { WorldSummary } from "@/lib/storage/worlds";
 /** Asymmetric atlas (spec 3.4): never three equal cards. Sizes cycle through a 12-column editorial rhythm. */
 const SPANS = ["a", "b", "c", "c", "b", "a", "c", "b"];
 
-export function AtlasGrid({ worlds, posters }: { worlds: WorldSummary[]; posters?: Record<string, boolean> }) {
+export function AtlasGrid({ worlds }: { worlds: (WorldSummary & { poster?: boolean })[] }) {
   const { t } = useI18n();
   return (
     <ul className="atlas-grid">
@@ -21,7 +21,7 @@ export function AtlasGrid({ worlds, posters }: { worlds: WorldSummary[]; posters
           <li key={w.id} className="atlas-item" data-span={SPANS[i % SPANS.length]} style={style}>
             <Link href={`/m/${w.id}`} className="atlas-link">
               <div className="atlas-poster" aria-hidden>
-                {posters?.[w.id] ? (
+                {w.poster ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={`/posters/${w.id}.webp`} alt="" loading="lazy" />
                 ) : (

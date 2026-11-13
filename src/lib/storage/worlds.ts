@@ -71,6 +71,8 @@ export async function loadWorld(id: string, lang: Lang): Promise<World | null> {
 
 export interface DemoManifestEntry extends WorldSummary {
   hasEnglish: boolean;
+  /** true when `pnpm posters` produced /posters/<id>.webp */
+  poster?: boolean;
 }
 
 export async function loadDemoManifest(): Promise<DemoManifestEntry[]> {

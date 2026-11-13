@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: translate(locale, "meta.title"),
       description: translate(locale, "meta.description"),
-      images: ["/og/eidos.png"],
+      images: ["/og/eidos.jpg"],
       type: "website",
     },
     icons: { icon: "/favicon.svg" },
