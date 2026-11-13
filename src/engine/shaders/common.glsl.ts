@@ -167,7 +167,7 @@ vec3 morphBase(vec2 ref, out float localProgress, out float bell) {
 
   if (uCrack > 0.0) {
     float side = sign(dot(uCrackPlane.xyz, p) - uCrackPlane.w + 1e-4);
-    p += uCrackPlane.xyz * side * uCrack * 0.09 * uShapeRadius;
+    p += uCrackPlane.xyz * side * uCrack * 0.12 * uShapeRadius;
   }
   return p;
 }

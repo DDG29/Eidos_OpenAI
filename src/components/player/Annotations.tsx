@@ -19,10 +19,12 @@ export function Annotations({ items, visible, onHover, mobile }: { items: Annota
   const lines = useRef<(SVGLineElement | null)[]>([]);
   const dots = useRef<(SVGCircleElement | null)[]>([]);
   const prev = useRef(new Map<string, LabelOut>());
+  const chosen = useRef(new Map<number, number>());
   const shown = mobile ? items.slice(0, 2) : items.slice(0, 4);
 
   useEffect(() => {
     prev.current.clear();
+    chosen.current.clear();
     const stage = getStage();
     if (!stage) return;
     const tmp = new THREE.Vector3();
@@ -41,15 +43,36 @@ export function Annotations({ items, visible, onHover, mobile }: { items: Annota
       const input = shown.map((a, i) => {
         const region = buf.regions.find((r) => r.layerIndex === a.layerIndex && r.id === a.regionId);
         if (!region || region.count === 0) return { key: `${i}`, ax: 0, ay: 0, w: 0, h: 0, visible: false };
-        // approximate the shader's rigid motion around the layer pivot for the centroid
+        // approximate the shader's rigid motion around the layer pivot, then attach to the anchor nearest
+        // the camera (with hysteresis so the label does not hop between anchors)
         const pv = s.pivotOf(region.layerIndex);
         const type = MOTION_TYPES.indexOf(region.motion.type);
-        const qx = region.centroid[0] - pv[0],
-          qz = region.centroid[2] - pv[2];
-        const ang = motionAngle(type, region.motion.speed, 1, t, Math.hypot(qx, qz));
-        const c = Math.cos(ang),
-          sn = Math.sin(ang);
-        tmp.set(c * qx + sn * qz + pv[0], region.centroid[1], -sn * qx + c * qz + pv[2]);
+        const pts = region.anchors?.length ? region.anchors : [region.centroid];
+        let bestK = 0;
+        let bestD = Infinity;
+        const camPos = s.rig.camera.position;
+        const moved: [number, number, number][] = pts.map(([x, y, z]) => {
+          const qx = x - pv[0],
+            qz = z - pv[2];
+          const ang = motionAngle(type, region.motion.speed, 1, t, Math.hypot(qx, qz));
+          const c = Math.cos(ang),
+            sn = Math.sin(ang);
+          return [c * qx + sn * qz + pv[0], y, -sn * qx + c * qz + pv[2]];
+        });
+        moved.forEach((m, k) => {
+          const d = Math.hypot(m[0] - camPos.x, m[1] - camPos.y, m[2] - camPos.z);
+          if (d < bestD) {
+            bestD = d;
+            bestK = k;
+          }
+        });
+        const keep = chosen.current.get(i);
+        if (keep !== undefined && keep < moved.length) {
+          const dk = Math.hypot(moved[keep]![0] - camPos.x, moved[keep]![1] - camPos.y, moved[keep]![2] - camPos.z);
+          if (dk < bestD * 1.08) bestK = keep;
+        }
+        chosen.current.set(i, bestK);
+        tmp.set(...moved[bestK]!);
         const p = s.project(tmp, proj);
         const lb = labels.current[i];
         const bw = lb?.offsetWidth ?? 80;

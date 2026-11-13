@@ -119,6 +119,12 @@ void main() {
   float att = 1.0 / max(-mv.z, 0.1);
   gl_PointSize = clamp(uPointSize * size * uPixelRatio * att * (1.0 + bell * 0.6) * twinkle, 0.0, uMaxPointSize);
 
+  // La Grieta: a thin band of crack-red light along the fracture plane (spec 4.8.6).
+  if (uCrack > 0.0 && !isDust) {
+    float dPlane = abs(dot(uCrackPlane.xyz, base) - uCrackPlane.w) / max(uShapeRadius, 0.2);
+    col.rgb = mix(col.rgb, vec3(1.0, 0.36, 0.48) * 1.8, uCrack * smoothstep(0.2, 0.0, dPlane) * 0.9);
+  }
+
   // Correct answer: a ring of truth-green light expands from the center and fades (spec 3.7).
   if (uFlash > 0.0 && !isDust) {
     float d = length(base - uPivotTo[3]) / max(uShapeRadius, 0.2);

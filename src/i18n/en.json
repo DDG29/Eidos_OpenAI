@@ -265,5 +265,16 @@
   "share.note": "The link includes the narration, forms, facts with their cited passages and branches; never your original document.",
   "share.making": "Preparing the link…",
   "share.import": "Importing the shared world…",
-  "share.invalid": "This link doesn't contain a valid world."
+  "share.invalid": "This link doesn't contain a valid world.",
+  "reading.print": "Print / Save as PDF",
+  "reading.back": "Back to the world",
+  "reading.level": "Level",
+  "reading.source": "Source",
+  "reading.notes": "Source notes",
+  "reading.solutions": "Solutions",
+  "reading.answerSpace": "Your answer:",
+  "reading.question": "Question {n}",
+  "reading.figure": "Figure {n}",
+  "reading.generalNote": "General knowledge, not from the source.",
+  "reading.closing": "Closing"
 }

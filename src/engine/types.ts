@@ -21,6 +21,8 @@ export interface RegionInfo {
   parent?: string;
   /** For aggregate regions: inclusive range of child region indices (contiguous). */
   range?: [number, number];
+  /** Up to 8 well-spread member points; annotations attach to the one nearest the camera. */
+  anchors?: [number, number, number][];
 }
 
 /** Composed particle set for one beat (spec 5.7). All arrays are length N or N*4. */

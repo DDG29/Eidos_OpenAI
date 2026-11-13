@@ -335,4 +335,35 @@ export function computeRegionStats(positions: Float32Array, regionIds: Uint16Arr
     const d = rad[r]!.sort((a, b) => a - b);
     reg.radius = d.length ? d[Math.floor(d.length * 0.9)]! : 0.05;
   });
+  // Anchors: farthest-point sampling over a member sample, so thin or wrapped regions (a helix strand,
+  // a ring) get labels on visible matter instead of on an empty centroid.
+  const members = regions.map(() => [] as number[]);
+  const astep = Math.max(1, Math.floor(n / 40000));
+  for (let i = 0; i < n; i += astep) {
+    const r = regionIds[i]!;
+    if (r === DUST_REGION || r >= regions.length) continue;
+    if (members[r]!.length < 160) members[r]!.push(i);
+  }
+  regions.forEach((reg, r) => {
+    const m = members[r]!;
+    if (!m.length) return;
+    const pick: number[] = [m[0]!];
+    const dist = m.map((i) => Math.hypot(positions[i * 4]! - positions[m[0]! * 4]!, positions[i * 4 + 1]! - positions[m[0]! * 4 + 1]!, positions[i * 4 + 2]! - positions[m[0]! * 4 + 2]!));
+    while (pick.length < Math.min(8, m.length)) {
+      let best = 0;
+      for (let k = 1; k < m.length; k++) if (dist[k]! > dist[best]!) best = k;
+      const bi = m[best]!;
+      pick.push(bi);
+      for (let k = 0; k < m.length; k++) {
+        const i = m[k]!;
+        dist[k] = Math.min(dist[k]!, Math.hypot(positions[i * 4]! - positions[bi * 4]!, positions[i * 4 + 1]! - positions[bi * 4 + 1]!, positions[i * 4 + 2]! - positions[bi * 4 + 2]!));
+      }
+    }
+    // pull anchors 35% toward the centroid so labels sit on the body, not on outliers
+    reg.anchors = pick.map((i) => [
+      positions[i * 4]! * 0.65 + reg.centroid[0] * 0.35,
+      positions[i * 4 + 1]! * 0.65 + reg.centroid[1] * 0.35,
+      positions[i * 4 + 2]! * 0.65 + reg.centroid[2] * 0.35,
+    ]);
+  });
 }

@@ -265,5 +265,16 @@
   "share.note": "El enlace incluye la narración, las formas, los hechos con sus pasajes citados y las ramas; nunca tu documento original.",
   "share.making": "Preparando el enlace…",
   "share.import": "Importando el mundo compartido…",
-  "share.invalid": "Este enlace no contiene un mundo válido."
+  "share.invalid": "Este enlace no contiene un mundo válido.",
+  "reading.print": "Imprimir / Guardar como PDF",
+  "reading.back": "Volver al mundo",
+  "reading.level": "Nivel",
+  "reading.source": "Fuente",
+  "reading.notes": "Notas de fuente",
+  "reading.solutions": "Soluciones",
+  "reading.answerSpace": "Tu respuesta:",
+  "reading.question": "Pregunta {n}",
+  "reading.figure": "Figura {n}",
+  "reading.generalNote": "Conocimiento general, no proviene de la fuente.",
+  "reading.closing": "Para cerrar"
 }
