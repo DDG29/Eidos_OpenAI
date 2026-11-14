@@ -23,7 +23,17 @@ export function AtlasGrid({ worlds }: { worlds: (WorldSummary & { poster?: boole
               <div className="atlas-poster" aria-hidden>
                 {w.poster ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={`/posters/${w.id}.webp`} alt="" loading="lazy" />
+                  <img
+                    src={`/posters/${w.id}.webp`}
+                    srcSet={`/posters/${w.id}-480.webp 480w, /posters/${w.id}.webp 960w`}
+                    sizes="(max-width: 767px) 100vw, 50vw"
+                    width={960}
+                    height={600}
+                    alt=""
+                    // The first card is the largest thing above the fold: load it at once.
+                    loading={i === 0 ? "eager" : "lazy"}
+                    fetchPriority={i === 0 ? "high" : "auto"}
+                  />
                 ) : (
                   <span className="atlas-poster-glow" />
                 )}

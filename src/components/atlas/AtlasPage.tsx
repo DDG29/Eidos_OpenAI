@@ -13,10 +13,11 @@ import { whenStage } from "@/engine/stage/stageRef";
 import { makeLayer, kv } from "@/lib/world/layer";
 
 /** /atlas (spec 3.4): demo + local worlds, filters by level and topic, import a .eidos.json file. */
-export function AtlasPage() {
+export function AtlasPage({ initialDemos = [] }: { initialDemos?: DemoManifestEntry[] }) {
   const { t, locale } = useI18n();
   const router = useRouter();
-  const [demos, setDemos] = useState<DemoManifestEntry[]>([]);
+  const [demos, setDemos] = useState<DemoManifestEntry[]>(initialDemos);
+  const hasInitial = initialDemos.length > 0;
   const [mine, setMine] = useState<WorldSummary[]>([]);
   const [level, setLevel] = useState<Level | "all">("all");
   const [topic, setTopic] = useState<string>("all");
@@ -24,7 +25,7 @@ export function AtlasPage() {
   const input = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    void loadDemoManifest().then(setDemos);
+    if (!hasInitial) void loadDemoManifest().then(setDemos);
     void listLocalWorlds().then(setMine);
     void whenStage().then((stage) =>
       stage.loadProgram(
@@ -32,7 +33,7 @@ export function AtlasPage() {
         { cameras: ["orbit_wide"], frames: [0], enterMs: 900 },
       ),
     );
-  }, []);
+  }, [hasInitial]);
 
   const palettes = useMemo(() => Array.from(new Set(demos.map((d) => d.palette))), [demos]);
   const filter = (w: WorldSummary) => (level === "all" || w.level === level) && (topic === "all" || w.palette === topic);

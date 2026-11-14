@@ -1,5 +1,6 @@
 "use client";
 
+import "@/lib/zodConfig";
 import type { ReactNode } from "react";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 import { StageMount } from "./StageMount";

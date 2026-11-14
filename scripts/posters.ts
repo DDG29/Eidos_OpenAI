@@ -69,8 +69,16 @@ for (const id of ids) {
   await openBeat(page, id, w.posterBeat);
   await page.addStyleTag({ content: HIDE_UI });
   await page.waitForTimeout(400);
-  const frame = await page.screenshot();
-  await sharp(await cropToForm(frame, 960, 600)).webp({ quality: 82 }).toFile(`public/posters/${id}.webp`);
+  // A frame taken while the stage is still loading comes out black: wait and retake (a few tries at most).
+  let frame = await page.screenshot();
+  for (let tries = 0; tries < 4 && (await sharp(frame).stats()).channels.slice(0, 3).every((c) => c.mean < 6); tries++) {
+    await page.waitForTimeout(2500);
+    frame = await page.screenshot();
+  }
+  const poster = await cropToForm(frame, 960, 600);
+  await sharp(poster).webp({ quality: 82 }).toFile(`public/posters/${id}.webp`);
+  // A 480-px variant for phones (srcset in the Atlas grid).
+  await sharp(poster).resize(480, 300).webp({ quality: 78 }).toFile(`public/posters/${id}-480.webp`);
   await page.close();
 
   // Open Graph: the same beat at 1200 × 630 with the title set in the left column.
