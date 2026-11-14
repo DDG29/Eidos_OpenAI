@@ -8,7 +8,7 @@ const [base = "http://localhost:3000", out = "qa/autopilot", maxS = "240"] = pro
 mkdirSync(out, { recursive: true });
 
 const browser = await chromium.launch({ args: ["--use-angle=metal", "--enable-gpu", "--ignore-gpu-blocklist", "--enable-unsafe-swiftshader"] });
-const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, locale: process.env.LOCALE ?? "es-MX" });
 const errors: string[] = [];
 page.on("console", (m) => {
   if (m.type() === "error" || (m.type() === "warning" && m.text().includes("[autopilot]"))) errors.push(`${m.type()}: ${m.text().slice(0, 300)}`);

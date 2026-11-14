@@ -60,6 +60,15 @@ export async function nextBeat(page: Page) {
       .catch(() => undefined);
   }
   expect(await activeIndex(page)).toBeGreaterThan(before);
+  // The index flips as soon as the reading point enters the next beat, while the smooth scroll is still moving;
+  // wait for the hold point so the next J advances instead of re-targeting this beat.
+  await expect
+    .poll(async () => {
+      const s = await stage(page);
+      return !s || s.status !== "ready" || s.stable;
+    }, { timeout: 4_000 })
+    .toBe(true)
+    .catch(() => undefined);
 }
 
 export async function goToBeat(page: Page, i: number) {

@@ -4,23 +4,24 @@ import { activeIndex, demoIds, goToBeat, loadWorld, nextBeat, openWorld, section
 const full = (name: string) => name === "chromium-desktop" || name === "webkit-desktop";
 
 test.describe("demo worlds", () => {
-  test.setTimeout(300_000);
-  test("every beat of every demo world, with the keyboard", async ({ page }, info) => {
-    const errors = watchConsole(page);
-    const ids = full(info.project.name) ? demoIds() : demoIds().slice(0, 1);
-    for (const id of ids) {
+  test.setTimeout(180_000);
+  for (const [k, id] of demoIds().entries()) {
+    test(`every beat of ${id}, with the keyboard`, async ({ page }, info) => {
+      test.skip(!full(info.project.name) && k > 0, "phones walk one world; desktops walk them all");
+      const errors = watchConsole(page);
       await openWorld(page, id);
       const n = await sectionCount(page);
-      for (let i = 1; i < n; i++) {
+      // Loop on position, not on presses: right after a skipped check the soft gate can still pull the reader back.
+      for (let guard = 0; guard < n * 3 && (await activeIndex(page)) < n - 1; guard++) {
         await nextBeat(page);
         const s = await stage(page);
         // The conductor's active beat drives the stage (no WebGL: the stage stays on its poster).
         if (s?.status === "ready") await expect.poll(async () => (await stage(page))?.beat).toBe(await activeIndex(page));
       }
       expect(await activeIndex(page)).toBe(n - 1);
-    }
-    expect(errors).toEqual([]);
-  });
+      expect(errors).toEqual([]);
+    });
+  }
 });
 
 test("a filament opens the cited passage and closes again", async ({ page }) => {
@@ -51,7 +52,8 @@ test("a wrong answer cracks the world and grows a remedial chapter in place", as
   await expect(sec.locator(".check")).toHaveAttribute("data-status", "incorrect");
   await expect.poll(() => sectionCount(page), { timeout: 30_000 }).toBeGreaterThan(before);
   await expect.poll(() => page.locator(".ruler-mark").count()).toBeGreaterThan(marksBefore);
-  await expect(page.locator(".astro-remedial").first()).toBeAttached();
+  // The astrolabe is a desktop instrument; phones show the ruler only.
+  if (await page.locator(".astrolabe").isVisible()) await expect(page.locator(".astro-remedial").first()).toBeAttached();
   // The new chapter is inserted after the check, and the reader is then carried into it (not back to the start).
   await expect.poll(() => activeIndex(page), { timeout: 15_000 }).toBe(checkIdx + 1);
   await expect(page.locator(`main [data-beat-index="${checkIdx + 1}"] .beat-banner`)).toBeAttached();
@@ -87,7 +89,7 @@ test("demo forge: console → forge theater replay → into the world", async ({
   expect(errors).toEqual([]);
 });
 
-test("reading mode renders every section with a figure", async ({ page }) => {
+test("reading mode renders every section with a figure", async ({ page }, info) => {
   const w = loadWorld("agujeros-negros");
   await page.goto("/m/agujeros-negros/leer");
   const sections = page.locator('.reading-section[id^="r-"]');
@@ -96,7 +98,8 @@ test("reading mode renders every section with a figure", async ({ page }) => {
   await page.emulateMedia({ media: "print" });
   const breaks = await page.locator(".reading-figure").first().evaluate((el) => getComputedStyle(el).breakInside);
   expect(breaks).toBe("avoid");
-  await page.screenshot({ path: test.info().outputPath("reading-print.png"), fullPage: true });
+  // Full-page captures of the long print layout exceed the mobile emulators' screenshot limits.
+  await page.screenshot({ path: test.info().outputPath("reading-print.png"), fullPage: !info.project.use.isMobile });
 });
 
 test("share by URL opens the same world in a fresh context", async ({ page, browser }) => {
