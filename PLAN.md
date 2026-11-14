@@ -81,10 +81,10 @@ typecheck + lint + test green, a phase-specific verification, a `PROGRESS.md` en
 - [x] Lighthouse report (`pnpm lighthouse`; results in PROGRESS.md)
 
 ## Phase 10 — QA
-- [ ] e2e suite (Chromium + WebKit, desktop + mobile)
+- [x] e2e suite (Chromium + WebKit, desktop + mobile): 81 passed, 15 skipped by design
 - [ ] `pnpm shots` + two visual review rounds (second with an isolated critic)
 - [x] `pnpm eval` static report
-- [ ] Media for the docs
+- [x] Media for the docs (posters, Open Graph cards, theater before/after)
 
 ## Phase 11 — Delivery
 - [ ] README (EN) + README.es, docs of §15, `audit:placeholders`, Definition of Done evidence, final commit, server running

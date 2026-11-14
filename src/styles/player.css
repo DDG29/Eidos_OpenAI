@@ -958,3 +958,9 @@
     display: none;
   }
 }
+
+/* Inside-camera beats fill the whole screen with bright particles: a denser veil keeps the narration legible. */
+.beat[data-camera="inside"] .beat-narration::before {
+  inset: -18% -30% -18% -40%;
+  background: radial-gradient(closest-side, rgba(4, 5, 10, 0.93), rgba(4, 5, 10, 0.66) 70%, rgba(4, 5, 10, 0));
+}

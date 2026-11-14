@@ -486,7 +486,8 @@ export function Player({ worldId, present = false, brightnessFor }: { worldId: s
     locked: gateIndex !== null && i > gateIndex,
     fresh: b.fresh,
   }));
-  const annotationsVisible = local >= 0.45 && !radial && !ask;
+  // On phones a check's panel covers most of the form, so its labels would sit on top of the choices.
+  const annotationsVisible = local >= 0.45 && !radial && !ask && !(mobile && cur?.beat.kind === "check");
 
   return (
     <>
