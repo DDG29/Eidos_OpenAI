@@ -160,13 +160,13 @@ export class Stage {
     this.chroma = spec.chromatic ? new ChromaticAberrationEffect({ offset: new THREE.Vector2(0.0006, 0.0006), radialModulation: true, modulationOffset: 0.25 }) : null;
     if (this.chroma) effects.push(this.chroma);
     this.noise = spec.grain ? new NoiseEffect({ blendFunction: BlendFunction.SOFT_LIGHT, premultiply: false }) : null;
-    if (this.noise) {
-      this.noise.blendMode.opacity.value = 0.035;
-      effects.push(this.noise);
-    }
+    if (this.noise) this.noise.blendMode.opacity.value = 0.035;
     this.vignette = spec.vignette ? new VignetteEffect({ offset: 0.3, darkness: 0.75 }) : null;
-    if (this.vignette) effects.push(this.vignette);
+    // Tone mapping comes before grain and vignette: their soft-light and multiply blends assume 0–1 colours, and
+    // on HDR cores (values far above 1) the grain produced black, white and green speckles.
     effects.push(new ToneMappingEffect({ mode: ToneMappingMode.AGX }));
+    if (this.noise) effects.push(this.noise);
+    if (this.vignette) effects.push(this.vignette);
     this.composer.addPass(new EffectPass(this.rig.camera, ...effects));
     this.resize();
     stageStore.setState({ tier: this.quality.state.tier, particles: this.field.N, dpr: this.quality.state.dpr });
