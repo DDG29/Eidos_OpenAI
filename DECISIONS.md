@@ -45,3 +45,14 @@ Format: date · decision · rejected alternative · reason.
     worlds (transformer, agujeros-negros, fotosintesis, interes-compuesto, ajolote), which still covers P0's count of
     four. The console placeholder that pointed at CRISPR now suggests the axolotl world, and the world is listed in
     `docs/ROADMAP.md`.
+14. **Zod runs jitless in the browser.** Zod 4 probes `new Function("")` once to decide whether to generate code;
+    under our nonce CSP the caught probe is still reported as a policy violation (Lighthouse "issues", DevTools).
+    `z.config({ jitless: true })` at app start removes the report; parsing is unchanged.
+15. **Performance budgets (spec 13.3) are met; one page is noted.** Lighthouse on the production build
+    (`pnpm lighthouse`, 2026-11-13): landing LCP 0.25 s desktop and 0.9 s on simulated mobile 4G (budgets 1.8 s and
+    2.8 s), CLS ≤ 0.005 everywhere after the Atlas fix, accessibility, best practices and SEO 100 on every page.
+    A world page on simulated mobile 4G reaches LCP at ~5 s: its largest element is the first narration, which
+    appears after the world JSON is fetched and the reveal animation starts. The budget targets the landing, so
+    this is recorded rather than fixed; the mitigation is to server-render the first beat's narration and split
+    the world file into trunk and demo assets (roadmap). Scene generation measures 24 ms median and 68 ms worst
+    case per shape at 160 000 particles (`pnpm bench`, under the 120 ms budget); coherent pairing adds ~75 ms.

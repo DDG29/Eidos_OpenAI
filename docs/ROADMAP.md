@@ -23,3 +23,6 @@ What was left out of this version, in priority order, and why.
 8. **Vertical 9:16 export** (`/m/[worldId]/short`, spec 12.5, P2): not built, so it is absent from the interface.
 9. **More languages** beyond Spanish and English, with readability formulas per language.
 10. **Creator plan**: publish worlds to a public Atlas with attribution and moderation.
+11. **Faster world pages on phones**: server-render the first beat's narration and split each world file into the
+    trunk and its demo assets, so a world's first paint on mobile 4G drops from ~5 s toward the landing's 0.9 s
+    (DECISIONS #15).

@@ -107,7 +107,7 @@ Open http://localhost:3000. Requires Node 22+ and pnpm.
 | `eval` | Evaluation harness (static; live with `EVAL_LIVE=1` and a key) |
 | `bench` | Engine benchmarks: shapes, composition, pairing, picking |
 | `lighthouse` | Lighthouse on the production build |
-| `audit:placeholders` | TODO/FIXME/lorem, buttons without an action, broken internal links |
+| `audit:placeholders` | Leftover work markers or filler text, buttons without an action, broken internal links |
 
 ## Quality
 

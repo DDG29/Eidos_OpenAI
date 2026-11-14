@@ -78,7 +78,7 @@ typecheck + lint + test green, a phase-specific verification, a `PROGRESS.md` en
 ## Phase 9 — Polish
 - [x] Accessibility (scene descriptions, keyboard, `?` dialog, axe clean)
 - [x] English interface; empty/error states; responsive; CSP
-- [ ] Lighthouse report
+- [x] Lighthouse report (`pnpm lighthouse`; results in PROGRESS.md)
 
 ## Phase 10 — QA
 - [ ] e2e suite (Chromium + WebKit, desktop + mobile)
