@@ -82,7 +82,7 @@ typecheck + lint + test green, a phase-specific verification, a `PROGRESS.md` en
 
 ## Phase 10 — QA
 - [x] e2e suite (Chromium + WebKit, desktop + mobile): 81 passed, 15 skipped by design
-- [ ] `pnpm shots` + two visual review rounds (second with an isolated critic)
+- [x] `pnpm shots` + two visual review rounds (second with an isolated critic); open findings listed in docs/QA_VISUAL.md
 - [x] `pnpm eval` static report
 - [x] Media for the docs (posters, Open Graph cards, theater before/after)
 

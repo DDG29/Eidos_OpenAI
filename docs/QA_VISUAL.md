@@ -50,6 +50,42 @@ worlds, reading mode, `/lab` and the nine pitch beats, at 1440 × 900 and 390 ×
 | 7 | `desktop/landing-6` | 4 | The torus ring showed through the console panel | Console panel at 95 % opacity |
 | 8 | `mobile/landing-1`, `-2` (re-check) | 2, 10 | In portrait, wide forms (the wordmark, the book) overflowed the screen sideways: the camera fit used the vertical field of view only | The phone fit scales with 1 / aspect ratio, and poses are recomputed after a resize or rotation |
 | 9 | `desktop/agujeros-negros-10` (re-check) | 5 | A resting cursor opened a source panel when a filament dot scrolled under it | Hover opens a panel only after real pointer movement |
+| 10 | `mobile/transformer-07` (re-check) | 5 | On phones the annotation labels of a check beat sat on top of the check panel | Labels are hidden while a check panel covers the form on phones |
+| 11 | `qa/verify-fs04.png` (re-check) | 3 | The inside-camera veil from fix 4 had not reached the stylesheet | Rule added; the chloroplast narration now reads on a dark veil |
 
 Checked and fine: optical centring and fill of the forms, palettes, type hierarchy, annotation placement on the
 other beats, bloom (no burned regions), the theater at five moments and the pitch beats.
+
+### Round 2b — independent review
+
+A second pass in an isolated context that saw only 29 screenshots (22 desktop, including the re-captured
+chloroplast beat, and 7 phone) and the checklist above, with no knowledge of the code or of round 1. It reported 45 findings.
+
+**Fixed after the review**
+
+| Finding (severity) | Cause | Fix |
+|---|---|---|
+| Black, white and green pixel noise at the brightest cores: the star in black holes beat 1, the comet head of the compound-interest curve, smaller in five more scenes (high) | The film-grain effect (soft-light blend) ran before tone mapping, so it operated on HDR values far above 1 | Tone mapping now runs before grain and vignette; the cores render as clean glows (`qa/v-cores.png`) |
+| Phone header overflowed: the sound button was cut and "Atlas" was off screen on the landing and About (high) | The legibility veils reach past their text with negative insets; on phones that reach counted as page width and widened the layout viewport to 461 px | Horizontal overflow is clipped on those pages and the phone grid track can shrink; every route now measures 390 px wide |
+| Forge Theater thumbnails covered the log and the facts column (high) | The thumbnail ring overhung its column | The scene square leaves room for the thumbnails inside the column |
+| `/lab`: the selected shape rendered behind the thumbnail grid (high) | The catalogue covered the centre of the canvas | The catalogue is a strip along the bottom edge |
+| Over a full-screen bright scene the top bar was illegible (high) | No backdrop behind the instruments | A soft scrim under the top bar |
+| The Skeptic's log line repeated three times (medium) | Each verification batch streamed the same summary | Repeated lines are shown once |
+| "¿1 millón o 1 centavo?" read as "¿l millón o l centavo?" in particles (medium) | The display face's numeral 1 is a bare stem at particle resolution | Headline set as "¿Un millón o un centavo?" |
+| A ring showed through the console panel (medium) | Translucent panel | Opaque panel |
+
+**Still open (recorded, not fixed in this release)**
+
+- Label placement only avoids other labels and the narration, not the form itself, so some labels sit on dense
+  particles or cross a neighbouring part: the genome chart's "Humano" label crosses the axolotl bar (high), and
+  labels crowd parts of black holes beats 6–7, photosynthesis 6 and 12, Transformer 6 and 13, and pitch 6.
+- Some scenes state their idea weakly: equal-weight attention beams (Transformer 4), the flat interest curve
+  without axes (compound interest 5), the open Calvin "cycle" (photosynthesis 6), cream chloroplasts under a
+  headline about green factories (photosynthesis 4).
+- The landing hero is a soft nebula behind the headline, close to the "colour blob" anti-pattern.
+- Two worlds end with the same recap layout (three stacked words).
+- `/lab` range sliders still use the default thumb styling.
+- On phones a long narration can be cut by the ask bar without a fade, and a check panel leaves little room for
+  the form.
+- Smaller notes: the "ESCENA N" eyebrow, the amber "Repetición" tag, some leader lines ending short of their
+  target.

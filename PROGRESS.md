@@ -76,3 +76,7 @@
   implemented but not run; demo verification is a literal-quote check, not Skeptic verdicts.
 - Demo worlds are Spanish only (the interface is bilingual). No vertical video (P2).
 - World pages on simulated mobile 4G reach LCP at ~5 s (DECISIONS #15, roadmap).
+- Visual findings still open after the independent review (label placement against the form, a few scenes that
+  state their idea weakly, the landing hero) are listed in `docs/QA_VISUAL.md`.
+- The interface names ChatGPT as the assistant (owner's choice); the backend calls Anthropic's Claude models, and
+  the About privacy note names the Claude API, which is where documents are sent.
