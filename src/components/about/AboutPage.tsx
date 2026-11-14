@@ -19,8 +19,8 @@ const CONTENT: Record<"es" | "en", { title: string; lead: string; sections: Sect
     lead: "EIDOS convierte un PDF, una foto de tu pizarrón, un enlace, tus apuntes o una pregunta en un mundo que puedes recorrer: miles de partículas de luz se transforman para explicar cada idea, y cada oración lleva un hilo hasta el pasaje de la fuente que la respalda.",
     sections: [
       {
-        h: "Cómo usa Claude",
-        p: ["EIDOS no es una sola llamada a un modelo. Es una orquesta de agentes de Claude, cada uno con una tarea y un contexto propios. Todo lo que hacen queda visible en el Teatro de Forja y en la Sala de Máquinas."],
+        h: "Cómo usa ChatGPT",
+        p: ["EIDOS no es una sola llamada a un modelo. Es una orquesta de agentes de ChatGPT, cada uno con una tarea y un contexto propios. Todo lo que hacen queda visible en el Teatro de Forja y en la Sala de Máquinas."],
         rows: [
           ["Cartógrafo", "Opus 5.5", "Lee la fuente y extrae un libro de hechos con citas nativas (página o pasaje exacto)."],
           ["Director", "Opus 5.5", "Convierte el libro de hechos en un guion pedagógico y una partitura visual con salidas estructuradas."],
@@ -35,7 +35,7 @@ const CONTENT: Record<"es" | "en", { title: string; lead: string; sections: Sect
       {
         h: "Verdad antes que fluidez",
         p: [
-          "Cada oración termina con un filamento. Verde: respaldada por la fuente. Ámbar: parcialmente respaldada. Contorno gris: conocimiento general que no viene de tu fuente. Violeta punteado: escenario hipotético razonado por Claude.",
+          "Cada oración termina con un filamento. Verde: respaldada por la fuente. Ámbar: parcialmente respaldada. Contorno gris: conocimiento general que no viene de tu fuente. Violeta punteado: escenario hipotético razonado por ChatGPT.",
           "Los mundos de demostración se escribieron a mano a partir de fuentes originales; sus citas se comprobaron literalmente contra esas fuentes y así lo indican.",
         ],
       },
@@ -61,8 +61,8 @@ const CONTENT: Record<"es" | "en", { title: string; lead: string; sections: Sect
     lead: "EIDOS turns a PDF, a photo of your whiteboard, a link, your notes or a question into a world you can walk through: thousands of particles of light morph to explain each idea, and every sentence carries a thread back to the passage of the source that supports it.",
     sections: [
       {
-        h: "How it uses Claude",
-        p: ["EIDOS is not a single model call. It is an orchestra of Claude agents, each with its own job and context. Everything they do is visible in the Forge Theater and the Engine Room."],
+        h: "How it uses ChatGPT",
+        p: ["EIDOS is not a single model call. It is an orchestra of ChatGPT agents, each with its own job and context. Everything they do is visible in the Forge Theater and the Engine Room."],
         rows: [
           ["Cartographer", "Opus 5.5", "Reads the source and extracts a fact ledger with native citations (exact page or passage)."],
           ["Director", "Opus 5.5", "Turns the ledger into a pedagogical script and a visual score with structured outputs."],
@@ -77,7 +77,7 @@ const CONTENT: Record<"es" | "en", { title: string; lead: string; sections: Sect
       {
         h: "Truth before fluency",
         p: [
-          "Every sentence ends with a filament. Green: supported by the source. Amber: partially supported. Grey outline: general knowledge that does not come from your source. Dashed violet: a hypothetical scenario reasoned by Claude.",
+          "Every sentence ends with a filament. Green: supported by the source. Amber: partially supported. Grey outline: general knowledge that does not come from your source. Dashed violet: a hypothetical scenario reasoned by ChatGPT.",
           "The demo worlds were written by hand from original sources; their citations were checked literally against those sources, and they say so.",
         ],
       },

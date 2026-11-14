@@ -114,7 +114,7 @@ function build(lang: Lang): World {
       "application",
       "EIDOS",
       [
-        { text: es ? "Le das a Claude un PDF, una foto o una pregunta; te devuelve un mundo que puedes recorrer." : "Give Claude a PDF, a photo or a question; get back a world you can walk through.", factIds: [] },
+        { text: es ? "Le das a ChatGPT un PDF, una foto o una pregunta; te devuelve un mundo que puedes recorrer." : "Give ChatGPT a PDF, a photo or a question; get back a world you can walk through.", factIds: [] },
         { text: es ? "Vamos a verlo en vivo." : "Let's see it live.", factIds: [] },
       ],
       [makeLayer("torus", { share: 0.88, params: kv({ major: 0.92, minor: 0.035, fill: 0 }), rotation: { x: 90, y: 0, z: 0 }, scale: 1.5, colorMode: "single", tint: "accent" })],
@@ -124,7 +124,7 @@ function build(lang: Lang): World {
     b(
       "p06",
       "mechanism",
-      es ? "Una orquesta de Claude" : "An orchestra of Claude",
+      es ? "Una orquesta de ChatGPT" : "An orchestra of ChatGPT",
       [
         { text: es ? "Opus 5.5 lee y dirige; Sonnet 5.5 verifica y responde; Haiku 5.5 evalúa." : "Opus 5.5 reads and directs; Sonnet 5.5 verifies and answers; Haiku 5.5 grades.", factIds: [] },
         { text: es ? "Citas nativas, salidas estructuradas, pensamiento visible, Files API, búsqueda web y caché." : "Native citations, structured outputs, visible thinking, Files API, web search and caching.", factIds: [] },

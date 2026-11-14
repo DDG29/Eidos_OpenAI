@@ -360,7 +360,7 @@
     "title": "EIDOS",
     "sentences": [
      {
-      "text": "Give Claude a PDF, a photo or a question; get back a world you can walk through.",
+      "text": "Give ChatGPT a PDF, a photo or a question; get back a world you can walk through.",
       "factIds": []
      },
      {
@@ -435,7 +435,7 @@
    {
     "id": "p06",
     "kind": "mechanism",
-    "title": "An orchestra of Claude",
+    "title": "An orchestra of ChatGPT",
     "sentences": [
      {
       "text": "Opus 5.5 reads and directs; Sonnet 5.5 verifies and answers; Haiku 5.5 grades.",

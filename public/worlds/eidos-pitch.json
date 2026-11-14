@@ -360,7 +360,7 @@
     "title": "EIDOS",
     "sentences": [
      {
-      "text": "Le das a Claude un PDF, una foto o una pregunta; te devuelve un mundo que puedes recorrer.",
+      "text": "Le das a ChatGPT un PDF, una foto o una pregunta; te devuelve un mundo que puedes recorrer.",
       "factIds": []
      },
      {
@@ -435,7 +435,7 @@
    {
     "id": "p06",
     "kind": "mechanism",
-    "title": "Una orquesta de Claude",
+    "title": "Una orquesta de ChatGPT",
     "sentences": [
      {
       "text": "Opus 5.5 lee y dirige; Sonnet 5.5 verifica y responde; Haiku 5.5 evalúa.",

@@ -51,14 +51,14 @@ export function verdictLabel(status: FilamentStatus, lang: "es" | "en"): string 
     truth: "Respaldada",
     partial: "Parcialmente respaldada",
     general: "Conocimiento general",
-    hypo: "Hipotético: razonado por Claude, no viene de tu fuente",
+    hypo: "Hipotético: razonado por ChatGPT, no viene de tu fuente",
     unverified: "Citada, sin verificación del Escéptico",
   };
   const en: Record<FilamentStatus, string> = {
     truth: "Supported",
     partial: "Partially supported",
     general: "General knowledge",
-    hypo: "Hypothetical: reasoned by Claude, not from your source",
+    hypo: "Hypothetical: reasoned by ChatGPT, not from your source",
     unverified: "Cited, not checked by the Skeptic",
   };
   return (lang === "es" ? es : en)[status];
