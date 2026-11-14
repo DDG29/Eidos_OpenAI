@@ -80,7 +80,11 @@ for (const vp of VIEWPORTS) {
       await scrollTo(page, i, 0.5);
       await shot(`${id}-${String(i + 1).padStart(2, "0")}`);
       const skip = page.locator(`main [data-beat-index="${i}"] .check[data-status="pending"] .check-skip`);
-      if (await skip.count()) await skip.first().click();
+      if (await skip.count()) {
+        await skip.first().click();
+        // Park the cursor off the content so hover never opens panels in later captures.
+        await page.mouse.move(2, vp.height - 2);
+      }
     }
   }
   if (want("reading")) {

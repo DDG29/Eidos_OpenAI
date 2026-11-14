@@ -13,5 +13,7 @@ export default defineConfig({
     setupFiles: ["./src/test/setup.ts"],
     testTimeout: 30000,
     pool: "threads",
+    // The 160 000-particle shape tests are CPU-bound: half the cores keeps them inside the timeout on a busy machine.
+    maxWorkers: "50%",
   },
 });

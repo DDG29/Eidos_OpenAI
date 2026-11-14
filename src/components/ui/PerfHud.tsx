@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useStage } from "@/engine/stage/stageStore";
 
-/** Hidden performance panel (spec 13.x budgets): `?perf=1` shows fps, frame time, particles, tier and DPR. */
+/** Hidden performance panel (spec 13.3): `?perf=1` shows fps, frame time, particles, tier and DPR. */
 export function PerfHud() {
   const [on, setOn] = useState(false);
   const s = useStage((x) => x);
