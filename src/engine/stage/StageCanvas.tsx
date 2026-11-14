@@ -62,7 +62,7 @@ export default function StageCanvas() {
         stageStore.setState({ status: "lost" });
       };
       const onRestored = () => {
-        stage.setTier(stage.tier);
+        stage.recoverFromContextLoss();
         stageStore.setState({ status: "ready" });
       };
       window.addEventListener("resize", onResize);

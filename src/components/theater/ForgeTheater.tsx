@@ -258,7 +258,7 @@ export function ForgeTheater({ sessionId }: { sessionId: string }) {
         <section className="theater-facts" aria-label={t("theater.facts")}>
           <h2 className="caps">{t("theater.facts")}</h2>
           <p className="mono theater-counts">{t("theater.counts", { facts: s?.facts.length ?? 0, concepts: s?.ledger?.concepts.length ?? 0, mis: s?.ledger?.misconceptions.length ?? 0 })}</p>
-          <ol className="fact-list">
+          <ol className="fact-list" tabIndex={0} aria-label={t("theater.facts")}>
             {(s?.facts ?? []).slice(-5).map((f, i, arr) => (
               <li key={f.id} className="fact-card" data-cited={f.citations.length > 0 || undefined} style={{ opacity: 0.35 + (0.65 * (i + 1)) / arr.length }}>
                 <p className="ui">{f.text}</p>

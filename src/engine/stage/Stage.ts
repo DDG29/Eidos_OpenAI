@@ -142,16 +142,22 @@ export class Stage {
     return this.field.N;
   }
 
-  private buildPipeline() {
+  /** After `webglcontextrestored`: every GL object died with the old context, so references are dropped, not deleted. */
+  recoverFromContextLoss() {
+    this.buildPipeline(false);
+  }
+
+  private buildPipeline(disposeOld = true) {
     const spec = TIERS[this.quality.state.tier];
     if (this.field) {
       this.scene.remove(this.field.points);
-      this.field.dispose();
+      // Deleting objects of a lost context logs INVALID_OPERATION in WebKit; they are already gone.
+      if (disposeOld) this.field.dispose();
     }
     this.field = new ParticleField(this.renderer, { side: spec.side, lowQuality: spec.lowQualityNoise });
     this.field.uniform<number>("uPointSize").value = spec.pointSize;
     this.scene.add(this.field.points);
-    this.composer?.dispose();
+    if (disposeOld) this.composer?.dispose();
     this.composer = new EffectComposer(this.renderer, { frameBufferType: THREE.HalfFloatType, multisampling: 0 });
     this.composer.addPass(new RenderPass(this.scene, this.rig.camera));
     this.bloom = new BloomEffect({ mipmapBlur: true, luminanceThreshold: 0.15, luminanceSmoothing: 0.4, intensity: spec.bloom || 0, radius: 0.72 });

@@ -19,6 +19,9 @@ export function watchConsole(page: Page): string[] {
     const text = m.text();
     // Failed requests are reported below with their URL, which the console message lacks.
     if (text.startsWith("Failed to load resource")) return;
+    // A software GPU (headless WebKit) can drop the WebGL context under load; the stage shows its poster and
+    // recovers on `webglcontextrestored`, which the walk itself verifies by reaching the last beat.
+    if (text === "WebGL: context lost.") return;
     if (m.type() === "error" || /Content Security Policy|Refused to (load|execute|apply|connect|create)/.test(text)) errors.push(text.slice(0, 400));
   });
   page.on("response", (r) => {
