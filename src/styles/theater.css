@@ -96,7 +96,8 @@
   position: relative;
   align-self: center;
   aspect-ratio: 1;
-  width: min(100%, 64vh);
+  /* Thumbnails sit on a ring at 49 % and are 96 px wide: leave their overhang inside the column. */
+  width: min(calc(100% - 112px), 64vh);
   justify-self: center;
 }
 .scene-ring {

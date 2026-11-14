@@ -29,6 +29,8 @@
   gap: var(--s-4);
   padding: 0 max(var(--margin), env(safe-area-inset-left));
   pointer-events: none;
+  /* A soft scrim keeps the instruments legible when a scene fills the screen with bright particles. */
+  background: linear-gradient(to bottom, rgba(4, 5, 10, 0.72), rgba(4, 5, 10, 0));
   transition:
     transform var(--d-panel) var(--ease-out-expo),
     opacity var(--d-panel) var(--ease-out-expo);
@@ -177,16 +179,23 @@
   gap: var(--s-6);
   flex-wrap: wrap;
 }
+/* The shape previews live on the canvas behind the page: the catalogue is a strip along the bottom edge so it
+   never covers the selected form. */
 .lab-grid {
   list-style: none;
   margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  padding: 0 0 4px;
+  position: fixed;
+  left: calc(var(--margin) + 320px + var(--s-6));
+  right: var(--margin);
+  bottom: var(--s-4);
+  z-index: 5;
+  display: flex;
   gap: var(--s-2);
-  align-self: end;
-  max-width: 560px;
-  justify-self: end;
+  overflow-x: auto;
+}
+.lab-grid li {
+  flex: 0 0 112px;
 }
 .lab-tile {
   display: grid;
@@ -217,6 +226,12 @@
   .lab-panel {
     position: static;
     max-height: none;
+  }
+  .lab-grid {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+    overflow: visible;
   }
 }
 

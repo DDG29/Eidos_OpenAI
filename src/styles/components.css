@@ -326,7 +326,7 @@
   max-width: 920px;
   position: relative;
   padding: var(--s-8) var(--s-8) var(--s-6);
-  background: color-mix(in srgb, var(--ink-1) 95%, transparent);
+  background: var(--ink-1);
   border: 1px solid var(--hairline);
   border-radius: var(--radius-panel);
   display: grid;
@@ -750,7 +750,7 @@
   }
   .mv,
   .mv-sticky {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .mv-body,
   .mv1 .mv-body {
@@ -910,4 +910,12 @@
   .pilot-trail {
     transition-duration: 0ms !important;
   }
+}
+
+/* The legibility veils reach past their text on purpose; on narrow screens that reach must not count as page width
+   (it widened the phone's layout viewport and pushed the header's right end off screen). `clip` keeps sticky
+   positioning working, unlike `hidden`. */
+.landing,
+.about {
+  overflow-x: clip;
 }

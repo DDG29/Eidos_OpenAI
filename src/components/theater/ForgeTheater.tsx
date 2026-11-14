@@ -190,7 +190,8 @@ export function ForgeTheater({ sessionId }: { sessionId: string }) {
             {shownStages.map((st, i) => {
               const state = st === "compiler" ? { status: compilerStatus, thinking: "" } : (s?.stages[st] ?? { status: "waiting", thinking: "" });
               const status = state.status === "start" ? "progress" : state.status;
-              const lines = state.thinking.trim().split("\n").filter(Boolean).slice(-4);
+              // Batches of the same agent can repeat a summary line; show each line once.
+              const lines = [...new Set(state.thinking.trim().split("\n").filter(Boolean))].slice(-4);
               return (
                 <li key={st} className="log-item" data-status={status}>
                   <div className="log-head">
