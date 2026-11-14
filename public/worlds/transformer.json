@@ -805,7 +805,7 @@
      }
     ],
     "transition": "flow",
-    "camera": "side",
+    "camera": "orbit_close",
     "annotations": [
      {
       "layerIndex": 0,
@@ -4343,12 +4343,12 @@
    "startedAt": "2026-11-13T12:00:30.400Z",
    "durationMs": 40100,
    "inputTokens": 8642,
-   "outputTokens": 8763,
+   "outputTokens": 8765,
    "cacheReadTokens": 9200,
    "cacheWriteTokens": 0,
    "webSearches": 0,
    "webFetches": 0,
-   "costUsd": 0.211668,
+   "costUsd": 0.211708,
    "stopReason": "end_turn",
    "thinkingSummary": "Abro con una imagen que sorprenda: «¿Cómo escribe una máquina una frase que nunca leyó?». Presento Token antes de usarlo en el mecanismo. Formas que se transforman con sentido: cada escena hereda algo de la anterior. La primera comprobación va en la escena 7, cuando ya hay con qué razonar. El error común se deshace con una transición de disolución.",
    "replay": true

@@ -73,7 +73,9 @@ export class CameraRig {
     // Preset distances are in "bounding radii"; FIT converts them so orbit_close frames the shape at ~70% of
     // the viewport height with a 40° FOV (spec 4.12 #2: 45–75%).
     const FIT = 1.75;
-    const k = (mobile ? 1.15 : 1) * FIT;
+    // Portrait phones: the horizontal field of view is the narrow one, so wide forms (a word, a book) need more
+    // distance; scaling by 1/aspect keeps the bounding sphere within ~80 % of the screen width.
+    const k = (mobile ? Math.max(1.15, 0.95 / Math.max(0.3, this.camera.aspect)) : 1) * FIT;
     return {
       target: new THREE.Vector3(...b.center),
       dist: p.dist * r * k,

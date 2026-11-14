@@ -326,7 +326,7 @@
   max-width: 920px;
   position: relative;
   padding: var(--s-8) var(--s-8) var(--s-6);
-  background: color-mix(in srgb, var(--ink-1) 88%, transparent);
+  background: color-mix(in srgb, var(--ink-1) 95%, transparent);
   border: 1px solid var(--hairline);
   border-radius: var(--radius-panel);
   display: grid;
@@ -748,7 +748,8 @@
   .landing {
     padding-left: var(--margin);
   }
-  .mv {
+  .mv,
+  .mv-sticky {
     grid-template-columns: 1fr;
   }
   .mv-body,

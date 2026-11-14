@@ -943,3 +943,18 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* Phones: a check sits at the bottom like any beat and may take most of the screen, so every choice and the
+   answer button stay reachable; its title is dropped because the question repeats it. */
+@media (max-width: 767px) {
+  .beat[data-kind="check"] .beat-sticky {
+    align-items: end;
+    padding-top: 0;
+  }
+  .beat[data-kind="check"] .beat-narration {
+    max-height: calc(100svh - var(--topbar-h) - 96px);
+  }
+  .beat[data-kind="check"] .beat-title {
+    display: none;
+  }
+}

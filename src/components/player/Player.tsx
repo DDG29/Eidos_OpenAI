@@ -552,6 +552,7 @@ export function Player({ worldId, present = false, brightnessFor }: { worldId: s
               className="beat"
               data-beat-index={i}
               data-kind={b.kind}
+              data-camera={b.camera}
               data-origin={e.origin}
               data-fresh={e.fresh || undefined}
               style={{ minHeight: `${h}vh` }}

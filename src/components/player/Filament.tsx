@@ -16,6 +16,9 @@ export interface Passage {
  * Per-sentence verification dot (spec 4.8.3): 5 px dot with a 28×28 hit area. Opens a non-modal source panel
  * anchored next to the sentence with the cited passages, their location and the Skeptic's verdict.
  */
+let lastPointerMove = -Infinity;
+if (typeof window !== "undefined") window.addEventListener("pointermove", () => void (lastPointerMove = performance.now()), { passive: true });
+
 export function Filament({ status, label, verdict, note, passages, children, onAsk, askLabel, revisedLabel }: {
   status: FilamentStatus;
   label: string;
@@ -55,15 +58,20 @@ export function Filament({ status, label, verdict, note, passages, children, onA
     const onDown = (e: PointerEvent) => {
       if (!panel.current?.contains(e.target as Node) && !btn.current?.contains(e.target as Node)) setOpen(false);
     };
-    const onScroll = () => setOpen(false);
+    // Any real page scroll (wheel, keys, the conductor) closes it, so a panel never outlives its beat; the small
+    // threshold ignores the smooth scroll still settling when the panel opens.
+    const y0 = window.scrollY;
+    const onScroll = () => {
+      if (Math.abs(window.scrollY - y0) > 48) setOpen(false);
+    };
     window.addEventListener("keydown", onKey);
     window.addEventListener("pointerdown", onDown);
-    window.addEventListener("wheel", onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
     panel.current?.focus();
     return () => {
       window.removeEventListener("keydown", onKey);
       window.removeEventListener("pointerdown", onDown);
-      window.removeEventListener("wheel", onScroll);
+      window.removeEventListener("scroll", onScroll);
     };
   }, [open]);
 
@@ -79,7 +87,8 @@ export function Filament({ status, label, verdict, note, passages, children, onA
         aria-label={label}
         onClick={() => setOpen((o) => (o && performance.now() - hoverOpenedAt.current < 600 ? true : !o))}
         onMouseEnter={() => {
-          if (!window.matchMedia("(hover: hover)").matches) return;
+          // Browsers re-apply hover when content scrolls under a resting cursor; only a moving pointer opens it.
+          if (!window.matchMedia("(hover: hover)").matches || performance.now() - lastPointerMove > 250) return;
           hoverOpenedAt.current = performance.now();
           setOpen(true);
         }}

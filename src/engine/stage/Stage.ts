@@ -208,6 +208,8 @@ export class Stage {
     this.rig.layout = w < 768 && h > w ? "mobile" : "desktop";
     this.rig.viewOffsetY = this.rig.layout === "mobile" ? 0.2 : 0;
     this.rig.resize(w, h);
+    // Poses depend on the aspect ratio (portrait fit): recompute them lazily after a resize or rotation.
+    this.poses.clear();
     this.field.uniform<number>("uPixelRatio").value = dpr;
     // Point size compensates density so fewer particles still read as a solid form.
     const spec = TIERS[this.quality.state.tier];

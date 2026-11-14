@@ -1688,11 +1688,45 @@
       "expr": [
        {
         "key": "content",
-        "value": "LUZ + AGUA + CO2"
+        "value": "LUZ"
        }
       ],
       "data": [],
-      "share": 0.88,
+      "share": 0.28,
+      "position": {
+       "x": 0,
+       "y": 0.62,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 0.42,
+      "colorMode": "single",
+      "tint": "primary"
+     },
+     {
+      "shape": "text",
+      "params": [
+       {
+        "key": "depth",
+        "value": 0.12
+       },
+       {
+        "key": "weight",
+        "value": 1
+       }
+      ],
+      "expr": [
+       {
+        "key": "content",
+        "value": "AGUA"
+       }
+      ],
+      "data": [],
+      "share": 0.32,
       "position": {
        "x": 0,
        "y": 0,
@@ -1703,9 +1737,43 @@
        "y": 0,
        "z": 0
       },
-      "scale": 1,
-      "colorMode": "palette",
-      "tint": "primary"
+      "scale": 0.55,
+      "colorMode": "single",
+      "tint": "accent"
+     },
+     {
+      "shape": "text",
+      "params": [
+       {
+        "key": "depth",
+        "value": 0.12
+       },
+       {
+        "key": "weight",
+        "value": 1
+       }
+      ],
+      "expr": [
+       {
+        "key": "content",
+        "value": "CO2"
+       }
+      ],
+      "data": [],
+      "share": 0.3,
+      "position": {
+       "x": 0,
+       "y": -0.62,
+       "z": 0
+      },
+      "rotation": {
+       "x": 0,
+       "y": 0,
+       "z": 0
+      },
+      "scale": 0.46,
+      "colorMode": "single",
+      "tint": "secondary"
      }
     ],
     "transition": "swirl",
@@ -1713,17 +1781,17 @@
     "annotations": [
      {
       "layerIndex": 0,
-      "regionId": "char_1",
+      "regionId": "glyphs",
       "text": "Da la energía"
      },
      {
-      "layerIndex": 0,
-      "regionId": "char_7",
+      "layerIndex": 1,
+      "regionId": "glyphs",
       "text": "Da el oxígeno"
      },
      {
-      "layerIndex": 0,
-      "regionId": "char_14",
+      "layerIndex": 2,
+      "regionId": "glyphs",
       "text": "Da el carbono"
      }
     ],
@@ -4155,12 +4223,12 @@
    "startedAt": "2026-11-13T12:00:30.400Z",
    "durationMs": 37600,
    "inputTokens": 7675,
-   "outputTokens": 8192,
+   "outputTokens": 8335,
    "cacheReadTokens": 9200,
    "cacheWriteTokens": 0,
    "webSearches": 0,
    "webFetches": 0,
-   "costUsd": 0.19638,
+   "costUsd": 0.19924,
    "stopReason": "end_turn",
    "thinkingSummary": "Abro con una imagen que sorprenda: «Cada bocado que comes empezó como luz del Sol». Presento Fotosíntesis antes de usarlo en el mecanismo. Formas que se transforman con sentido: cada escena hereda algo de la anterior. La primera comprobación va en la escena 7, cuando ya hay con qué razonar. El error común se deshace con una transición de disolución.",
    "replay": true
