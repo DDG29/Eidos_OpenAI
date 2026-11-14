@@ -231,13 +231,22 @@ export class Stage {
     this.event = null;
     this.scroll = { i: 0, s: opts.enterMs ? 0 : 1, jump: 0 };
     stageStore.setState({ programId: input.id, beat: 0, stable: false, status: "ready" });
-    this.randoms = await client.randoms();
-    await this.prepare(0);
-    if (opts.enterMs && this.entry) {
-      // Timed morph from the previous scene into beat 0 (spec 5.12).
-      const b0 = await client.ensure(0);
-      const g = this.uploadBuilt(b0);
-      this.startEvent(this.entry.shape, g, this.transTex(b0), input.beats[0]?.transition ?? "flow", opts.enterMs / 1000, false, this.entry.pose, this.poseOf(0, b0.buffer));
+    // A newer loadProgram (fast route change) may replace this client at any await below; then this one stops.
+    const current = () => this.program?.client === client;
+    try {
+      const randoms = await client.randoms();
+      if (!current()) return client;
+      this.randoms = randoms;
+      await this.prepare(0);
+      if (opts.enterMs && this.entry && current()) {
+        // Timed morph from the previous scene into beat 0 (spec 5.12).
+        const b0 = await client.ensure(0);
+        if (!current() || !this.fits(b0)) return client;
+        const g = this.uploadBuilt(b0);
+        this.startEvent(this.entry.shape, g, this.transTex(b0), input.beats[0]?.transition ?? "flow", opts.enterMs / 1000, false, this.entry.pose, this.poseOf(0, b0.buffer));
+      }
+    } catch (e) {
+      if (current()) throw e;
     }
     return client;
   }
@@ -276,6 +285,14 @@ export class Stage {
     return this.field.upload(b.key, b.buffer, b.pivots);
   }
 
+  /**
+   * After a tier change the field is rebuilt with a new particle count at once, while buffers compiled for the old
+   * count can still arrive (the replacement program client is initializing). Those are skipped, never uploaded.
+   */
+  private fits(b: BuiltBeat | BuiltEvent | null | undefined): b is BuiltBeat | BuiltEvent {
+    return !!b && b.buffer.count === this.field.N;
+  }
+
   private poseOf(i: number, buf: ShapeBuffer): Pose {
     let p = this.poses.get(i);
     if (!p) {
@@ -290,7 +307,13 @@ export class Stage {
     const c = this.program?.client;
     if (!c) return;
     const need = [i, i - 1].filter((k) => k >= 0 && k < c.length);
-    await Promise.all(need.map((k) => c.ensure(k)));
+    try {
+      await Promise.all(need.map((k) => c.ensure(k)));
+    } catch (e) {
+      // The program was replaced (route change, tier change) while its beats were compiling: nothing to do.
+      if (this.program?.client !== c) return;
+      throw e;
+    }
     c.prefetch(i, 2);
     this.bindPending = true;
   }
@@ -336,7 +359,7 @@ export class Stage {
   /** Morph to an ad-hoc composition (knob change, Tutor projection) and hold it until released. */
   eventTo(built: BuiltEvent, transition: Transition, durationMs: number, opts: { hold?: boolean; camera?: CameraPreset; onDone?: () => void } = {}) {
     const from = this.currentShape();
-    if (!from) return;
+    if (!from || !this.fits(built)) return;
     const to = this.uploadBuilt(built);
     const fromPose = { ...this.rig.pose, target: this.rig.pose.target.clone() };
     const toPose = opts.camera ? this.rig.poseFor(opts.camera, built.buffer.bounds) : fromPose;
@@ -352,7 +375,7 @@ export class Stage {
       return;
     }
     const target = c.peek(this.scroll.i);
-    if (!target) {
+    if (!this.fits(target)) {
       this.event = null;
       this.bindPending = true;
       return;
@@ -373,8 +396,9 @@ export class Stage {
     if (!c) return false;
     const i = this.scroll.i;
     const to = c.peek(i);
-    if (!to) return false;
-    const fromBuilt = i > 0 ? c.peek(i - 1) : null;
+    if (!this.fits(to)) return false;
+    const prev = i > 0 ? c.peek(i - 1) : null;
+    const fromBuilt = this.fits(prev) ? prev : null;
     const toG = this.uploadBuilt(to);
     let fromG: GpuShape;
     if (fromBuilt) fromG = this.uploadBuilt(fromBuilt);

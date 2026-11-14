@@ -185,7 +185,8 @@ export function ForgeTheater({ sessionId }: { sessionId: string }) {
         <h1 className="sr-only">{t("theater.title")}</h1>
         <section className="theater-log" aria-label={t("theater.log")} aria-live="polite">
           <h2 className="caps">{t("theater.log")}</h2>
-          <ol>
+          {/* Focusable so keyboard users can scroll the log when it overflows (mobile). */}
+          <ol tabIndex={0} aria-label={t("theater.log")}>
             {shownStages.map((st, i) => {
               const state = st === "compiler" ? { status: compilerStatus, thinking: "" } : (s?.stages[st] ?? { status: "waiting", thinking: "" });
               const status = state.status === "start" ? "progress" : state.status;

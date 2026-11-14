@@ -76,6 +76,9 @@ export class ProgramClient {
       }
       this.inflight.delete(i);
       return built;
+    }, (e: unknown) => {
+      this.inflight.delete(i);
+      throw e;
     });
     this.inflight.set(i, p);
     return p;

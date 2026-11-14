@@ -152,9 +152,24 @@ async function settle(env: PilotEnv, extra = 0) {
   if (extra) await sleep(extra, env.signal);
 }
 
+const PANELS = ".ask-panel, .engine-room, .source-panel, .radial, .player-menu";
+
+/**
+ * Closes whatever panel is open: Esc first, then the panel's own close button if Esc did not land (a busy main
+ * thread can drop the synthetic key while a panel is still mounting). Open panels swallow the reading keys.
+ */
+async function closePanels(env: PilotEnv) {
+  if (!$(PANELS)) return;
+  key("Escape");
+  if (await waitFor(() => !$(PANELS), env.signal, 1500)) return;
+  for (const btn of $$<HTMLButtonElement>(".ask-panel .btn-icon[aria-label], .engine-room .btn-icon[aria-label]")) await clickEl(env, btn);
+  await waitFor(() => !$(PANELS), env.signal, 1500);
+}
+
 /** j until the reading point is at beat `i` (or the gate stops us). */
 async function walkTo(env: PilotEnv, i: number, hold = 2600) {
   for (let guard = 0; guard < 40 && activeIndex() < i; guard++) {
+    await closePanels(env);
     const before = activeIndex();
     key("j");
     await waitFor(() => activeIndex() > before, env.signal, 2600);
@@ -249,7 +264,7 @@ export async function runMainScript(env: PilotEnv, lang: "es" | "en") {
   if (fil) {
     await clickEl(env, fil);
     await sleep(4200, signal);
-    key("Escape");
+    await closePanels(env);
     await sleep(500, signal);
   }
 
@@ -282,7 +297,7 @@ export async function runMainScript(env: PilotEnv, lang: "es" | "en") {
       }
       await sleep(6000, signal);
     }
-    key("Escape");
+    await closePanels(env);
     await sleep(600, signal);
   }
   await walkTo(env, 5, 2200);
@@ -341,7 +356,7 @@ export async function runMainScript(env: PilotEnv, lang: "es" | "en") {
       await clickEl(env, item);
       await sleep(5500, signal);
     }
-    key("Escape");
+    await closePanels(env);
     await sleep(800, signal);
   }
 
