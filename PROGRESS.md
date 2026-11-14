@@ -4,7 +4,7 @@
 
 **Done**
 - Toolchain: Node 24.21, pnpm 12.18 (installed), git 2.50, Playwright 1.65, ffmpeg available. No `ANTHROPIC_API_KEY`.
-- Master prompt saved to `docs/PROMPT_MAESTRO.md`; `PLAN.md`, `DECISIONS.md`, `CLAUDE.md`, `.env.example` written.
+- Master prompt saved to `docs/PROMPT_MAESTRO.md`; `PLAN.md`, `DECISIONS.md`, `.env.example` written.
 - Next.js 16.4.6 / React 19.3.1 / TypeScript 6.0.3 strict (+ `noUncheckedIndexedAccess`), ESLint 9 flat config
   (`eslint-config-next`), Tailwind v4, Prettier, Vitest 5, Playwright configs; dependencies pinned exactly.
 - Design tokens (§4.3–4.6) in `src/styles/tokens.css`, control primitives in `globals.css`, chrome styles.
